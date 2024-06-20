@@ -1,0 +1,47 @@
+{
+  "name": "uni-preset-vue",
+  "version": "0.0.0",
+  "scripts": {
+    "dev:app": "uni -p app",
+    "dev:app-android": "uni -p app-android",
+    "dev:app-ios": "uni -p app-ios",
+    "dev:custom": "uni -p",
+    "dev:h5": "uni",
+    "dev:h5:ssr": "uni --ssr",
+    "dev:mp-weixin": "uni -p mp-weixin",
+    "build:app": "uni build -p app",
+    "build:app-android": "uni build -p app-android",
+    "build:app-ios": "uni build -p app-ios",
+    "build:custom": "uni build -p",
+    "build:h5": "uni build",
+    "build:h5:ssr": "uni build --ssr",
+    "build:mp-weixin": "uni build -p mp-weixin",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@dcloudio/uni-app": "3.0.0-4010520240507001",
+    "@dcloudio/uni-app-plus": "3.0.0-4010520240507001",
+    "@dcloudio/uni-components": "3.0.0-4010520240507001",
+    "@dcloudio/uni-h5": "3.0.0-4010520240507001",
+    "@dcloudio/uni-mp-weixin": "3.0.0-4010520240507001",
+    "@dcloudio/uni-ui": "^1.5.5",
+    "vue": "^3.4.29",
+    "wot-design-uni": "^1.2.26"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.21.1",
+    "@dcloudio/types": "^3.4.8",
+    "@dcloudio/vite-plugin-uni": "3.0.0-4010520240507001",
+    "@uni-helper/uni-app-types": "^0.5.13",
+    "@uni-helper/uni-ui-types": "^0.5.15",
+    "@unocss/eslint-plugin": "^0.61.0",
+    "@vue/tsconfig": "^0.5.1",
+    "sass": "^1.77.6",
+    "typescript": "^5.4.5",
+    "unocss": "^0.61.0",
+    "unocss-applet": "^0.8.2",
+    "unplugin-auto-import": "^0.17.6",
+    "vite": "^5.3.1"
+  }
+}
