@@ -14,7 +14,7 @@
       "path": "pages/login"
     },
     {
-      "path": "pages/public/teacher/register",
+      "path": "pages/teacher/register",
       "style": {
         "navigationBarTitleText": "教员注册"
       }
