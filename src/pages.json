@@ -14,7 +14,16 @@
       "path": "pages/login"
     },
     {
-      "path": "pages/teacher-register"
+      "path": "pages/public/teacher/register",
+      "style": {
+        "navigationBarTitleText": "教员注册"
+      }
+    },
+    {
+      "path": "pages/order/index",
+      "style": {
+        "navigationBarTitleText": "订单列表"
+      }
     }
   ],
   "globalStyle": {
