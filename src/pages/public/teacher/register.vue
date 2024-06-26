@@ -110,7 +110,7 @@ function beforeUpload(_: any, options: UploadOptions) {
     options.onSuccess?.(null as any, options);
 
     convertBlobUrlToBase64(options.filePath!, (base64) => {
-        // filelist.value = [{ path: 'data:image/png;base64,' + base64 }]
+        filelist.value = [{ path: 'data:image/png;base64,' + base64 }]
         console.log(filelist.value)
     })
 
