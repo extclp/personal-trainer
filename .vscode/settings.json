@@ -1,6 +1,6 @@
 {
-    "files.associations": {
-        "manifest.json": "jsonc",
-        "pages.json": "jsonc"
-    },
+  "files.associations": {
+    "manifest.json": "jsonc",
+    "pages.json": "jsonc"
+  }
 }

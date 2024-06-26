@@ -1,81 +1,79 @@
-import { request, type Data } from "@/api/common";
+import type { Commit, LoginReponse, sendCodeResp } from './interfaces'
+import { type Data, request } from '@/api/common'
 
 export function home() {
-    return request("/home")
+  return request('/home')
 }
 
 export function rolling(data: Data) {
-    return request("/rolling", data)
+  return request('/rolling', data)
 }
 
-export function news(data: Data) {
-    return request("/academic/titles", data)
+export function news() {
+  return request('/academic/titles')
 }
 
 export function search(data: Data) {
-    return request("/search", data)
+  return request('/search', data)
 }
-
 
 // ======= 登录 =======
 export function login(data: Data) {
-    return request("/quick_login",data)
+  return request<any, LoginReponse>('/quick_login', data)
 }
 
 export function sendCode(data: Data) {
-    return request("/mobile", data)
+  return request<any, sendCodeResp>('/mobile', data)
 }
 
 export function logout(data: Data) {
-    return request("/logout", data)
+  return request('/logout', data)
 }
 
 // ======= 老师 =======
 export function teacherRegister(data: Data) {
-    return request("/teacher", data)
+  return request('/teacher', data)
 }
 
 export function teacherUpdate(data: Data) {
-    return request("/edit/teacher", data)
+  return request('/edit/teacher', data)
 }
 
 export function teacherArticles(data: Data) {
-    return request("/getone2all", data)
+  return request('/getone2all', data)
 }
 
 export function finishedOrder(data: Data) {
-    return request("/myfinishedorder", data)
+  return request('/myfinishedorder', data)
 }
 
 export function orders(data: Data) {
-    return request("/myorder", data)
+  return request('/myorder', data)
 }
 
-
 // ======= 留言 =======
-export function messageList(data: Data) {
-    return request("/mymessage", data)
+export function commitList(data: Data) {
+  return request<Commit[]>('/mymessage', data)
 }
 
 export function messageSend(data: Data) {
-    return request("/leavingmessage", data)
+  return request('/leavingmessage', data)
 }
-
 
 // ======= 我的 =======
 export function detailManual(data: Data) {
-    return request("/manual/detail", data)
+  return request('/manual/detail', data)
 }
 
 export function detailFee(data: Data) {
-    return request("/fee/detail", data)
+  return request('/fee/detail', data)
 }
 
 // ======= 收藏 =======
 export function collect(data: Data) {
-    return request("/my/like", data)
+  return request('/my/like', data)
 }
 
 export function collectArticle(data: Data) {
-    return request("/academic/like", data)
+  return request('/academic/like', data)
 }
