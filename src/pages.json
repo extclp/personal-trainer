@@ -11,6 +11,12 @@
   },
   "pages": [ // pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
+      "path": "pages/order-public"
+    },
+    {
+      "path": "pages/contact"
+    },
+    {
       "path": "pages/login"
     },
     {
@@ -21,9 +27,6 @@
     },
     {
       "path": "pages/teacher/detail"
-    },
-    {
-      "path": "pages/order/public"
     },
     {
       "path": "pages/publicity",

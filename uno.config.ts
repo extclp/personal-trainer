@@ -33,4 +33,10 @@ export default defineConfig({
   transformers: [
     ...transformers,
   ],
+  theme: {
+    colors: {
+      primary: '#FB7206',
+      black1: '#484C52'
+    }
+  }
 })
