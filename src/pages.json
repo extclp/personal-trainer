@@ -29,6 +29,9 @@
       "path": "pages/teacher/detail"
     },
     {
+      "path": "pages/commit"
+    },
+    {
       "path": "pages/publicity",
       "style": {
         "navigationStyle": "custom"
