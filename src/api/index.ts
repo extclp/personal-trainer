@@ -1,8 +1,13 @@
 import type { Commit, LoginReponse, sendCodeResp } from './interfaces'
 import { type Data, request } from '@/api/common'
 
-export function home() {
-  return request('/home')
+export function home(data: Data) {
+  return request('/home', data)
+}
+
+
+export function bigList(data: Data) {
+return request('/big_list', data)
 }
 
 export function rolling(data: Data) {

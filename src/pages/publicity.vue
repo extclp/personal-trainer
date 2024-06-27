@@ -60,7 +60,9 @@ const data = ref<HomeData>()
 
 const message = ref<string>()
 
-home().then((resp) => {
+home({
+  per_page: 2,
+}).then((resp) => {
   data.value = resp.data
 })
 

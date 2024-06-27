@@ -14,6 +14,10 @@
 <script setup lang="ts">
 import { login, sendCode } from '@/api'
 
+if (uni.getStorageSync("token")) {
+  uni.navigateTo({ url: "/pages/publicity" })
+}
+
 const form = reactive({
   mobile: '15006294478',
   captcha: '',

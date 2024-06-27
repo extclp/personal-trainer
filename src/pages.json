@@ -14,6 +14,24 @@
       "path": "pages/login"
     },
     {
+      "path": "pages/home"
+    },
+    {
+      "path": "pages/teacher/index"
+    },
+    {
+      "path": "pages/teacher/detail"
+    },
+    {
+      "path": "pages/order/public"
+    },
+    {
+      "path": "pages/publicity",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
       "path": "pages/teacher/register",
       "style": {
         "navigationBarTitleText": "教员注册"
