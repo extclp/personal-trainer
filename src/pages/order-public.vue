@@ -1,23 +1,47 @@
 <template>
-    <nut-cell>
-        <view class="p-4 relative w-full">
-            <view class="font-semibold flex gap-1 color-black1">
-                <span class="color-primary">崇川</span>
-                <span>学前教学</span>
-                <span>男</span>
+    <view class="m-4" v-for="item in data?.orders" :key="item.request">
+        <nut-cell>
+            <view class="relative w-full">
+                <view class="font-semibold text-lg flex gap-1 color-black">
+                    <text class="color-primary">崇川</text>
+                    <text>学前教学</text>
+                    <text>{{ item.student_sex }}</text>
+                </view>
+                <view class="flex w-full">
+                    <view class="w-full">
+                        <view class="my-2">
+                            <view class="w-18 inline-block">需求科目:</view>
+                            {{ item.subject }}
+                        </view>
+                        <view class="my-2">
+                            <view class="w-18 inline-block">课时:</view>
+                            {{ item.course_time }}课时
+                        </view>
+                        <view class="flex mx-y">
+                            <view class="w-18 inline-block">教师要求:</view>
+                            <view class="truncate">{{ item.request }}</view>
+                        </view>
+                    </view>
+                    <view class="flex whitespace-nowrap items-center">
+                        <image class="h-5 w-5" src="@/static/icons/location.svg" />
+                        <view>{{ item.address }}</view>
+                    </view>
+                </view>
+                <view class="absolute right-0 top-0 text-lg font-bold text-primary">{{item.cost}}元/小时</view>
             </view>
-            <view class="absolute right-0 top-0 text-lg font-bold">110元/小时</view>
-        </view>
-    </nut-cell>
+        </nut-cell>
+    </view>
 </template>
 <script setup lang="ts">
-import { orderList } from '@/api/teacher';
+import { orderPublic, type OrderPublic } from '@/api/teacher';
 
-orderList({
-    "page": 1,
-    "per_page": 10
+const data = ref<OrderPublic>();
+
+orderPublic({
+    page: 1,
+    per_page: 999
 }).then(resp => {
-    console.log(resp)
+    data.value = resp.data;
 })
 </script>
 <style></style>

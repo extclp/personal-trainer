@@ -46,3 +46,26 @@ export interface New {
   title: string
   image: boolean
 }
+
+
+export interface BigData {
+  search_list: {
+    teachingCourse: string[];
+    student: string[];
+    teachingPosition: string[];
+    teachingStyle: string[];
+  };
+  teachers: {
+    name: string;
+    college: string;
+    phone: string;
+    sex: string;
+    image: boolean;
+    subject: string[];
+    login_time: string;
+    major: string;
+    identity: string;
+    costRequest: string;
+    teachingPosition: string[];
+  }[];
+}
