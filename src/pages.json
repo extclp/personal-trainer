@@ -47,6 +47,9 @@
       }
     },
     {
+      "path": "pages/teacher/bage"
+    },
+    {
       "path": "pages/agreement"
     }
   ],
