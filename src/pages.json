@@ -17,6 +17,9 @@
       "path": "pages/contact"
     },
     {
+      "path": "pages/favorite"
+    },
+    {
       "path": "pages/login"
     },
     {
