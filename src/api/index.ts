@@ -48,6 +48,10 @@ export function teacherArticles(data: Data) {
   return request('/getone2all', data)
 }
 
+export function teacherDetail(data: Data) {
+return request('/teacher/detail', data)
+}
+
 export function finishedOrder(data: Data) {
   return request('/myfinishedorder', data)
 }
