@@ -78,6 +78,12 @@
     },
     {
       "path": "pages/about/agreement"
+    },
+    {
+      "path": "pages/about/fees"
+    },
+    {
+      "path": "pages/user"
     }
   ],
   "globalStyle": {
