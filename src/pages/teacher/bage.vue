@@ -1,17 +1,17 @@
 <template>
-  <view class="flex-col page">
-    <view class="flex-col flex-1 group_4">
-      <view class="flex-col justify-start relative section_4">
-        <view class="section_5"></view>
-        <view class="flex-col group_5 pos_3 text-center">
-          <image class="shrink-0 image_8" src="@/static/1a030d1133e460f7ff4569560af56215.png" />
-          <view class="flex-col items-center relative section_6">
+  <view class="page flex-col">
+    <view class="group_4 flex-1 flex-col">
+      <view class="section_4 relative flex-col justify-start">
+        <view class="section_5" />
+        <view class="group_5 pos_3 flex-col text-center">
+          <image class="image_8 shrink-0" src="@/static/1a030d1133e460f7ff4569560af56215.png" />
+          <view class="section_6 relative flex-col items-center">
             <view class="text_2">姓名：赵钱孙李</view>
-            <image class="mt-22 image_9" src="@/static/454e87fe88174cb80b040dcaab25109e.png" />
+            <image class="image_9 mt-22" src="@/static/454e87fe88174cb80b040dcaab25109e.png" />
           </view>
         </view>
       </view>
-      <view class="shrink-0 relative section_7"></view>
+      <view class="section_7 relative shrink-0" />
     </view>
   </view>
 </template>

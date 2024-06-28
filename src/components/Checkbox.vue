@@ -14,7 +14,7 @@ const props = defineProps({
   },
   value: {
 
-  }
+  },
 })
 
 const value = defineModel()

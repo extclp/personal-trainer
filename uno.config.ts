@@ -34,12 +34,12 @@ export default defineConfig({
     ...transformers,
   ],
   shortcuts: {
-    center: "flex justify-center items-center"
+    center: 'flex justify-center items-center',
   },
   theme: {
     colors: {
       primary: '#FB7206',
-      black1: '#484C52'
-    }
-  }
+      black1: '#484C52',
+    },
+  },
 })

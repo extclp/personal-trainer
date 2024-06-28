@@ -5,9 +5,8 @@ export function home(data: Data) {
   return request('/home', data)
 }
 
-
 export function bigList(data: Data) {
-return request('/big_list', data)
+  return request('/big_list', data)
 }
 
 export function rolling(data: Data) {
@@ -20,6 +19,10 @@ export function news() {
 
 export function search(data: Data) {
   return request('/search', data)
+}
+
+export function teachers(data: Data) {
+  return request('/select_block')
 }
 
 // ======= 登录 =======
@@ -49,7 +52,7 @@ export function teacherArticles(data: Data) {
 }
 
 export function teacherDetail(data: Data) {
-return request('/teacher/detail', data)
+  return request('/teacher/detail', data)
 }
 
 export function finishedOrder(data: Data) {
