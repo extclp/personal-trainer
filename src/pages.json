@@ -53,6 +53,12 @@
       }
     },
     {
+      "path": "pages/order/commit",
+      "style": {
+        "navigationBarTitleText": "订单列表"
+      }
+    },
+    {
       "path": "pages/teacher/bage"
     },
     {

@@ -1,5 +1,6 @@
 <template>
-    <sar-card>
+    <image class="h-36 w-full fixed top-0" src="@/static/teacher/bg.png" />
+    <sar-card class="m-4 mt-6">
         <view class="flex gap-2">
             <view class="text-center">
                 <nut-avatar class="mb-2" :size="70" />
@@ -28,13 +29,11 @@
             <nut-tag type="primary">数学师范 研究生</nut-tag>
         </view>
     </sar-card>
+    <view class="m-4">评价老师</view>
+    <view class="m-4">
+        <nut-textarea placeholder="请填写真实评价" />
+    </view>
+    <view class="m-4">
+        <nut-button type="primary" class="mt-4" block>提交</nut-button>
+    </view>
 </template>
-<script setup lang="ts">
-import { bigList, search } from '@/api';
-
-search({
-}).then(resp => {
-    console.log(resp.data)
-})
-</script>
-<style></style>
