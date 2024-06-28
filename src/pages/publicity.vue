@@ -31,7 +31,7 @@
         <view class="absolute top-40 whitespace-normal px-4 font-black">{{ item.name }}</view>
       </view>
     </scroll-view>
-    <view>留言发布栏</view>
+    <view class="m4">留言发布栏</view>
     <view class="m-4 flex gap-2">
       <sar-input v-model="message" class="flex-1 bg-white" />
       <button type="primary" size="mini" @click="sendMessage">发布留言</button>
@@ -64,7 +64,7 @@ function articleDetail(id: number) {
 }
 
 home({
-  per_page: 2,
+  per_page: 1000,
 }).then((resp) => {
   data.value = resp.data
 })

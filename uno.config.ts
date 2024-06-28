@@ -33,6 +33,9 @@ export default defineConfig({
   transformers: [
     ...transformers,
   ],
+  shortcuts: {
+    center: "flex justify-center items-center"
+  },
   theme: {
     colors: {
       primary: '#FB7206',
