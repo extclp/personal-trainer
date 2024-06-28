@@ -32,7 +32,7 @@
     <view class="m-4">教务咨询</view>
     <scroll-view scroll-x class="m-4 whitespace-nowrap">
       <view v-for="item in data.academic_news" :key="item.name"
-        class="relative mr-4 inline-block h-60 w-60 rounded-10 text-white" @click="articleDetail(item.id)">
+        class="relative mr-4 inline-block h-60 w-60 rounded-10 text-white" @click="articleDetail(item.name)">
         <image class="h-full w-full" src="@/static/image/home/new-bg.png" />
         <view class="absolute left-4 top-4 text-5 font-bold">{{ item.title }}</view>
         <view class="absolute top-40 whitespace-normal px-4 font-black">{{ item.name }}</view>
@@ -66,8 +66,8 @@ const data = ref<HomeData>()
 
 const message = ref<string>()
 
-function articleDetail(id: number) {
-  uni.navigateTo({ url: `/pages/article/detail?id=${id}` })
+function articleDetail(name: string) {
+  uni.navigateTo({ url: `/pages/article/detail?type=kopp&name=${name}` })
 }
 
 home({
