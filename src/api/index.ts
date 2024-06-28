@@ -25,6 +25,10 @@ export function teachers(data: Data) {
   return request('/select_block')
 }
 
+export function article(data: Data) {
+  return request('/article/detail', data)
+}
+
 // ======= 登录 =======
 export function login(data: Data) {
   return request<any, LoginReponse>('/quick_login', data)

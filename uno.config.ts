@@ -34,7 +34,7 @@ export default defineConfig({
     ...transformers,
   ],
   shortcuts: {
-    center: 'flex justify-center items-center',
+    center: 'flex justify-center items-center'
   },
   theme: {
     colors: {

@@ -29,7 +29,7 @@ export interface HomeData {
     username: string
     message: string
     time: string
-    image: boolean
+    image: string
   }[]
 }
 
@@ -67,4 +67,12 @@ export interface BigData {
     costRequest: string
     teachingPosition: string[]
   }[]
+}
+
+export interface Article {
+  name: string;
+  writer: string;
+  time: string;
+  image: boolean;
+  content: string;
 }

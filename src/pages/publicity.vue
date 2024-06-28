@@ -9,7 +9,7 @@
 
     <uni-card>
       <view class="flex gap-2">
-        <image class="h-6 w-6" src="@/static/icons/notice.svg" />
+        <image class="size-6" src="@/static/icons/notice.svg" />
         <swiper class="h-6 flex-1" autoplay vertical>
           <swiper-item v-for="item in data.announcement">
             {{ item }}
@@ -17,17 +17,22 @@
         </swiper>
       </view>
     </uni-card>
-    <uni-card>
-      <view v-for="notice in data.notice" :Key="notice.name">
-        {{ notice.name }}
+    <sar-card class="m-4">
+      <view class="flex gap-2 font-700 text-primary mb-2">
+        <image class="size-5" src="@/static/home/notice.svg" />
+        <view>通知栏</view>
       </view>
-    </uni-card>
+      <navigator v-for="notice in data.notice" :Key="notice.name"
+        :url="`/pages/article/detail?type=notice&name=${notice.name}`">
+        <view class="my-1 truncate">
+          • {{ notice.name }}
+        </view>
+      </navigator>
+    </sar-card>
     <view class="m-4">教务咨询</view>
     <scroll-view scroll-x class="m-4 whitespace-nowrap">
-      <view
-        v-for="item in data.academic_news" :key="item.name"
-        class="relative mr-4 inline-block h-60 w-60 rounded-10 text-white" @click="articleDetail(item.id)"
-      >
+      <view v-for="item in data.academic_news" :key="item.name"
+        class="relative mr-4 inline-block h-60 w-60 rounded-10 text-white" @click="articleDetail(item.id)">
         <image class="h-full w-full" src="@/static/image/home/new-bg.png" />
         <view class="absolute left-4 top-4 text-5 font-bold">{{ item.title }}</view>
         <view class="absolute top-40 whitespace-normal px-4 font-black">{{ item.name }}</view>
@@ -39,7 +44,7 @@
       <button type="primary" size="mini" @click="sendMessage">发布留言</button>
     </view>
     <view v-for="message in data.message" :key="message.time" class="flex gap-4 px-7 py-4">
-      <image class="h-10 w-10 rounded-full bg-white" />
+      <image class="h-10 w-10 rounded-full bg-white" :src="message.image" />
       <view class="flex-1 border border-slate-300 border-b-solid">
         <view class="text-sm">
           <text class="float-right">{{ ago(message.time) }}</text>

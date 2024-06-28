@@ -9,7 +9,7 @@
 
     <uni-card>
       <view class="flex gap-2">
-        <image class="h-6 w-6" src="@/static/icons/notice.svg" />
+        <image class="size-6" src="@/static/icons/notice.svg" />
         <swiper class="h-6 flex-1" autoplay vertical>
           <swiper-item v-for="item in homeData.announcement">
             {{ item }}
@@ -34,10 +34,7 @@
         </navigator>
       </view>
       <view class="grid grid-cols-4">
-        <navigator
-          v-for="(course, i) in data?.search_list.teachingCourse"
-          :url="`/pages/teacher/index?name=${course}`"
-        >
+        <navigator v-for="(course, i) in data?.search_list.teachingCourse" :url="`/pages/teacher/index?name=${course}`">
           <view class="lh-20" :style="colors[i]">
             {{ course }}
           </view>
@@ -106,14 +103,14 @@ const images = [
 
 <style>
 .techer-detail {
-    background: linear-gradient(to bottom, #fa6954, #fa804d);
+  background: linear-gradient(to bottom, #fa6954, #fa804d);
 }
 
 .techer-register {
-    background: linear-gradient(to bottom, #4e8ce5, #4faaf9);
+  background: linear-gradient(to bottom, #4e8ce5, #4faaf9);
 }
 
 .bg-r {
-    background: #e9efff;
+  background: #e9efff;
 }
 </style>
