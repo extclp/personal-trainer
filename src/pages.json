@@ -20,6 +20,12 @@
       "path": "pages/order/public"
     },
     {
+      "path": "pages/article/index"
+    },
+    {
+      "path": "pages/article/detail"
+    },
+    {
       "path": "pages/contact"
     },
     {

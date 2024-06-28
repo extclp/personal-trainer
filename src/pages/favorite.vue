@@ -1,5 +1,4 @@
 <template>
-
     <view class="text-lg m-4">文章收藏</view>
     <sar-card class="m-4">
         <view class="flex gap-2">

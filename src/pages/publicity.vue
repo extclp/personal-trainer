@@ -22,11 +22,10 @@
         {{ notice.name }}
       </view>
     </uni-card>
+    <view class="m-4">教务咨询</view>
     <scroll-view scroll-x class="m-4 whitespace-nowrap">
-      <view
-        v-for="item in data.academic_news" :key="item.name"
-        class="relative mr-4 inline-block h-60 w-60 rounded-10 text-white"
-      >
+      <view v-for="item in data.academic_news" :key="item.name"
+        class="relative mr-4 inline-block h-60 w-60 rounded-10 text-white" @click="articleDetail(item.id)">
         <image class="h-full w-full" src="@/static/image/home/new-bg.png" />
         <view class="absolute left-4 top-4 text-5 font-bold">{{ item.title }}</view>
         <view class="absolute top-40 whitespace-normal px-4 font-black">{{ item.name }}</view>
@@ -44,7 +43,7 @@
           <text class="float-right">{{ ago(message.time) }}</text>
           <text>{{ message.username }}</text>
         </view>
-        <view class="m-4"> {{ message.message }} </view>
+        <view class="my-4"> {{ message.message }} </view>
       </view>
     </view>
   </template>
@@ -59,6 +58,10 @@ import { ago } from '@/utls'
 const data = ref<HomeData>()
 
 const message = ref<string>()
+
+function articleDetail(id: number) {
+  uni.navigateTo({ url: `/pages/article/detail?id=${id}` })
+}
 
 home({
   per_page: 2,
