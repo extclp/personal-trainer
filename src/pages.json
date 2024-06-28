@@ -11,7 +11,13 @@
   },
   "pages": [ // pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
-      "path": "pages/order-public"
+      "path": "pages/publicity",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/order/public"
     },
     {
       "path": "pages/contact"
@@ -35,12 +41,6 @@
       "path": "pages/commit"
     },
     {
-      "path": "pages/publicity",
-      "style": {
-        "navigationStyle": "custom"
-      }
-    },
-    {
       "path": "pages/teacher/register",
       "style": {
         "navigationBarTitleText": "教员注册"
@@ -62,7 +62,16 @@
       "path": "pages/teacher/bage"
     },
     {
-      "path": "pages/agreement"
+      "path": "pages/teacher/order"
+    },
+    {
+      "path": "pages/about/teacher"
+    },
+    {
+      "path": "pages/about/order",
+    },
+    {
+      "path": "pages/about/agreement"
     }
   ],
   "globalStyle": {

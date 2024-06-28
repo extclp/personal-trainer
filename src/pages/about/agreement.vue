@@ -22,7 +22,7 @@
             </text>
         </view>
         <br />
-        <view class="text-lg font-600">隐私保护</view>
+        <view class="text-lg">隐私保护</view>
         <br />
         <view>
             <text class="inline-block w-4"></text>
