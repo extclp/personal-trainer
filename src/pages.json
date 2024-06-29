@@ -61,13 +61,19 @@
     {
       "path": "pages/teacher/index",
       "style": {
-        "navigationBarTextStyle": "教师列表"
+        "navigationBarTextStyle": "教员列表"
       }
     },
     {
       "path": "pages/teacher/detail",
       "style": {
-        "navigationBarTextStyle": "教师详情"
+        "navigationBarTextStyle": "教员详情"
+      }
+    },
+    {
+      "path": "pages/teacher/update",
+      "style": {
+        "navigationBarTextStyle": "更新简历"
       }
     },
     {

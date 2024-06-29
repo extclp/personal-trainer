@@ -22,7 +22,7 @@ export function search(data: Data) {
 }
 
 export function teachers(data: Data) {
-  return request('/select_block')
+  return request('/select_block', data)
 }
 
 export function article(data: Data) {

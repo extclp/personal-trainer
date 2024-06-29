@@ -40,7 +40,7 @@
       <tr v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period">
         <th>{{ period }}</th>
         <th v-for="(d, index) in '一二三四五六日'" :key="d">
-          <Checkbox v-model="teachingTime[pi][index]" />
+          <Checkbox v-model="form.teachingTime[pi]" :value="index + 1" />
         </th>
       </tr>
     </table>
@@ -55,7 +55,7 @@
     <view class="py-2">任教科目</view>
     <nut-input />
     <view class="py-2">任教经历</view>
-    <nut-input />
+    <view @click="a = true">添加任职经历</view>
     <view class="py-2">自我描述</view>
     <nut-textarea v-model="form.introduction" />
     <view class="mt-4">
@@ -117,8 +117,7 @@ const agreement = ref(false)
 
 const birthday = ref()
 
-const teachingTime = ref(Array(3).fill([]).map(it => Array(7)))
-
+//上传
 const filelist = ref<FileItem[]>()
 
 function beforeUpload(_: any, options: UploadOptions) {
@@ -133,6 +132,9 @@ function beforeUpload(_: any, options: UploadOptions) {
     }]
   })
 }
+
+//任职经历
+const a = ref(false)
 </script>
 
 <style>

@@ -119,3 +119,26 @@ export interface DataList {
     grade: string;
   }[];
 }
+
+export interface Teacher {
+  name: string;
+  sex: string;
+  tutorAge: string;
+  costRequest: string;
+  image: string;
+  school: string;
+  major: string;
+  age: string;
+  student: string;
+  identity: string;
+  teachingStyle: string[];
+  teachingTime: number[][];
+  teachingPosition: string[];
+  teachingCourse: string[];
+  personal_experience: string[];
+  achievement: string[];
+  introduction: string;
+  login_time: string;
+  address: string;
+  cost: string;
+}
