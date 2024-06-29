@@ -126,7 +126,8 @@ export interface Teacher {
   tutorAge: string;
   costRequest: string;
   image: string;
-  school: string;
+  school: string; //TODO
+  college: string;
   major: string;
   age: string;
   student: string;

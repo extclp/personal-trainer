@@ -148,5 +148,31 @@
     "navigationBarTitleText": "uni-app",
     "navigationBarBackgroundColor": "#F8F8F8",
     "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#484C52",
+    "selectedColor": "#6979F8",
+    "list": [
+      {
+        "text": "需求发布",
+        "pagePath": "/pages/publish"
+      },
+      {
+        "text": "宣传资讯",
+        "pagePath": "/pages/publicity"
+      },
+      {
+        "text": "首页",
+        "pagePath": "/pages/home"
+      },
+      {
+        "text": "联系客服",
+        "pagePath": "/pages/contact"
+      },
+      {
+        "text": "个人中心",
+        "pagePath": "/pages/user"
+      }
+    ]
   }
 }

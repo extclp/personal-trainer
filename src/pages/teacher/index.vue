@@ -2,9 +2,10 @@
   <view class="flex h-full flex-col">
     <view>
       <sar-dropdown>
-        <sar-dropdown-item label="教龄" :options="makeLV(dataList?.tutor_age)" />
-        <sar-dropdown-item label="区域" :options="makeLV(dataList?.teachingPosition)" />
-        <sar-dropdown-item v-model="form.teaching_position" label="价格" :options="makeLV(dataList?.cost)" />
+        <sar-dropdown-item label="教龄" :options="makeLV(dataList?.tutor_age)" @update:model-value="search" />
+        <sar-dropdown-item label="区域" :options="makeLV(dataList?.teachingPosition)" @update:model-value="search" />
+        <sar-dropdown-item v-model="form.teaching_position" label="价格" :options="makeLV(dataList?.cost)"
+          @update:model-value="search" />
       </sar-dropdown>
     </view>
     <scroll-view scroll-y @scrolltolower="loadMore" class="flex-1 overflow-hidden">
@@ -51,7 +52,7 @@ import type { LoadMoreStatus } from 'sard-uniapp';
 
 const dataList = listData();
 
-const form = reactive({
+const form = ref({
   page: 1,
   per_page: 10,
   all: '',
@@ -85,6 +86,9 @@ function loadMore() {
     getList();
   }
 }
-</script>
 
-<style></style>
+function search() {
+  form.page = 1;
+  getList()
+}
+</script>

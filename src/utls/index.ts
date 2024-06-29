@@ -19,3 +19,11 @@ export function makeTV(list?: string[]) {
   if (isDef(list))
     return list.map(it => ({ text: it, value: it }))
 }
+
+export function format(date: Date) {
+  return dayjs(date).format('YYYY-MM-DD')
+}
+
+export function formatM(date: Date) {
+  return dayjs(date).format('YYYY-MM')
+}
