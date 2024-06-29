@@ -11,40 +11,70 @@
   },
   "pages": [ // pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
-      "path": "pages/publicity",
+      "path": "pages/home",
       "style": {
         "navigationStyle": "custom"
       }
     },
     {
-      "path": "pages/order/public"
+      "path": "pages/publicity",
     },
     {
-      "path": "pages/article/index"
+      "path": "pages/publish",
+      "style": {
+        "navigationBarTitleText": "发布需求"
+      }
     },
     {
-      "path": "pages/article/detail"
+      "path": "pages/order/public",
+      "style": {
+        "navigationBarTitleText": "订单市场"
+      }
     },
     {
-      "path": "pages/contact"
+      "path": "pages/article/index",
+      "style": {
+        "navigationBarTitleText": "文章列表"
+      }
     },
     {
-      "path": "pages/favorite"
+      "path": "pages/article/detail",
+      "style": {
+        "navigationBarTitleText": "文章详情"
+      }
+    },
+    {
+      "path": "pages/contact",
+      "style": {
+        "navigationBarTitleText": "联系方式"
+      }
+    },
+    {
+      "path": "pages/favorite",
+      "style": {
+        "navigationBarTitleText": "收藏列表"
+      }
     },
     {
       "path": "pages/login"
     },
     {
-      "path": "pages/home"
+      "path": "pages/teacher/index",
+      "style": {
+        "navigationBarTextStyle": "教师列表"
+      }
     },
     {
-      "path": "pages/teacher/index"
+      "path": "pages/teacher/detail",
+      "style": {
+        "navigationBarTextStyle": "教师详情"
+      }
     },
     {
-      "path": "pages/teacher/detail"
-    },
-    {
-      "path": "pages/commit"
+      "path": "pages/commit",
+      "style": {
+        "navigationBarTextStyle": "我的评价"
+      }
     },
     {
       "path": "pages/teacher/register",
@@ -65,25 +95,46 @@
       }
     },
     {
-      "path": "pages/teacher/bage"
+      "path": "pages/teacher/bage",
+      "style": {
+        "navigationBarTitleText": "我的工牌"
+      }
     },
     {
-      "path": "pages/teacher/order"
+      "path": "pages/teacher/order",
+      "style": {
+        "navigationBarTitleText": "我的订单"
+      }
     },
     {
-      "path": "pages/about/teacher"
+      "path": "pages/about/teacher",
+      "style": {
+        "navigationBarTitleText": "关于教员"
+      }
     },
     {
-      "path": "pages/about/order"
+      "path": "pages/about/order",
+      "style": {
+        "navigationBarTitleText": "关于下单"
+      }
     },
     {
-      "path": "pages/about/agreement"
+      "path": "pages/about/agreement",
+      "style": {
+        "navigationBarTitleText": "协议"
+      }
     },
     {
-      "path": "pages/about/fees"
+      "path": "pages/about/fees",
+      "style": {
+        "navigationBarTitleText": "关于价格"
+      }
     },
     {
-      "path": "pages/user"
+      "path": "pages/user",
+      "style": {
+        "navigationBarTitleText": "个人中心"
+      }
     }
   ],
   "globalStyle": {

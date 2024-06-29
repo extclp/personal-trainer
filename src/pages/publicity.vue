@@ -18,12 +18,14 @@
       </view>
     </uni-card>
     <sar-card class="m-4">
-      <view class="flex gap-2 font-700 text-primary mb-2">
+      <view class="mb-2 flex gap-2 text-primary font-700">
         <image class="size-5" src="@/static/home/notice.svg" />
         <view>通知栏</view>
       </view>
-      <navigator v-for="notice in data.notice" :Key="notice.name"
-        :url="`/pages/article/detail?type=notice&name=${notice.name}`">
+      <navigator
+        v-for="notice in data.notice" :Key="notice.name"
+        :url="`/pages/article/detail?type=notice&name=${notice.name}`"
+      >
         <view class="my-1 truncate">
           • {{ notice.name }}
         </view>
@@ -31,8 +33,10 @@
     </sar-card>
     <view class="m-4">教务咨询</view>
     <scroll-view scroll-x class="m-4 whitespace-nowrap">
-      <view v-for="item in data.academic_news" :key="item.name"
-        class="relative mr-4 inline-block h-60 w-60 rounded-10 text-white" @click="articleDetail(item.name)">
+      <view
+        v-for="item in data.academic_news" :key="item.name"
+        class="relative mr-4 inline-block h-60 w-60 rounded-10 text-white" @click="articleDetail(item.name)"
+      >
         <image class="h-full w-full" src="@/static/image/home/new-bg.png" />
         <view class="absolute left-4 top-4 text-5 font-bold">{{ item.title }}</view>
         <view class="absolute top-40 whitespace-normal px-4 font-black">{{ item.name }}</view>

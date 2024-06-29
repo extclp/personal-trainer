@@ -1,9 +1,9 @@
 <template>
   <sar-card class="m-4">
-    <view class="flex gap-4 items-center">
-      <nut-avatar :size="50"/>
+    <view class="flex items-center gap-4">
+      <nut-avatar :size="50" />
       <view class="font-600">
-        <view >教师A</view>
+        <view>教师A</view>
         <view class="mt-2 text-sm">努力奋斗上进</view>
       </view>
     </view>

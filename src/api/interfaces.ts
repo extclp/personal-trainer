@@ -15,6 +15,28 @@ export interface sendCodeResp extends Result<any> {
   message: string
 }
 
+export interface RegisterForm {
+  phone: string;
+  name: string;
+  sex: string;
+  school: string;
+  major: string;
+  birthday: string;
+  tutorAge: string;
+  image: string;
+  identity: string;
+  teachingCourse: string[];
+  teachingPosition: string[];
+  student: string;
+  teachingStyle: string[];
+  teachingTime: number[][];
+  address: string;
+  cost: string;
+  introduction: string;
+  personalExperience: string[];
+  achievement: string[];
+}
+
 export interface HomeData {
   address: string[]
   image: string[]
@@ -70,9 +92,30 @@ export interface BigData {
 }
 
 export interface Article {
-  name: string;
-  writer: string;
-  time: string;
-  image: boolean;
-  content: string;
+  name: string
+  writer: string
+  time: string
+  image: boolean
+  content: string
+}
+
+
+export interface DataList {
+  tutor_age: string[];
+  cost: string[];
+  teachingPosition: string[];
+  subjects: {
+    id: number;
+    name: string;
+    children: {
+      id: number;
+      subject: string;
+    }[];
+  }[];
+  student_grade: string[];
+  students: {
+    name: string;
+    sex: string;
+    grade: string;
+  }[];
 }

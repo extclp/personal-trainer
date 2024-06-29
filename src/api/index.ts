@@ -55,7 +55,7 @@ export function teacherArticles(data: Data) {
   return request('/getone2all', data)
 }
 
-export function teacherDetail(data: Data) {
+export function teacherDetail(data?: Data) {
   return request('/teacher/detail', data)
 }
 
@@ -92,4 +92,8 @@ export function collect(data: Data) {
 
 export function collectArticle(data: Data) {
   return request('/academic/like', data)
+}
+
+export function list(data: Data) {
+  return request("/teacher_order/list", data)
 }
