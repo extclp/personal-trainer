@@ -52,7 +52,7 @@ import type { LoadMoreStatus } from 'sard-uniapp';
 
 const dataList = listData();
 
-const form = ref({
+const form = reactive({
   page: 1,
   per_page: 10,
   all: '',
