@@ -1,6 +1,8 @@
 <template>
-  <view class="location ml-4 flex items-center" @click="visible = true"
-    :style="{ marginTop: `${menuButton.top}px`, height: `${menuButton.height}px` }">
+  <view
+    class="location ml-4 flex items-center" :style="{ marginTop: `${menuButton.top}px`, height: `${menuButton.height}px` }"
+    @click="visible = true"
+  >
     <image class="h-5 w-5" src="@/static/icons/location.svg" />
     <text class="ml-2">{{ location }}</text>
   </view>
@@ -11,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import {  homeData } from '@/store';
+import { homeData } from '@/store'
 
 let menuButton = {
   bottom: 83,
@@ -25,16 +27,15 @@ let menuButton = {
 menuButton = uni.getMenuButtonBoundingClientRect()
 // #endif
 
-
 const visible = ref(false)
 
 const location = ref(uni.getStorageSync('location'))
 
 watch(location, () => {
-  uni.setStorageSync("location", location.value)
+  uni.setStorageSync('location', location.value)
 })
 
-const data = homeData();
+const data = homeData()
 watch(data, (value) => {
   if (!location.value) {
     location.value = value!.address[0]

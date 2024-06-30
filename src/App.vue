@@ -17,7 +17,6 @@ onHide(() => {
 @import "nutui-uniapp/styles/index.scss";
 
 page {
-    height: 100%;
     background: #f3f3f3;
 }
 </style>

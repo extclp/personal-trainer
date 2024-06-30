@@ -24,15 +24,11 @@
     <nut-form-item label="教龄" prop="tutorAge" :rules="[{ required: true, message: '教龄不能为空' }]">
       <sar-picker-input v-model="form.tutorAge" :columns="dataList?.tutor_age" placeholder="请选择" />
     </nut-form-item>
+    <nut-form-item label="身份" prop="identity" :rules="[{ required: true, message: '身份不能为空' }]">
+      <sar-picker-input v-model="form.identity" :columns="['大学生教员', '研究生教员', '专业教员']" placeholder="请选择" />
+    </nut-form-item>
     <nut-form-item>
       <view class="text-lg font-600">教员信息</view>
-    </nut-form-item>
-    <nut-form-item label="身份" prop="identity" :rules="[{ required: true, message: '身份不能为空' }]">
-      <nut-radio-group v-model="form.identity">
-        <nut-radio label="大学生教员">大学生教员</nut-radio>
-        <nut-radio label="研究生教员">研究生教员</nut-radio>
-        <nut-radio label="专业教员">专业教员</nut-radio>
-      </nut-radio-group>
     </nut-form-item>
     <nut-form-item label="任教对象" prop="student" :rules="[{ required: true, message: '任教对象不能为空' }]">
       <nut-radio-group v-model="form.student">
@@ -64,11 +60,11 @@
       <sar-picker-input v-model="form.cost" :columns="dataList?.cost" />
     </nut-form-item>
     <nut-form-item label="任教区域" prop="teachingPosition" :rules="[{ required: true, message: '任教区域不能为空' }]">
-      <view class="flex justify-between">
-        <view>任教区域</view>
-        <nut-button type="primary" size="mini" @click="showPostion">添加任职区域</nut-button>
-      </view>
-      <view class="my-2 flex justify-between" v-for="(item, index) in form.teachingPosition">
+      <template #label>
+        <nut-button type="primary" size="mini" class="float-right" @click="showPostion">添加任职区域</nut-button>
+        <text>任教区域</text>
+      </template>
+      <view v-for="(item, index) in form.teachingPosition" class="my-2 flex justify-between">
         <view>{{ item }}</view>
         <view class="color-red" @click="form.teachingPosition.splice(index, 1)">删除</view>
       </view>
@@ -78,27 +74,24 @@
     </nut-form-item>
     <nut-form-item label="任教科目" prop="personalExperience">
       <template #label>
-        <view class="flex justify-between">
-          <view>任教科目</view>
-          <nut-button type="primary" size="mini" @click="showSubject">添加任职经历</nut-button>
-        </view>
-        <view class="my-2 flex justify-between" v-for="(item, index) in form.personalExperience">
-          <view>{{ item }}</view>
-          <view class="color-red" @click="form.personalExperience.splice(index, 1)">删除</view>
-        </view>
+        <nut-button type="primary" size="mini" class="float-right" @click="showSubject">添加任职经历</nut-button>
+
+        <text>任教科目</text>
       </template>
+      <view v-for="(item, index) in form.personalExperience" class="my-2 flex justify-between">
+        <view>{{ item }}</view>
+        <view class="color-red" @click="form.personalExperience.splice(index, 1)">删除</view>
+      </view>
     </nut-form-item>
     <nut-form-item prop="achievement" label="任教经历">
       <template #label>
-        <view class="flex justify-between">
-          <view>任教经历</view>
-          <nut-button type="primary" size="mini" @click="show">添加任职经历</nut-button>
-        </view>
-        <view class="my-2 flex justify-between" v-for="(item, index) in form.achievement">
-          <view>{{ item }}</view>
-          <view class="color-red" @click="form.achievement.splice(index, 1)">删除</view>
-        </view>
+        <nut-button type="primary" size="mini" class="float-right" @click="show">添加任职经历</nut-button>
+        <text>任教经历</text>
       </template>
+      <view v-for="(item, index) in form.achievement" class="my-2 flex justify-between">
+        <view>{{ item }}</view>
+        <view class="color-red" @click="form.achievement.splice(index, 1)">删除</view>
+      </view>
     </nut-form-item>
     <nut-form-item label="自我描述" prop="introduction" :rules="[{ required: true, message: '自我描述不能为空' }]">
       <nut-textarea v-model="form.introduction" />
@@ -115,7 +108,7 @@
     </nut-form-item>
   </nut-form>
   <sar-popout v-model:visible="positionVisible" title="请选择任教科目" @confirm="onSelectPostion">
-    <sar-picker title="选择任教区域" v-model="postion" :columns="dataList?.teachingPosition" />
+    <sar-picker v-model="postion" title="选择任教区域" :columns="dataList?.teachingPosition" />
   </sar-popout>
   <sar-popout v-model:visible="subjectVisible" title="请选择任教科目" @confirm="onSelectSubject">
     <sar-cascader v-model="subject" :options="subjectsData" />
@@ -138,12 +131,12 @@
 <script setup lang="ts">
 import type { FileItem, FormInst, UploadOptions } from 'nutui-uniapp'
 import Checkbox from '@/components/Checkbox.vue'
-import { ploadFilePromise } from '@/utls/image-tools';
-import { listData } from '@/store';
-import { format, formatM } from '@/utls';
-import type { TeacherForm } from '@/api/interfaces';
+import { ploadFilePromise } from '@/utls/image-tools'
+import { listData } from '@/store'
+import { format, formatM } from '@/utls'
+import type { TeacherForm } from '@/api/interfaces'
 
-const dataList = listData();
+const dataList = listData()
 
 const form = ref<TeacherForm>({
   phone: '',
@@ -159,7 +152,7 @@ const form = ref<TeacherForm>({
   teachingPosition: [],
   student: '',
   teachingStyle: [],
-  teachingTime: Array(3).fill([]).map(() => Array(7)),
+  teachingTime: Array(3),
   address: '',
   cost: '',
   introduction: '',
@@ -174,81 +167,79 @@ watch(birthday, () => {
   form.value.birthday = format(birthday.value)
 })
 
-const postion = ref<string>();
-const positionVisible = ref();
+const postion = ref<string>()
+const positionVisible = ref()
 function showPostion() {
-  postion.value = undefined;
-  positionVisible.value = true;
+  postion.value = undefined
+  positionVisible.value = true
 }
 function onSelectPostion() {
   form.value.teachingPosition.push(postion.value!)
 }
 
-const subject = ref();
-const subjectVisible = ref(false);
+const subject = ref()
+const subjectVisible = ref(false)
 const subjectsData = computed(() => {
-  return dataList.value?.subjects.map(it => {
+  return dataList.value?.subjects.map((it) => {
     return {
       label: it.name,
       value: it.name,
       children: it.children.map((it1) => {
         return {
           label: it1.subject,
-          value: `${it.name} ${it1.subject}`
+          value: `${it.name} ${it1.subject}`,
         }
-      })
+      }),
     }
   })
 })
 function showSubject() {
-  subject.value = undefined;
-  subjectVisible.value = true;
+  subject.value = undefined
+  subjectVisible.value = true
 }
 function onSelectSubject() {
   form.value.personalExperience.push(subject.value!)
 }
 
-
-//任教经历
+// 任教经历
 const record = ref({
   date: undefined,
-  location: "",
-  prix: ""
+  location: '',
+  prix: '',
 })
-const recordRef = ref<FormInst>();
+const recordRef = ref<FormInst>()
 const recordVisible = ref(false)
 
 function show() {
   record.value = {
     date: undefined,
-    location: "",
-    prix: ""
+    location: '',
+    prix: '',
   }
-  recordVisible.value = true;
+  recordVisible.value = true
 }
 
 function add() {
   recordRef.value!.validate().then(({ valid }) => {
     if (valid) {
-      const { date, location, prix } = record.value;
-      // @ts-ignore
+      const { date, location, prix } = record.value
+      // @ts-expect-error
       const str = `${formatM(date)} ${location} ${prix}`
       form.value.achievement.push(str)
-    } else {
+    }
+    else {
       recordVisible.value = true
     }
   })
 }
 
-
 const agreement = ref(false)
 
-//上传
+// 上传
 const filelist = ref<FileItem[]>()
 
 function beforeUpload(_: any, options: UploadOptions) {
-
-  ploadFilePromise(options.filePath!).then(base64 => {
+  ploadFilePromise(options.filePath!).then((base64) => {
     options.onSuccess?.(null as any, options)
     filelist.value = [{
       name: '文件3.png',
@@ -278,10 +269,10 @@ function register() {
   .nut-form-item {
     padding-right: unset !important;
   }
+}
 
-  .nut-form-item__label {
-    padding-right: unset !important;
-  }
+.nut-form-item__label {
+  padding-right: unset !important;
 }
 
 th {

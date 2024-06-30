@@ -1,15 +1,17 @@
 <template>
-  <view class="flex h-full flex-col">
+  <view class="h-full flex flex-col">
     <view>
       <sar-dropdown>
         <sar-dropdown-item label="教龄" :options="makeLV(dataList?.tutor_age)" @update:model-value="search" />
         <sar-dropdown-item label="区域" :options="makeLV(dataList?.teachingPosition)" @update:model-value="search" />
-        <sar-dropdown-item v-model="form.teaching_position" label="价格" :options="makeLV(dataList?.cost)"
-          @update:model-value="search" />
+        <sar-dropdown-item
+          v-model="form.teaching_position" label="价格" :options="makeLV(dataList?.cost)"
+          @update:model-value="search"
+        />
       </sar-dropdown>
     </view>
-    <scroll-view scroll-y @scrolltolower="loadMore" class="flex-1 overflow-hidden">
-      <sar-card class="m4" v-for="item in data">
+    <scroll-view scroll-y class="flex-1 overflow-hidden" @scrolltolower="loadMore">
+      <sar-card v-for="item in data" class="m4">
         <view class="flex gap-2">
           <view class="text-center">
             <nut-avatar class="mb-2" :size="70" />
@@ -44,13 +46,13 @@
 </template>
 
 <script setup lang="ts">
+import type { LoadMoreStatus } from 'sard-uniapp'
 import { teachers } from '@/api'
-import type { Teacher } from '@/api/interfaces';
-import { listData } from '@/store';
-import { makeLV } from '@/utls';
-import type { LoadMoreStatus } from 'sard-uniapp';
+import type { Teacher } from '@/api/interfaces'
+import { listData } from '@/store'
+import { makeLV } from '@/utls'
 
-const dataList = listData();
+const dataList = listData()
 
 const form = reactive({
   page: 1,
@@ -62,18 +64,19 @@ const form = reactive({
   teaching_position: '幸福附近',
 })
 
-const data = ref<Teacher[]>([]);
+const data = ref<Teacher[]>([])
 
-const loadMoreStautus = ref<LoadMoreStatus>("incomplete")
+const loadMoreStautus = ref<LoadMoreStatus>('incomplete')
 
 function getList() {
   loadMoreStautus.value = 'loading'
   teachers(form).then((resp) => {
-    const list = resp.data.teachers;
+    const list = resp.data.teachers
     data.value.push(...list)
     if (list.length == 0) {
       loadMoreStautus.value = 'complete'
-    } else {
+    }
+    else {
       loadMoreStautus.value = 'incomplete'
     }
   })
@@ -83,12 +86,12 @@ getList()
 function loadMore() {
   if (loadMoreStautus.value != 'complete') {
     form.page++
-    getList();
+    getList()
   }
 }
 
 function search() {
-  form.page = 1;
+  form.page = 1
   getList()
 }
 </script>

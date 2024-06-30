@@ -95,5 +95,9 @@ export function collectArticle(data: Data) {
 }
 
 export function list(data: Data) {
-  return request("/teacher_order/list", data)
+  return request('/teacher_order/list', data)
+}
+
+export function createOrder(data: Data) {
+  return request('/customer/create_order', data)
 }

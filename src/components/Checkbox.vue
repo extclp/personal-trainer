@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { isDef, remove, type Arrayable } from '@antfu/utils';
+import { type Arrayable, isDef, remove } from '@antfu/utils'
 import { computed } from 'vue'
 
 const props = defineProps({
@@ -14,21 +14,24 @@ const props = defineProps({
     default: false,
   },
   value: {
-    type: [String, Number]
+    type: [String, Number],
   },
 })
 
 const model = defineModel<Arrayable<string | number> | boolean>()
 
 const isChecked = computed(() => {
-  if (isDef(props.value))
+  if (isDef(props.value)) {
     if (Array.isArray(model.value)) {
-      return model.value.includes(props.value);
-    } else {
+      return model.value.includes(props.value)
+    }
+    else {
       return model.value == model.value
     }
-  else
+  }
+  else {
     return model.value
+  }
 })
 
 function onClick(to: boolean) {
@@ -39,18 +42,22 @@ function onClick(to: boolean) {
     if (Array.isArray(model.value)) {
       if (to) {
         model.value.push(props.value)
-      } else {
+      }
+      else {
         remove(model.value, props.value)
       }
-    } else {
+    }
+    else {
       if (to) {
-        model.value = props.value;
-      } else {
-        model.value = undefined;
+        model.value = props.value
+      }
+      else {
+        model.value = undefined
       }
     }
-  } else {
-    model.value = to;
+  }
+  else {
+    model.value = to
   }
 }
 </script>

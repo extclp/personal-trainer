@@ -159,7 +159,7 @@
       {
         "text": "首页",
         "pagePath": "pages/home",
-        "iconPath": "static/tabBar/home.png",
+        "iconPath": "static/tabBar/home.png"
         // "selectedIconPath": "static/tabBar/a_home.png"
       },
       {
