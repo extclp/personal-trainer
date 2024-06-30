@@ -1,3 +1,4 @@
+import { extend } from 'dayjs'
 import type { Result } from './common'
 
 export interface LoginReponse extends Result<any> {
@@ -13,28 +14,6 @@ export interface sendCodeResp extends Result<any> {
   format: string
   code: number
   message: string
-}
-
-export interface RegisterForm {
-  phone: string;
-  name: string;
-  sex: string;
-  school: string;
-  major: string;
-  birthday: string;
-  tutorAge: string;
-  image: string;
-  identity: string;
-  teachingCourse: string[];
-  teachingPosition: string[];
-  student: string;
-  teachingStyle: string[];
-  teachingTime: number[][];
-  address: string;
-  cost: string;
-  introduction: string;
-  personalExperience: string[];
-  achievement: string[];
 }
 
 export interface HomeData {
@@ -120,26 +99,33 @@ export interface DataList {
   }[];
 }
 
-export interface Teacher {
+export interface TeacherForm {
+  phone: string;
+  birthday: string
+  // school: string;
+  college: string;
+  personalExperience: string[]
+  // personal_experience: string[];
+
   name: string;
   sex: string;
   tutorAge: string;
   costRequest: string;
   image: string;
-  school: string; //TODO
-  college: string;
   major: string;
-  age: string;
   student: string;
   identity: string;
   teachingStyle: string[];
   teachingTime: number[][];
   teachingPosition: string[];
   teachingCourse: string[];
-  personal_experience: string[];
   achievement: string[];
   introduction: string;
-  login_time: string;
   address: string;
   cost: string;
+}
+
+export interface Teacher extends TeacherForm {
+  age: string;
+  login_time: string;
 }

@@ -1,96 +1,248 @@
 <template>
-    <view class="p-4">
-        <view class="py-2 text-lg font-medium">个人信息</view>
-        <view class="py-2">个人证件照</view>
-        <nut-uploader v-model:file-list="filelist" :maximum="1" :before-upload="beforeUpload" />
-        <view class="py-2">姓名</view>
-        <nut-input v-model="form.name" />
-        <view class="py-2">生日</view>
-        <view style="padding: 10px 25px; border-bottom: 1px solid  #eaf0fb">
-            <sar-datetime-picker-input v-model="birthday" />
-        </view>
-        <view class="py-2">联系方式</view>
-        <nut-input v-model="form.phone" />
-        <view class="py-2">毕业学校</view>
-        <nut-input v-model="form.school" />
-        <view class="py-2">专业</view>
-        <nut-input v-model="form.major" />
-        <view class="py-2">教龄</view>
-        <view style="padding: 10px 25px; border-bottom: 1px solid  #eaf0fb">
-            <sar-picker-input v-model="form.tutorAge" :columns="dataList?.tutor_age" />
-        </view>
-        <view class="py-2 text-lg font-medium">教员信息</view>
-        <view class="py-2">任教对线</view>
-        <view style="padding: 10px 25px; border-bottom: 1px solid  #eaf0fb">
-            <sar-picker-input v-model="form.address" :columns="dataList?.teachingPosition" />
-        </view>
-        <view class="py-2">任教方式</view>
-        <view style="padding: 10px 25px; border-bottom: 1px solid  #eaf0fb">
+    <nut-form ref="formRef" label-position="top" :model-value="form">
+        <nut-form-item>
+            <view class="text-lg font-600">个人信息</view>
+        </nut-form-item>
+        <nut-form-item label="个人证件照" prop="image" :rules="[{ required: true, message: '个人证件照不能为空' }]">
+            <nut-uploader v-model:file-list="filelist" :maximum="1" :before-upload="beforeUpload" />
+        </nut-form-item>
+        <nut-form-item label="姓名" prop="name" :rules="[{ required: true, message: '姓名不能为空' }]">
+            <nut-input v-model="form.name" />
+        </nut-form-item>
+        <nut-form-item label="生日" prop="birthday" :rules="[{ required: true, message: '生日不能为空' }]">
+            <sar-datetime-picker-input v-model="birthday" placeholder="请选择" :min="new Date(1940, 1, 1)"
+                :max="new Date()" />
+        </nut-form-item>
+        <nut-form-item label="联系方式" prop="phone" :rules="[{ required: true, message: '联系不能为空' }]">
+            <nut-input v-model="form.phone" />
+        </nut-form-item>
+        <nut-form-item label="毕业学校" prop="college" :rules="[{ required: true, message: '毕业不能为空' }]">
+            <nut-input v-model="form.college" />
+        </nut-form-item>
+        <nut-form-item label="专业" prop="major" :rules="[{ required: true, message: '专业不能为空' }]">
+            <nut-input v-model="form.major" />
+        </nut-form-item>
+        <nut-form-item label="教龄" prop="tutorAge" :rules="[{ required: true, message: '教龄不能为空' }]">
+            <sar-picker-input v-model="form.tutorAge" :columns="dataList?.tutor_age" placeholder="请选择" />
+        </nut-form-item>
+        <nut-form-item>
+            <view class="text-lg font-600">教员信息</view>
+        </nut-form-item>
+        <nut-form-item label="身份" prop="identity" :rules="[{ required: true, message: '身份不能为空' }]">
+            <nut-radio-group v-model="form.identity">
+                <nut-radio label="大学生教员">大学生教员</nut-radio>
+                <nut-radio label="研究生教员">研究生教员</nut-radio>
+                <nut-radio label="专业教员">专业教员</nut-radio>
+            </nut-radio-group>
+        </nut-form-item>
+        <nut-form-item label="任教对象" prop="student" :rules="[{ required: true, message: '任教对象不能为空' }]">
+            <nut-radio-group v-model="form.student">
+                <nut-radio label="机构">机构</nut-radio>
+                <nut-radio label="个人">个人</nut-radio>
+            </nut-radio-group>
+        </nut-form-item>
+        <nut-form-item label="任教方式" prop="teachingStyle" :rules="[{ required: true, message: '任教方式不能为空' }]">
             <nut-checkbox-group v-model="form.teachingStyle">
                 <nut-checkbox label="线上">线上</nut-checkbox>
                 <nut-checkbox label="线下">线下</nut-checkbox>
             </nut-checkbox-group>
-        </view>
-        <view class="py-2">任教时间</view>
-        <table class="w-full">
-            <tr>
-                <th />
-                <th v-for="d in '一二三四五六日'" :key="d">周{{ d }}</th>
-            </tr>
-            <tr v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period">
-                <th>{{ period }}</th>
-                <th v-for="(d, index) in '一二三四五六日'" :key="d">
-                    <Checkbox v-model="form.teachingTime[pi]" :value="index + 1" />
-                </th>
-            </tr>
-        </table>
-        <view class="py-2">课酬要求</view>
-        <view style="padding: 10px 25px; border-bottom: 1px solid  #eaf0fb">
+        </nut-form-item>
+        <nut-form-item label="任教时间">
+            <table class="w-full">
+                <tr>
+                    <th />
+                    <th v-for="d in '一二三四五六日'" :key="d">周{{ d }}</th>
+                </tr>
+                <tr v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period">
+                    <th>{{ period }}</th>
+                    <th v-for="(d, index) in '一二三四五六日'" :key="d">
+                        <Checkbox v-model="form.teachingTime[pi]" :value="index + 1" />
+                    </th>
+                </tr>
+            </table>
+        </nut-form-item>
+        <nut-form-item label="课酬要求" prop="form.cost" :rules="[{ required: true, message: '课酬要求不能为空' }]">
             <sar-picker-input v-model="form.cost" :columns="dataList?.cost" />
-        </view>
-        <view class="py-2">任教区域</view>
-        <view style="padding: 10px 25px; border-bottom: 1px solid  #eaf0fb">
-            <sar-picker-input v-model="form.address" :columns="dataList?.teachingPosition" />
-        </view>
-        <view class="py-2">任教科目</view>
-        <nut-input />
-        <view class="py-2">任教经历</view>
-        <view @click="a = true">添加任职经历</view>
-        <view class="py-2">自我描述</view>
-        <nut-textarea v-model="form.introduction" />
-        <view class="mt-4">
-            <nut-button type="primary" block>确认注册</nut-button>
-        </view>
-        <nut-checkbox v-model="agreement" class="my-2">
-            <navigator url="/pages/about/agreement">
-                我已阅读并同意 《用户服务协议》及《隐私协议》
-            </navigator>
-        </nut-checkbox>
-    </view>
+        </nut-form-item>
+        <nut-form-item label="任教区域" prop="teachingPosition" :rules="[{ required: true, message: '任教区域不能为空' }]">
+            <view class="flex justify-between">
+                <view>任教区域</view>
+                <nut-button type="primary" size="mini" @click="showPostion">添加任职区域</nut-button>
+            </view>
+            <view class="my-2 flex justify-between" v-for="(item, index) in form.teachingPosition">
+                <view>{{ item }}</view>
+                <view class="color-red" @click="form.teachingPosition.splice(index, 1)">删除</view>
+            </view>
+        </nut-form-item>
+        <nut-form-item label="教学位置" prop="address" :rules="[{ required: true, message: '教学位置不能为空' }]">
+            <nut-input v-model="form.address" />
+        </nut-form-item>
+        <nut-form-item label="任教科目" prop="personalExperience">
+            <template #label>
+                <view class="flex justify-between">
+                    <view>任教科目</view>
+                    <nut-button type="primary" size="mini" @click="showSubject">添加任职经历</nut-button>
+                </view>
+                <view class="my-2 flex justify-between" v-for="(item, index) in form.personalExperience">
+                    <view>{{ item }}</view>
+                    <view class="color-red" @click="form.personalExperience.splice(index, 1)">删除</view>
+                </view>
+            </template>
+        </nut-form-item>
+        <nut-form-item prop="achievement" label="任教经历">
+            <template #label>
+                <view class="flex justify-between">
+                    <view>任教经历</view>
+                    <nut-button type="primary" size="mini" @click="show">添加任职经历</nut-button>
+                </view>
+                <view class="my-2 flex justify-between" v-for="(item, index) in form.achievement">
+                    <view>{{ item }}</view>
+                    <view class="color-red" @click="form.achievement.splice(index, 1)">删除</view>
+                </view>
+            </template>
+        </nut-form-item>
+        <nut-form-item label="自我描述" prop="introduction" :rules="[{ required: true, message: '自我描述不能为空' }]">
+            <nut-textarea v-model="form.introduction" />
+            <view class="mt-4">
+                <nut-button type="primary" block @click="register">确认注册</nut-button>
+            </view>
+        </nut-form-item>
+        <nut-form-item>
+            <nut-checkbox v-model="agreement" class="my-2">
+                <navigator url="/pages/about/agreement">
+                    我已阅读并同意 《用户服务协议》及《隐私协议》
+                </navigator>
+            </nut-checkbox>
+        </nut-form-item>
+    </nut-form>
+    <sar-popout v-model:visible="positionVisible" title="请选择任教科目" @confirm="onSelectPostion">
+        <sar-picker title="选择任教区域" v-model="postion" :columns="dataList?.teachingPosition" />
+    </sar-popout>
+    <sar-popout v-model:visible="subjectVisible" title="请选择任教科目" @confirm="onSelectSubject">
+        <sar-cascader v-model="subject" :options="subjectsData" />
+    </sar-popout>
+    <sar-popout v-model:visible="recordVisible" title="请填写所获证书" @confirm="add">
+        <nut-form ref="recordRef" :model-value="record">
+            <nut-form-item label="日期" prop="date" :rules="[{ required: true, message: '日期不能为空' }]">
+                <sar-datetime-picker-input v-model="record.date" type="yM" />
+            </nut-form-item>
+            <nut-form-item label="比赛" prop="location" :rules="[{ required: true, message: '比赛不能为空' }]">
+                <nut-input v-model="record.location" />
+            </nut-form-item>
+            <nut-form-item label="奖项" prop="prix" :rules="[{ required: true, message: '奖项不能为空' }]">
+                <nut-input v-model="record.prix" />
+            </nut-form-item>
+        </nut-form>
+    </sar-popout>
 </template>
 
 <script setup lang="ts">
-import type { FileItem, UploadOptions } from 'nutui-uniapp'
+import type { FileItem, FormInst, UploadOptions } from 'nutui-uniapp'
 import Checkbox from '@/components/Checkbox.vue'
 import { ploadFilePromise } from '@/utls/image-tools';
 import { listData } from '@/store';
-import { teacherDetail } from '@/api';
-import type { Teacher } from '@/api/interfaces';
+import { format, formatM } from '@/utls';
+import type { TeacherForm } from '@/api/interfaces';
 
 const dataList = listData();
 
-const form = ref({
-    teachingTime: Array(3).fill([]).map(() => Array(7))
-} as Teacher)
+const form = ref<TeacherForm>({
+    phone: '',
+    name: '',
+    sex: '',
+    college: '',
+    major: '',
+    birthday: '',
+    tutorAge: '',
+    image: '',
+    identity: '',
+    teachingCourse: [],
+    teachingPosition: [],
+    student: '',
+    teachingStyle: [],
+    teachingTime: Array(3).fill([]).map(() => Array(7)),
+    address: '',
+    cost: '',
+    introduction: '',
+    personalExperience: [],
+    achievement: [],
+    costRequest: '',
 
-teacherDetail({ phone: '17739696712' }).then(resp => {
-    form.value = resp.data.teacher_detail
 })
 
-const agreement = ref(false)
-
 const birthday = ref()
+watch(birthday, () => {
+    form.value.birthday = format(birthday.value)
+})
 
+const postion = ref<string>();
+const positionVisible = ref();
+function showPostion() {
+    postion.value = undefined;
+    positionVisible.value = true;
+}
+function onSelectPostion() {
+    form.value.teachingPosition.push(postion.value!)
+}
+
+const subject = ref();
+const subjectVisible = ref(false);
+const subjectsData = computed(() => {
+    return dataList.value?.subjects.map(it => {
+        return {
+            label: it.name,
+            value: it.name,
+            children: it.children.map((it1) => {
+                return {
+                    label: it1.subject,
+                    value: `${it.name} ${it1.subject}`
+                }
+            })
+        }
+    })
+})
+function showSubject() {
+    subject.value = undefined;
+    subjectVisible.value = true;
+}
+function onSelectSubject() {
+    form.value.personalExperience.push(subject.value!)
+}
+
+
+//任教经历
+const record = ref({
+    date: undefined,
+    location: "",
+    prix: ""
+})
+const recordRef = ref<FormInst>();
+const recordVisible = ref(false)
+
+function show() {
+    record.value = {
+        date: undefined,
+        location: "",
+        prix: ""
+    }
+    recordVisible.value = true;
+}
+
+function add() {
+    recordRef.value!.validate().then(({ valid }) => {
+        if (valid) {
+            const { date, location, prix } = record.value;
+            // @ts-ignore
+            const str = `${formatM(date)} ${location} ${prix}`
+            form.value.achievement.push(str)
+        } else {
+            recordVisible.value = true
+        }
+    })
+}
+
+
+const agreement = ref(false)
 
 //上传
 const filelist = ref<FileItem[]>()
@@ -108,13 +260,34 @@ function beforeUpload(_: any, options: UploadOptions) {
     })
 }
 
-//任职经历
-const a = ref(false)
+const formRef = ref<FormInst>()
+
+function register() {
+    return formRef.value!.validate().then(({ valid }) => {
+        if (valid) {
+        }
+    })
+}
+
+
+teacherDetail({ phone: '17739696712' }).then(resp => {
+    form.value = resp.data.teacher_detail
+})
 </script>
 
 <style>
-page {
-    background: white;
+.nut-form {
+    --nut-cell-desc-color: black
+}
+
+.nut-form-item__top {
+    .nut-form-item {
+        padding-right: unset !important;
+    }
+
+    .nut-form-item__label {
+        padding-right: unset !important;
+    }
 }
 
 th {
