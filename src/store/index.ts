@@ -1,13 +1,12 @@
 import { bigList, home, list } from "@/api"
 import type { BigData, DataList, HomeData } from "@/api/interfaces";
 
-export const address = ref<[]>()
-
 const data = ref<BigData>()
 export function bigData() {
     if (!data.value) {
         bigList({ page: 1, per_page: 10, name: "教员简介" }).then(resp => {
             data.value = resp.data;
+
         })
     }
     return data;
@@ -29,9 +28,7 @@ export function homeData() {
 const dataList = ref<DataList>()
 export function listData() {
     if (!dataList.value) {
-        list({
-            
-        }).then(resp => {
+        list({}).then(resp => {
             dataList.value = resp.data;
         })
     }

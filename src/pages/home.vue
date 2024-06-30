@@ -59,6 +59,7 @@
 </template>
 
 <script setup lang="ts">
+import Location from '@/components/Location.vue';
 import { bigList, home } from '@/api'
 import type { BigData, HomeData } from '@/api/interfaces'
 

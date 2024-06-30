@@ -18,6 +18,9 @@
     },
     {
       "path": "pages/publicity",
+      "style": {
+        "navigationStyle": "custom"
+      }
     },
     {
       "path": "pages/publish",
@@ -163,7 +166,7 @@
         "text": "宣传资讯",
         "pagePath": "pages/publicity",
         "iconPath": "static/tabBar/publicity.png",
-        "selectedIconPath": "static/tabBar/publicity.png"
+        "selectedIconPath": "static/tabBar/a_publicity.png"
       },
       {
         "text": "需求发布",
