@@ -154,24 +154,34 @@
     "selectedColor": "#6979F8",
     "list": [
       {
-        "text": "需求发布",
-        "pagePath": "/pages/publish"
+        "text": "首页",
+        "pagePath": "pages/home",
+        "iconPath": "static/tabBar/home.png",
+        // "selectedIconPath": "static/tabBar/a_home.png"
       },
       {
         "text": "宣传资讯",
-        "pagePath": "/pages/publicity"
+        "pagePath": "pages/publicity",
+        "iconPath": "static/tabBar/publicity.png",
+        "selectedIconPath": "static/tabBar/publicity.png"
       },
       {
-        "text": "首页",
-        "pagePath": "/pages/home"
+        "text": "需求发布",
+        "pagePath": "pages/publish",
+        "iconPath": "static/tabBar/publish.png",
+        "selectedIconPath": "static/tabBar/a_publish.png"
       },
       {
         "text": "联系客服",
-        "pagePath": "/pages/contact"
+        "pagePath": "pages/contact",
+        "iconPath": "static/tabBar/contact.png",
+        "selectedIconPath": "static/tabBar/a_contact.png"
       },
       {
         "text": "个人中心",
-        "pagePath": "/pages/user"
+        "pagePath": "pages/user",
+        "iconPath": "static/tabBar/user.png",
+        "selectedIconPath": "static/tabBar/a_user.png"
       }
     ]
   }

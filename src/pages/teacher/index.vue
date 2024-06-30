@@ -34,7 +34,7 @@
           </view>
         </view>
         <view class="mt-2 flex gap-2">
-          <nut-tag type="primary">{{ item.school }}</nut-tag>
+          <nut-tag type="primary">{{ item.college }}</nut-tag>
           <nut-tag type="primary">数学师范 研究生</nut-tag>
         </view>
       </sar-card>
