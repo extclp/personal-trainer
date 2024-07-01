@@ -21,6 +21,7 @@ if (uni.getStorageSync('token')) {
 const form = reactive({
   mobile: '15006294478',
   captcha: '',
+  token: '',
 })
 
 function handleSendCode() {
@@ -32,8 +33,8 @@ function handleSendCode() {
 
 function handleLogin() {
   login(form).then((resp) => {
-    localStorage.setItem('token', resp.token)
-    localStorage.setItem('phone', form.mobile)
+    uni.setStorageSync('token', resp.token)
+    uni.setStorageSync('phone', form.mobile)
     uni.navigateTo({
       url: '/pages/home/index',
     })

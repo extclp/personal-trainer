@@ -45,7 +45,7 @@
       "style": {
         "navigationBarTitleText": "文章列表"
       }
-    },  
+    },
     {
       "path": "pages/article/detail",
       "style": {
@@ -70,31 +70,31 @@
     {
       "path": "pages/teacher/index",
       "style": {
-        "navigationBarTextStyle": "教员列表"
+        "navigationBarTitleText": "教员列表"
       }
     },
     {
       "path": "pages/teacher/detail",
       "style": {
-        "navigationBarTextStyle": "教员详情"
+        "navigationBarTitleText": "教员详情"
       }
     },
     {
       "path": "pages/teacher/update",
       "style": {
-        "navigationBarTextStyle": "更新简历"
+        "navigationBarTitleText": "更新简历"
       }
     },
     {
       "path": "pages/teacher/my-commit",
       "style": {
-        "navigationBarTextStyle": "我的评价"
+        "navigationBarTitleText": "我的评价"
       }
     },
     {
       "path": "pages/commit",
       "style": {
-        "navigationBarTextStyle": "我的评价"
+        "navigationBarTitleText": "我的评价"
       }
     },
     {

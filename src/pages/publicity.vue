@@ -6,7 +6,6 @@
         <image class="w-full" :src="image" mode="aspectFill" />
       </swiper-item>
     </swiper>
-
     <uni-card>
       <view class="flex gap-2">
         <image class="size-6" src="@/static/icons/notice.svg" />

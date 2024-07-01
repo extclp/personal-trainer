@@ -42,18 +42,24 @@
       </view>
     </view>
     <view class="m-4 flex gap-3 text-sm">
-      <view class="bg-r h-20 w-full center gap-1 b-10 rounded-xl" @click="teacherList('大学生教员')">
-        <image class="h-5 w-5" src="@/static/home/大学生教员.png" />
-        <view>大学生教员</view>
-      </view>
-      <view class="bg-r h-20 w-full center gap-1 b-10 rounded-xl" @click="teacherList('研究生教员')">
-        <image class="h-5 w-5" src="@/static/home/研究生教员.png" />
-        <view>研究生教员</view>
-      </view>
-      <view class="bg-r h-20 w-full center gap-1 b-10 rounded-xl" @click="teacherList('专业教员')">
-        <image class="h-5 w-5" src="@/static/home/专业教员.png" />
-        <view>专业教员</view>
-      </view>
+      <navigator class="bg-r h-20 w-full center gap-1 b-10 rounded-xl" url="/pages/teacher/index?identity=大学生教员">
+        <view class="bg-r h-20 w-full center gap-1 b-10 rounded-xl">
+          <image class="h-5 w-5" src="@/static/home/大学生教员.png" />
+          <view>大学生教员</view>
+        </view>
+      </navigator>
+      <navigator class="bg-r h-20 w-full center gap-1 b-10 rounded-xl" url="/pages/teacher/index?identity=研究生教员">
+        <view class="bg-r h-20 w-full center gap-1 b-10 rounded-xl">
+          <image class="h-5 w-5" src="@/static/home/研究生教员.png" />
+          <view>研究生教员</view>
+        </view>
+      </navigator>
+      <navigator class="bg-r h-20 w-full center gap-1 b-10 rounded-xl" url="/pages/teacher/index?identity=专业教员">
+        <view class="bg-r h-20 w-full center gap-1 b-10 rounded-xl">
+          <image class="h-5 w-5" src="@/static/home/专业教员.png" />
+          <view>专业教员</view>
+        </view>
+      </navigator>
     </view>
   </template>
 </template>

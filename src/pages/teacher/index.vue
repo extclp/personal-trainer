@@ -1,45 +1,55 @@
 <template>
   <view class="h-full flex flex-col">
     <view>
+      <!-- 科目 对线 线上 区域 -->
       <sar-dropdown>
-        <sar-dropdown-item label="教龄" :options="makeLV(dataList?.tutor_age)" @update:model-value="search" />
-        <sar-dropdown-item label="区域" :options="makeLV(dataList?.teachingPosition)" @update:model-value="search" />
+        <sar-dropdown-item v-model="form.identity" placeholder="科目" :options="subjectsData" />
         <sar-dropdown-item
-          v-model="form.teaching_position" label="价格" :options="makeLV(dataList?.cost)"
+          v-model="form.identity" placeholder="身份" :options="makeLV(['大学生教员', '研究生教员', '专业教员'])"
           @update:model-value="search"
+        />
+        <sar-dropdown-item
+          v-model="form.teaching_type" placeholder="线上/下" :options="makeLV(['线上', '线下'])"
+          @update:model-value="search"
+        />
+        <sar-dropdown-item
+          v-model="form.teaching_position" placeholder="区域"
+          :options="makeLV(dataList?.teachingPosition)" @update:model-value="search"
         />
       </sar-dropdown>
     </view>
     <scroll-view scroll-y class="flex-1 overflow-hidden" @scrolltolower="loadMore">
-      <sar-card v-for="item in data" class="m4">
-        <view class="flex gap-2">
-          <view class="text-center">
-            <nut-avatar class="mb-2" :size="70" />
-            <view class="text-xs text-[#AAA6B9]">最近登录</view>
-            <view class="mt-1 text-xs text-[#AAA6B9]">{{ item.login_time }}</view>
-          </view>
-          <view class="flex-1">
-            <text class="float-right">
-              <text class="text-primary">¥110</text>
-              <text class="text-[#AAA6B9]">/小时</text>
-            </text>
-            <text>朱飒</text>
-            <nut-tag type="primary" class="ml2">研究生教员</nut-tag>
-            <view class="mt-6">
-              <text class="w-8 text-primary">科目：</text>
-              <text>初中数学</text>
+      <navigator v-for="item in data" :key="item.phone" :to="`/pages/teacher/detail?phone=${item.phone}`">
+        <sar-card class="m4">
+          <view class="flex gap-2">
+            <view class="text-center">
+              <nut-avatar class="mb-2" :size="70" />
+              <view class="text-xs text-[#AAA6B9]">最近登录</view>
+              <view class="mt-1 text-xs text-[#AAA6B9]">{{ item.login_time }}</view>
             </view>
-            <view class="mt-2">
-              <text class="w-8 text-primary">地区：</text>
-              <text>崇川区</text>
+            <view class="flex-1">
+              <text class="float-right">
+                <text class="text-primary">¥110</text>
+                <text class="text-[#AAA6B9]">/小时</text>
+              </text>
+              <text>朱飒</text>
+              <nut-tag type="primary" class="ml2">研究生教员</nut-tag>
+              <view class="mt-6">
+                <text class="w-8 text-primary">科目：</text>
+                <text>初中数学</text>
+              </view>
+              <view class="mt-2">
+                <text class="w-8 text-primary">地区：</text>
+                <text>崇川区</text>
+              </view>
             </view>
           </view>
-        </view>
-        <view class="mt-2 flex gap-2">
-          <nut-tag type="primary">{{ item.college }}</nut-tag>
-          <nut-tag type="primary">数学师范 研究生</nut-tag>
-        </view>
-      </sar-card>
+          <view class="mt-2 flex gap-2">
+            <nut-tag type="primary">{{ item.college }}</nut-tag>
+            <nut-tag type="primary">数学师范 研究生</nut-tag>
+          </view>
+        </sar-card>
+      </navigator>
       <sar-load-more :status="loadMoreStautus" />
     </scroll-view>
   </view>
@@ -47,6 +57,7 @@
 
 <script setup lang="ts">
 import type { LoadMoreStatus } from 'sard-uniapp'
+import { onLoad } from '@dcloudio/uni-app'
 import { teachers } from '@/api'
 import type { Teacher } from '@/api/interfaces'
 import { listData } from '@/store'
@@ -54,6 +65,18 @@ import { makeLV } from '@/utls'
 
 const dataList = listData()
 
+const subjectsData = computed(() => {
+  return dataList.value?.subjects.map((it) => {
+    return it.children.map((it1) => {
+      return {
+        label: `${it.name} ${it1.subject}`,
+        value: `${it.name} ${it1.subject}`,
+      }
+    })
+  }).flat()
+})
+
+// 线上/线下
 const form = reactive({
   page: 1,
   per_page: 10,
@@ -61,7 +84,11 @@ const form = reactive({
   subjects: '',
   identity: '',
   teaching_type: '',
-  teaching_position: '幸福附近',
+  teaching_position: uni.getStorageSync('location'),
+})
+
+onLoad((query) => {
+  form.identity = query!.identity
 })
 
 const data = ref<Teacher[]>([])

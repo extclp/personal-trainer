@@ -22,7 +22,7 @@ import { type QrcodeData, teacherQRcode } from '@/api/teacher'
 const data = ref<QrcodeData>()
 
 teacherQRcode({
-  phone: localStorage.getItem('token'),
+  phone: uni.getStorageSync('token'),
 }).then((resp) => {
   data.value = resp.data
 })

@@ -19,12 +19,12 @@ export function request<T = any, R extends Result<T> = Result<T>>(path: string, 
         jsonrpc: '2.0',
         method: 'call',
         params: {
-          mobile: localStorage.getItem('phone'),
+          mobile: uni.getStorageSync('phone'),
           ...params,
         },
       },
       header: {
-        token: localStorage.getItem('token'),
+        token: uni.getStorageSync('token'),
       },
       success(result) {
         // @ts-expect-error

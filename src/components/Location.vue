@@ -8,12 +8,12 @@
   </view>
 
   <sar-popout v-model:visible="visible" title="选择区域">
-    <sar-picker v-model="location" :columns="data?.address" />
+    <sar-picker v-model="location" :columns="data?.search_list.teachingPosition" />
   </sar-popout>
 </template>
 
 <script setup lang="ts">
-import { homeData } from '@/store'
+import { bigData } from '@/store'
 
 let menuButton = {
   bottom: 83,
@@ -35,10 +35,10 @@ watch(location, () => {
   uni.setStorageSync('location', location.value)
 })
 
-const data = homeData()
+const data = bigData()
 watch(data, (value) => {
   if (!location.value) {
-    location.value = value!.address[0]
+    location.value = value!.search_list.teachingPosition[0]
   }
 })
 </script>

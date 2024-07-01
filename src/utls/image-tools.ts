@@ -16,7 +16,7 @@ export function ploadFilePromise(url: string) {
       success(resp) {
         const base64 = uni.arrayBufferToBase64(resp.data as ArrayBuffer)
         resolve(`data:image/jpeg;base64,${base64}`)
-      }
+      },
     })
     // #endif
   })
