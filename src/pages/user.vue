@@ -69,17 +69,19 @@
       <template #title>
         <view class="flex items-center gap-3">
           <image class="size-6" src="@/static/user/about-fee.svg" />
-          <view>家教说明</view>
+          <view>关于价格</view>
         </view>
       </template>
     </nut-cell>
-    <nut-cell is-link to="/pages/about/order">
-      <template #title>
-        <view class="flex items-center gap-3">
-          <image class="size-6" src="@/static/user/about-order.svg" />
-          <text>接单说明</text>
-        </view>
-      </template>
+    <nut-cell v-if="teacher">
+      <nut-cell is-link to="/pages/about/order">
+        <template #title>
+          <view class="flex items-center gap-3">
+            <image class="size-6" src="@/static/user/about-order.svg" />
+            <text>接单说明</text>
+          </view>
+        </template>
+      </nut-cell>
     </nut-cell>
   </nut-cell-group>
 </template>
