@@ -65,7 +65,7 @@
         </view>
       </template>
     </nut-cell>
-    <nut-cell is-link to="/pages/about/fees">
+    <nut-cell is-link to="/pages/about/fee">
       <template #title>
         <view class="flex items-center gap-3">
           <image class="size-6" src="@/static/user/about-fee.svg" />

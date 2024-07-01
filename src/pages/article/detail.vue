@@ -6,7 +6,7 @@
       <view class="ml-auto">{{ ago(data.time) }}</view>
     </view>
     <view class="my-4 font-600">{{ data.name }}</view>
-    <view>{{ data.content }}</view>
+    <view class="whitespace-pre-line">{{ data.content }}</view>
   </view>
 </template>
 

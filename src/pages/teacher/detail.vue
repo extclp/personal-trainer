@@ -24,7 +24,7 @@
     <sar-card class="m-4">
       <view>
         <view class="mb-2 text-lg text-primary">教学经验</view>
-        <view>{{ data.introduction }}</view>
+        <view class="whitespace-pre-line">{{ data.introduction }}</view>
       </view>
     </sar-card>
     <sar-card class="m-4">

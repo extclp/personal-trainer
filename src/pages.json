@@ -152,7 +152,7 @@
       }
     },
     {
-      "path": "pages/about/fees",
+      "path": "pages/about/fee",
       "style": {
         "navigationBarTitleText": "关于价格"
       }
