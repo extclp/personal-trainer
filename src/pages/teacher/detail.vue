@@ -45,18 +45,18 @@
   </sar-card>
   <sar-card class="m-4">
     <view class="my-2 text-lg text-primary">任教时间</view>
-    <table class="w-full">
-      <tr>
-        <th />
-        <th v-for="d in '一二三四五六日'" :key="d">周{{ d }}</th>
-      </tr>
-      <tr v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period">
-        <th>{{ period }}</th>
-        <th v-for="(d, index) in '一二三四五六日'" :key="d">
-          <Checkbox />
-        </th>
-      </tr>
-    </table>
+    <uni-table class="w-full" border>
+      <uni-tr>
+        <uni-th />
+        <uni-th v-for="d in '一二三四五六日'" :key="d">周{{ d }}</uni-th>
+      </uni-tr>
+      <uni-tr v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period">
+        <uni-th>{{ period }}</uni-th>
+        <uni-th v-for="(d, index) in '一二三四五六日'" :key="d">
+          <Checkbox v-model="form.teachingTime[pi]" :value="index + 1" />
+        </uni-th>
+      </uni-tr>
+    </uni-table>
   </sar-card>
   <sar-card class="m-4">
     <view class="my-2 text-lg text-primary">授课费用</view>
@@ -78,15 +78,3 @@
     </view>
   </sar-card>
 </template>
-
-<style lang="scss">
-table {
-    border-collapse: collapse;
-}
-
-th {
-    padding: 16rpx;
-    border: 1px #fb7206 solid;
-
-}
-</style>

@@ -43,18 +43,18 @@
       </nut-checkbox-group>
     </nut-form-item>
     <nut-form-item label="任教时间">
-      <table class="w-full">
-        <tr>
-          <th />
-          <th v-for="d in '一二三四五六日'" :key="d">周{{ d }}</th>
-        </tr>
-        <tr v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period">
-          <th>{{ period }}</th>
-          <th v-for="(d, index) in '一二三四五六日'" :key="d">
+      <uni-table class="w-full" border>
+        <uni-tr>
+          <uni-th />
+          <uni-th v-for="d in '一二三四五六日'" :key="d">周{{ d }}</uni-th>
+        </uni-tr>
+        <uni-tr v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period">
+          <uni-th>{{ period }}</uni-th>
+          <uni-th v-for="(d, index) in '一二三四五六日'" :key="d">
             <Checkbox v-model="form.teachingTime[pi]" :value="index + 1" />
-          </th>
-        </tr>
-      </table>
+          </uni-th>
+        </uni-tr>
+      </uni-table>
     </nut-form-item>
     <nut-form-item label="课酬要求" prop="form.cost" :rules="[{ required: true, message: '课酬要求不能为空' }]">
       <sar-picker-input v-model="form.cost" :columns="dataList?.cost" />
@@ -273,11 +273,5 @@ function register() {
 
 .nut-form-item__label {
   padding-right: unset !important;
-}
-
-th {
-  padding: 16rpx;
-  border-bottom: 1px #ebeef5 solid;
-  border-right: 1px #ebeef5 solid;
 }
 </style>
