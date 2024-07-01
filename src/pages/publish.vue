@@ -66,12 +66,11 @@
         <nut-button type="primary" block @click="handleSubmit">确认发布</nut-button>
       </view>
     </nut-form-item>
-
   </nut-form>
 </template>
 
 <script setup lang="ts">
-import Checkbox from "@/components/Checkbox.vue"
+import Checkbox from '@/components/Checkbox.vue'
 import { createOrder } from '@/api'
 import { listData } from '@/store'
 

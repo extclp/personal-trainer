@@ -20,7 +20,7 @@ export function request<T = any, R extends Result<T> = Result<T>>(path: string, 
         method: 'call',
         params: {
           mobile: localStorage.getItem('phone'),
-          ...params
+          ...params,
         },
       },
       header: {

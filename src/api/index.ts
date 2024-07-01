@@ -17,7 +17,7 @@ export function search(data: Data) {
   return request('/search', data)
 }
 
-//文章
+// 文章
 export function articleCatlog() {
   return request('/academic/titles')
 }
@@ -64,8 +64,7 @@ export function teacherDetail(data?: Data) {
   return request('/teacher/detail', data)
 }
 
-
-//订单列表
+// 订单列表
 export function finishedOrders(data: Data) {
   return request('/customer/finished_order', data)
 }
@@ -104,14 +103,13 @@ export function createOrder(data: Data) {
   return request('/customer/create_order', data)
 }
 
-
-//收藏
+// 收藏
 export function articleLike(data: Data) {
-  return request("/academic/like", data)
+  return request('/academic/like', data)
 }
 
 export function teacherLike(data: Data) {
-  return request("/teacher/like", data)
+  return request('/teacher/like', data)
 }
 
 export function collect(data: Data) {

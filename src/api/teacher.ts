@@ -46,11 +46,10 @@ export interface OrderPublic {
   }[]
 }
 
-
 export interface QrcodeData {
-  name: string,
-  qr_code_path: string,
-  status: "锁定",
-  login_time: string,
+  name: string
+  qr_code_path: string
+  status: '锁定'
+  login_time: string
   image: string
 }

@@ -30,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { orders } from '@/api';
+import { orders } from '@/api'
 
 const data = ref()
 

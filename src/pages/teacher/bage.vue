@@ -1,5 +1,5 @@
 <template>
-  <view class="page flex-col" v-if="data">
+  <view v-if="data" class="page flex-col">
     <view class="flex-1 flex-col">
       <view class="section_4 relative flex-col justify-start">
         <view class="section_5" />
@@ -15,17 +15,19 @@
     </view>
   </view>
 </template>
-<script setup lang="ts">
-import { teacherQRcode, type QrcodeData } from '@/api/teacher';
 
-const data = ref<QrcodeData>();
+<script setup lang="ts">
+import { type QrcodeData, teacherQRcode } from '@/api/teacher'
+
+const data = ref<QrcodeData>()
 
 teacherQRcode({
-  phone: localStorage.getItem("token")
-}).then(resp => {
-  data.value = resp.data;
+  phone: localStorage.getItem('token'),
+}).then((resp) => {
+  data.value = resp.data
 })
 </script>
+
 <style lang="scss">
 .page {
   height: 100%;

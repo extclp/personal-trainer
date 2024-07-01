@@ -37,10 +37,10 @@ export function listData() {
 export const teacher = ref(isTeacher())
 
 export function setTechaer(type: number) {
-  teacher.value == !!type;
-  localStorage.setItem("isTeacher", String(type));
+  teacher.value == !!type
+  localStorage.setItem('isTeacher', String(type))
 }
 
 export function isTeacher() {
-  return localStorage.getItem("isTeacher") == '1';
+  return localStorage.getItem('isTeacher') == '1'
 }

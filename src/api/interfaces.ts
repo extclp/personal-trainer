@@ -70,15 +70,15 @@ export interface BigData {
 }
 
 export interface ArticleCatlog {
-  id: number;
-  image: string;
-  titles: string;
+  id: number
+  image: string
+  titles: string
 }
 
 export interface ArticleList {
-  like: boolean,
-  title: string,
-  article: string,
+  like: boolean
+  title: string
+  article: string
   image: string
 
 }
@@ -142,12 +142,11 @@ export interface Teacher extends TeacherForm {
   login_time: string
 }
 
-
 export interface Collect {
-  trechers: Teacher[],
+  trechers: Teacher[]
   articles: {
-    title: string;
-    article: string;
-    image: string;
-  }[];
+    title: string
+    article: string
+    image: string
+  }[]
 }

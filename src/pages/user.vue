@@ -85,8 +85,7 @@
 </template>
 
 <script setup lang="ts">
-import { isTeacher } from '@/store';
+import { isTeacher } from '@/store'
 
-
-const teahcer = isTeacher();
+const teahcer = isTeacher()
 </script>

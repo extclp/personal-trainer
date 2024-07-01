@@ -5,7 +5,7 @@
       <view class="text-center">
         <nut-avatar class="mb-2" :size="70" />
         <view class="text-xs text-[#AAA6B9]">最近登录</view>
-        <view class="mt-1 text-xs text-[#AAA6B9]">今天</view>
+        <view class="mt-1 text-xs text-[#AAA6B9]">{{ item.login_time }}</view>
       </view>
 
       <view class="flex-1">
@@ -37,21 +37,21 @@
       <view class="flex gap-2">
         <image class="size-20 shrink-0" :src="item.image" />
         <view class="overflow-hidden">
-          <view class="font-600 truncate my-3">{{ item.article }}</view>
+          <view class="my-3 truncate font-600">{{ item.article }}</view>
           <view class="mt-2">{{ item.title }}</view>
         </view>
       </view>
     </sar-card>
   </navigator>
-
 </template>
+
 <script setup lang="ts">
-import { collect } from '@/api';
-import type { Collect } from '@/api/interfaces';
+import { collect } from '@/api'
+import type { Collect } from '@/api/interfaces'
 
-const data = ref<Collect>();
+const data = ref<Collect>()
 
-collect({ per_page: 1000, number: 1 }).then(resp => {
-  data.value = resp.data;
+collect({ per_page: 1000, number: 1 }).then((resp) => {
+  data.value = resp.data
 })
 </script>

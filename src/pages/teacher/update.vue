@@ -152,7 +152,7 @@ const form = ref<TeacherForm>({
   teachingPosition: [],
   student: '',
   teachingStyle: [],
-  teachingTime:  Array(3),
+  teachingTime: Array(3),
   address: '',
   cost: '',
   introduction: '',

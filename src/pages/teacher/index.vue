@@ -15,8 +15,8 @@
         <view class="flex gap-2">
           <view class="text-center">
             <nut-avatar class="mb-2" :size="70" />
-            <view>最近登录</view>
-            <view>{{ item.login_time }}</view>
+            <view class="text-xs text-[#AAA6B9]">最近登录</view>
+            <view class="mt-1 text-xs text-[#AAA6B9]">{{ item.login_time }}</view>
           </view>
           <view class="flex-1">
             <text class="float-right">
