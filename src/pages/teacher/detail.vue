@@ -79,7 +79,7 @@
   </sar-card>
 </template>
 
-<style>
+<style lang="scss">
 table {
     border-collapse: collapse;
 }

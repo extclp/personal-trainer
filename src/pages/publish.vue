@@ -115,7 +115,7 @@ function handleSubmit() {
 }
 </script>
 
-<style>
+<style lang="scss">
 .nut-form {
   --nut-cell-desc-color: black
 }

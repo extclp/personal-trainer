@@ -108,7 +108,7 @@ const images = [
 ]
 </script>
 
-<style>
+<style lang="scss">
 .techer-detail {
   background: linear-gradient(to bottom, #fa6954, #fa804d);
 }

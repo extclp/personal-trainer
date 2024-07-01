@@ -135,6 +135,7 @@ import { ploadFilePromise } from '@/utls/image-tools'
 import { listData } from '@/store'
 import { format, formatM } from '@/utls'
 import type { TeacherForm } from '@/api/interfaces'
+import { teacherDetail } from '@/api'
 
 const dataList = listData()
 
@@ -259,29 +260,29 @@ function register() {
   })
 }
 
-teacherDetail({ phone: '17739696712' }).then((resp) => {
+teacherDetail({ phone: uni.getStorageSync("phone") }).then((resp) => {
   form.value = resp.data.teacher_detail
 })
 </script>
 
-<style>
+<style lang="scss">
 .nut-form {
-    --nut-cell-desc-color: black
+  --nut-cell-desc-color: black
 }
 
 .nut-form-item__top {
-    .nut-form-item {
-        padding-right: unset !important;
-    }
+  .nut-form-item {
+    padding-right: unset !important;
+  }
 
-    .nut-form-item__label {
-        padding-right: unset !important;
-    }
+  .nut-form-item__label {
+    padding-right: unset !important;
+  }
 }
 
 th {
-    padding: 16rpx;
-    border-bottom: 1px #ebeef5 solid;
-    border-right: 1px #ebeef5 solid;
+  padding: 16rpx;
+  border-bottom: 1px #ebeef5 solid;
+  border-right: 1px #ebeef5 solid;
 }
 </style>
