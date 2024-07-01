@@ -33,3 +33,14 @@ export function listData() {
   }
   return dataList
 }
+
+export const teacher = ref(isTeacher())
+
+export function setTechaer(type: number) {
+  teacher.value == !!type;
+  localStorage.setItem("isTeacher", String(type));
+}
+
+export function isTeacher() {
+  return localStorage.getItem("isTeacher") == '1';
+}

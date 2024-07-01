@@ -86,6 +86,12 @@
       }
     },
     {
+      "path": "pages/teacher/my-commit",
+      "style": {
+        "navigationBarTextStyle": "我的评价"
+      }
+    },
+    {
       "path": "pages/commit",
       "style": {
         "navigationBarTextStyle": "我的评价"
@@ -109,6 +115,12 @@
         "navigationBarTitleText": "订单列表"
       }
     },
+    {
+      "path": "pages/order/finished",
+      "style": {
+        "navigationBarTitleText": "完成的订单"
+      }
+    }
     {
       "path": "pages/teacher/bage",
       "style": {

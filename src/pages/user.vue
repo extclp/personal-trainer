@@ -8,36 +8,44 @@
       </view>
     </view>
   </sar-card>
-  <uni-card title="服务">
-    <view class="flex justify-evenly text-center">
-      <view>
-        <image class="size-8" src="@/static/user/create.svg" />
-        <view>创建订单</view>
-      </view>
-      <view>
+  <uni-card v-if="teahcer" title="服务">
+    <view class="flex justify-between text-center">
+      <navigator url="/pages/teacher/my-commit" open-type="switchTab">
+        <image class="size-8" src="@/static/user/commit.svg" />
+        <view>我的评价</view>
+      </navigator>
+      <navigator url="/pages/teacher/order">
         <image class="size-8" src="@/static/user/order.svg" />
         <view>我的订单</view>
-      </view>
-      <template v-if="teacher">
-        <view>
-          <image class="size-8" src="@/static/user/edit.svg" />
-          <view>编辑简历</view>
-        </view>
-        <view>
-          <image class="size-8" src="@/static/user/bage.svg" />
-          <view>我的工牌</view>
-        </view>
-      </template>
-      <template v-else>
-        <view>
-          <image class="size-8" src="@/static/user/finished.svg" />
-          <view>完成订单</view>
-        </view>
-        <view>
-          <image class="size-8" src="@/static/user/register.svg" />
-          <view>教员注册</view>
-        </view>
-      </template>
+      </navigator>
+      <navigator url="/pages/teahcer/update">
+        <image class="size-8" src="@/static/user/edit.svg" />
+        <view>编辑简历</view>
+      </navigator>
+      <navigator url="/pages/teahcer/bage">
+        <image class="size-8" src="@/static/user/bage.svg" />
+        <view>我的工牌</view>
+      </navigator>
+    </view>
+  </uni-card>
+  <uni-card v-else title="服务">
+    <view class="flex justify-between text-center">
+      <navigator url="/pages/publish" open-type="switchTab">
+        <image class="size-8" src="@/static/user/create.svg" />
+        <view>创建订单</view>
+      </navigator>
+      <navigator url="/pages/order/index">
+        <image class="size-8" src="@/static/user/order.svg" />
+        <view>我的订单</view>
+      </navigator>
+      <navigator url="/pages/order/finished">
+        <image class="size-8" src="@/static/user/finished.svg" />
+        <view>完成订单</view>
+      </navigator>
+      <navigator url="/pages/teacher/register">
+        <image class="size-8" src="@/static/user/register.svg" />
+        <view>教员注册</view>
+      </navigator>
     </view>
   </uni-card>
   <nut-cell-group class="m-4">
@@ -77,5 +85,8 @@
 </template>
 
 <script setup lang="ts">
-const teacher = ref(true)
+import { isTeacher } from '@/store';
+
+
+const teahcer = isTeacher();
 </script>
