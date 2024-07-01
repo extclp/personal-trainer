@@ -19,7 +19,7 @@
       </sar-dropdown>
     </view>
     <scroll-view scroll-y class="flex-1 overflow-hidden" @scrolltolower="loadMore">
-      <navigator v-for="item in data" :key="item.phone" :to="`/pages/teacher/detail?phone=${item.phone}`">
+      <navigator v-for="item in data" :key="item.phone" :url="`/pages/teacher/detail?phone=${item.phone}`">
         <sar-card class="m4">
           <view class="flex gap-2">
             <view class="text-center">

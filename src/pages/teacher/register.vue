@@ -75,7 +75,6 @@
     <nut-form-item label="任教科目" prop="personalExperience">
       <template #label>
         <nut-button type="primary" size="mini" class="float-right" @click="showSubject">添加任职经历</nut-button>
-
         <text>任教科目</text>
       </template>
       <view v-for="(item, index) in form.personalExperience" class="my-2 flex justify-between">
