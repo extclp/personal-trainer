@@ -44,7 +44,7 @@ export interface New {
   id: number
   name: string
   title: string
-  image: boolean
+  image: string
 }
 
 export interface BigData {

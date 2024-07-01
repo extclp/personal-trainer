@@ -30,11 +30,11 @@
 </template>
 
 <script setup lang="ts">
-import { orderList } from '@/api/teacher'
+import { orders } from '@/api';
 
 const data = ref()
 
-orderList({
+orders({
   key: 0,
   page: 1,
   per_page: 10,

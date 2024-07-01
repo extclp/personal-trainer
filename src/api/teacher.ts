@@ -12,6 +12,10 @@ export function orderListF(data: Data) {
   return request('/customer/finished_order', data)
 }
 
+export function teacherQRcode(data: Data) {
+  return request('/teacher/qr_code', data)
+}
+
 export interface OrderList {
   orders: {
     order_id: string
@@ -40,4 +44,13 @@ export interface OrderPublic {
     course_time: boolean
     request: string
   }[]
+}
+
+
+export interface QrcodeData {
+  name: string,
+  qr_code_path: string,
+  status: "锁定",
+  login_time: string,
+  image: string
 }

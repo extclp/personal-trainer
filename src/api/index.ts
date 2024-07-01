@@ -64,12 +64,14 @@ export function teacherDetail(data?: Data) {
   return request('/teacher/detail', data)
 }
 
-export function finishedOrder(data: Data) {
-  return request('/myfinishedorder', data)
+
+//订单列表
+export function finishedOrders(data: Data) {
+  return request('/customer/finished_order', data)
 }
 
 export function orders(data: Data) {
-  return request('/myorder', data)
+  return request('/customer_teacher/order', data)
 }
 
 // ======= 留言 =======
