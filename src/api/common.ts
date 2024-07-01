@@ -19,8 +19,8 @@ export function request<T = any, R extends Result<T> = Result<T>>(path: string, 
         jsonrpc: '2.0',
         method: 'call',
         params: {
-          ...params,
           mobile: localStorage.getItem('phone'),
+          ...params
         },
       },
       header: {

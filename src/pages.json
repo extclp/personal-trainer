@@ -37,9 +37,15 @@
     {
       "path": "pages/article/index",
       "style": {
-        "navigationBarTitleText": "文章列表"
+        "navigationBarTitleText": "文章分类"
       }
     },
+    {
+      "path": "pages/article/list",
+      "style": {
+        "navigationBarTitleText": "文章列表"
+      }
+    },  
     {
       "path": "pages/article/detail",
       "style": {

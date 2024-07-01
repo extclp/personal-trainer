@@ -13,16 +13,17 @@ export function rolling(data: Data) {
   return request('/rolling', data)
 }
 
-export function news() {
-  return request('/academic/titles')
-}
-
 export function search(data: Data) {
   return request('/search', data)
 }
 
-export function teachers(data: Data) {
-  return request<{ teachers: [] }>('/select_block', data)
+//文章
+export function articleCatlog() {
+  return request('/academic/titles')
+}
+
+export function articleList(data: Data) {
+  return request('/getone2all/kopp', data)
 }
 
 export function article(data: Data) {
@@ -43,6 +44,10 @@ export function logout(data: Data) {
 }
 
 // ======= 老师 =======
+export function teachers(data: Data) {
+  return request<{ teachers: [] }>('/select_block', data)
+}
+
 export function teacherRegister(data: Data) {
   return request('/teacher', data)
 }
@@ -85,11 +90,6 @@ export function detailFee(data: Data) {
   return request('/fee/detail', data)
 }
 
-// ======= 收藏 =======
-export function collect(data: Data) {
-  return request('/my/like', data)
-}
-
 export function collectArticle(data: Data) {
   return request('/academic/like', data)
 }
@@ -100,4 +100,18 @@ export function list(data: Data) {
 
 export function createOrder(data: Data) {
   return request('/customer/create_order', data)
+}
+
+
+//收藏
+export function articleLike(data: Data) {
+  return request("/academic/like", data)
+}
+
+export function teacherLike(data: Data) {
+  return request("/teacher/like", data)
+}
+
+export function collect(data: Data) {
+  return request('/my/like', data)
 }

@@ -13,10 +13,10 @@
 <script setup lang="ts">
 import { onLoad } from '@dcloudio/uni-app'
 import { article } from '@/api'
-import type { Article } from '@/api/interfaces'
+import type { ArticleDetail } from '@/api/interfaces'
 import { ago } from '@/utls'
 
-const data = ref<Article>()
+const data = ref<ArticleDetail>()
 
 onLoad((query) => {
   article(query!).then((resp) => {

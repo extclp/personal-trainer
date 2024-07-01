@@ -81,7 +81,7 @@ const agreement = ref(false)
 
 const form = reactive({
   phone: '',
-  teachingCourse: '',
+  teachingCourse: undefined,
   teachingPosition: '',
   student: '',
   teachingStyle: [],

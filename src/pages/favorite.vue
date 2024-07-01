@@ -1,5 +1,5 @@
 <template>
-  <view class="m-4 text-lg">文章收藏</view>
+  <view class="m-4 text-lg">教师收藏</view>
   <sar-card class="m-4">
     <view class="flex gap-2">
       <view class="text-center">
@@ -31,5 +31,27 @@
       <nut-tag type="primary">数学师范 研究生</nut-tag>
     </view>
   </sar-card>
-  <view class="m-4 text-lg">教师收藏</view>
+  <view class="m-4 text-lg">文章收藏</view>
+  <navigator v-for="item in data?.articles" :key="item.title" :url="`/pages/article/detail?type=kopp&name=${item.title}`">
+    <sar-card class="m-4">
+      <view class="flex gap-2">
+        <image class="size-20 shrink-0" :src="item.image" />
+        <view class="overflow-hidden">
+          <view class="font-600 truncate my-3">{{ item.article }}</view>
+          <view class="mt-2">{{ item.title }}</view>
+        </view>
+      </view>
+    </sar-card>
+  </navigator>
+
 </template>
+<script setup lang="ts">
+import { collect } from '@/api';
+import type { Collect } from '@/api/interfaces';
+
+const data = ref<Collect>();
+
+collect({ per_page: 1000, number: 1 }).then(resp => {
+  data.value = resp.data;
+})
+</script>

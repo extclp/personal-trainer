@@ -1,20 +1,26 @@
 <template>
   <view v-if="data" class="grid grid grid-cols-2 gap-3 p-3">
-    <view v-for="item in data" :key="item.name" class="relative inline-block h-50 w-auto rounded-10 text-white">
-      <image class="h-full w-full" src="@/static/image/home/new-bg.png" />
-      <view class="absolute left-4 top-4 text-5 font-bold">{{ item.title }}</view>
-      <view class="absolute top-40 whitespace-normal px-4 font-black">{{ item.name }}</view>
+    <view v-for="item in data" :key="item.titles" class="relative inline-block h-50 w-auto  rounded-10 text-white"
+      @click="list(item.titles)">
+      <image class="absolute h-full w-full" src="@/static/image/home/new-bg.png" />
+      <view class="size-full center relative z-100">
+        {{ item.titles }}
+      </view>
     </view>
   </view>
 </template>
 
 <script setup lang="ts">
-import { news } from '@/api'
-import type { New } from '@/api/interfaces'
+import { articleCatlog } from '@/api'
+import type { ArticleCatlog } from '@/api/interfaces'
 
-const data = ref<New[]>()
+const data = ref<ArticleCatlog[]>()
 
-news().then((resp) => {
-  data.value = resp.data
+articleCatlog().then((resp) => {
+  data.value = resp.data.titles
 })
+
+function list(title: string) {
+  uni.navigateTo({ url: `/pages/article/list?tag=${title}` })
+}
 </script>
