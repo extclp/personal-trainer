@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import { login, sendCode } from '@/api'
+import { setTechaer } from '@/store';
 
 if (uni.getStorageSync('token')) {
   uni.navigateTo({ url: '/pages/publicity' })
@@ -35,9 +36,8 @@ function handleLogin() {
   login(form).then((resp) => {
     uni.setStorageSync('token', resp.token)
     uni.setStorageSync('phone', form.mobile)
-    uni.navigateTo({
-      url: '/pages/home/index',
-    })
+    setTechaer(resp.key);
+    uni.switchTab({ url: '/pages/home' })
   })
 }
 </script>

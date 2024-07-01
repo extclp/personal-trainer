@@ -37,7 +37,7 @@ export function listData() {
 
 export const teacher = ref(uni.getStorageSync('isTeacher') == '1')
 
-export function setTechaer(type: number) {
-  uni.setStorageSync('isTeacher', String(type))
-  teacher.value == !!type;
+export function setTechaer(type: string) {
+  uni.setStorageSync('isTeacher', type)
+  teacher.value = type == '1';
 }
