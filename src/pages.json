@@ -177,8 +177,8 @@
       {
         "text": "首页",
         "pagePath": "pages/home",
-        "iconPath": "static/tabBar/home.png"
-        // "selectedIconPath": "static/tabBar/a_home.png"
+        "iconPath": "static/tabBar/home.png",
+        "selectedIconPath": "static/tabBar/a_home.png"
       },
       {
         "text": "宣传资讯",

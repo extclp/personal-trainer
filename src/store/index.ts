@@ -1,5 +1,6 @@
 import { bigList, home, list } from '@/api'
 import type { BigData, DataList, HomeData } from '@/api/interfaces'
+import { initTeacher } from './teacher'
 
 const data = ref<BigData>()
 export function bigData() {
@@ -34,13 +35,9 @@ export function listData() {
   return dataList
 }
 
-export const teacher = ref(isTeacher())
+export const teacher = ref(uni.getStorageSync('isTeacher') == '1')
 
 export function setTechaer(type: number) {
-  teacher.value == !!type
   uni.setStorageSync('isTeacher', String(type))
-}
-
-export function isTeacher() {
-  return uni.getStorageSync('isTeacher') == '1'
+  teacher.value == !!type;
 }

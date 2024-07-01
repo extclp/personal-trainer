@@ -32,8 +32,8 @@
                 <text class="text-primary">¥110</text>
                 <text class="text-[#AAA6B9]">/小时</text>
               </text>
-              <text>朱飒</text>
-              <nut-tag type="primary" class="ml2">研究生教员</nut-tag>
+              <text>{{ item.name }}</text>
+              <nut-tag type="primary" class="ml2">{{ item.identity }}</nut-tag>
               <view class="mt-6">
                 <text class="w-8 text-primary">科目：</text>
                 <text>初中数学</text>
