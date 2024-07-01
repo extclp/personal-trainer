@@ -120,7 +120,7 @@
       "style": {
         "navigationBarTitleText": "完成的订单"
       }
-    }
+    },
     {
       "path": "pages/teacher/bage",
       "style": {
