@@ -8,9 +8,9 @@
       </view>
     </view>
   </sar-card>
-  <uni-card v-if="teahcer" title="服务">
+  <uni-card v-if="teacher" title="服务">
     <view class="flex justify-between text-center">
-      <navigator url="/pages/teacher/my-commit" open-type="switchTab">
+      <navigator url="/pages/teacher/my-commit">
         <image class="size-8" src="@/static/user/commit.svg" />
         <view>我的评价</view>
       </navigator>
@@ -18,12 +18,12 @@
         <image class="size-8" src="@/static/user/order.svg" />
         <view>我的订单</view>
       </navigator>
-      <navigator url="/pages/teahcer/update">
+      <navigator url="/pages/teacher/update">
         <image class="size-8" src="@/static/user/edit.svg" />
         <view>编辑简历</view>
       </navigator>
-      <navigator url="/pages/teahcer/bage">
-        <image class="size-8" src="@/static/user/bage.svg" />
+      <navigator url="/pages/teahcer/badge">
+        <image class="size-8" src="@/static/user/badge.svg" />
         <view>我的工牌</view>
       </navigator>
     </view>
@@ -85,7 +85,5 @@
 </template>
 
 <script setup lang="ts">
-import { isTeacher } from '@/store'
-
-const teahcer = isTeacher()
+import { teacher } from "@/store/index"
 </script>

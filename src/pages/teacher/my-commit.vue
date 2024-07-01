@@ -16,16 +16,12 @@
 </template>
 
 <script setup lang="ts">
-import dayjs from 'dayjs'
-import { commitList } from '@/api'
+import { teacherDetail } from '@/api';
 import type { Commit } from '@/api/interfaces'
 
 const data = ref<Commit[]>([])
 
-onLoad(query => {
-  const { phone } = query!;
-  teacherDetail({ phone }).then(resp => {
-    data.value = resp.data.messages;
-  })
+teacherDetail({ phone: uni.getStorageSync("phone") }).then(resp => {
+  data.value = resp.data.messages;
 })
 </script>
