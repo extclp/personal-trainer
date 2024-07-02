@@ -43,7 +43,7 @@ const data = ref<Order[]>([])
 const loadMoreStautus = ref<LoadMoreStatus>('incomplete')
 
 const form = reactive({
-  key: 0,
+  key: 1,
   page: 1,
   per_page: 10,
 })
