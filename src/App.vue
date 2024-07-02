@@ -17,7 +17,7 @@ onHide(() => {
 @import "nutui-uniapp/styles/index.scss";
 
 page {
-    background: #f3f3f3;
+  background: #f3f3f3;
 }
 
 .nut-form {
@@ -34,6 +34,12 @@ page {
       margin-right: unset !important;
       padding-right: unset !important;
     }
+  }
+}
+
+.table-border {
+  .table-cell {
+    border: 1px solid #ebeef5;
   }
 }
 </style>

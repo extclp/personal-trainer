@@ -39,18 +39,18 @@
       </nut-checkbox-group>
     </nut-form-item>
     <nut-form-item label="任教时间">
-      <uni-table class="w-full" border>
-        <uni-tr>
-          <uni-th />
-          <uni-th v-for="d in '一二三四五六日'" :key="d">周{{ d }}</uni-th>
-        </uni-tr>
-        <uni-tr v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period">
-          <uni-th>{{ period }}</uni-th>
-          <uni-th v-for="(d, index) in '一二三四五六日'" :key="d">
+      <view class="w-full table table-auto table-border text-center">
+        <view class="table-row">
+          <view class="table-cell py-2"/>
+          <view  class="table-cell py-2" v-for="d in '一二三四五六日'" :key="d">周{{ d }}</view>
+        </view>
+        <view class="table-row" v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period">
+          <view  class="table-cell py-2">{{ period }}</view>
+          <view class="table-cell py-2" v-for="(d, index) in '一二三四五六日'" :key="d">
             <Checkbox v-model="form.teachingTime[pi]" :value="index + 1" />
-          </uni-th>
-        </uni-tr>
-      </uni-table>
+          </view>
+        </view>
+      </view>
     </nut-form-item>
     <nut-form-item label="课酬要求" prop="form.cost" :rules="[{ required: true, message: '课酬要求不能为空' }]">
       <sar-picker-input v-model="form.cost" placeholder="请选择" :columns="dataList?.cost" />
