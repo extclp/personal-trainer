@@ -9,10 +9,7 @@
           <view class="mt-1 text-xs text-[#AAA6B9]">{{ data.login_time }}</view>
         </view>
         <view class="flex-1">
-          <text class="float-right">
-            <text class="text-primary">¥110</text>
-            <text class="text-[#AAA6B9]">/小时</text>
-          </text>
+            <text class="text-primary float-right"">{{ data.cost }}</text>
           <text>{{ data.name }}</text>
           <nut-tag type="primary" class="ml2">{{ data.identity }}</nut-tag>
           <view class="mt-6">

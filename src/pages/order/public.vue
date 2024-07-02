@@ -17,9 +17,9 @@
               <view class="inline-block w-18">课时:</view>
               {{ item.course_time }}课时
             </view>
-            <view class="mx-y flex">
-              <view class="inline-block w-18">教师要求:</view>
-              <view class="truncate">{{ item.request }}</view>
+            <view class="mx-y flex gap-2">
+              <view class="w-18">教师要求:</view>
+              <view>{{ item.request }}</view>
             </view>
           </view>
           <view class="flex items-center whitespace-nowrap">

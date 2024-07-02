@@ -73,15 +73,13 @@
         </view>
       </template>
     </nut-cell>
-    <nut-cell v-if="teacher">
-      <nut-cell is-link to="/pages/about/order">
-        <template #title>
-          <view class="flex items-center gap-3">
-            <image class="size-6" src="@/static/user/about-order.svg" />
-            <text>接单说明</text>
-          </view>
-        </template>
-      </nut-cell>
+    <nut-cell v-if="teacher" is-link to="/pages/about/order">
+      <template #title>
+        <view class="flex items-center gap-3">
+          <image class="size-6" src="@/static/user/about-order.svg" />
+          <text>接单说明</text>
+        </view>
+      </template>
     </nut-cell>
   </nut-cell-group>
 </template>

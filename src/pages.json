@@ -34,7 +34,7 @@
     {
       "path": "pages/order/public",
       "style": {
-        "navigationBarTitleText": "订单市场"
+        "navigationBarTitleText": "需求市场"
       }
     },
     {

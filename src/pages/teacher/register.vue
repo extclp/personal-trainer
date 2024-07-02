@@ -1,25 +1,23 @@
 <template>
   <nut-form ref="formRef" label-position="top" :model-value="form">
-    <nut-form-item>
-      <view class="text-lg font-600">个人信息</view>
-    </nut-form-item>
+    <view class="text-lg font-500">个人信息</view>
     <nut-form-item label="个人证件照" prop="image" :rules="[{ required: true, message: '个人证件照不能为空' }]">
       <nut-uploader v-model:file-list="filelist" :maximum="1" :before-upload="beforeUpload" />
     </nut-form-item>
     <nut-form-item label="姓名" prop="name" :rules="[{ required: true, message: '姓名不能为空' }]">
-      <nut-input v-model="form.name" />
+      <nut-input v-model="form.name" placeholder="请填写" />
     </nut-form-item>
     <nut-form-item label="生日" prop="birthday" :rules="[{ required: true, message: '生日不能为空' }]">
       <sar-datetime-picker-input v-model="birthday" placeholder="请选择" :min="new Date(1940, 1, 1)" :max="new Date()" />
     </nut-form-item>
     <nut-form-item label="联系方式" prop="phone" :rules="[{ required: true, message: '联系不能为空' }]">
-      <nut-input v-model="form.phone" />
+      <nut-input v-model="form.phone" placeholder="请填写" />
     </nut-form-item>
     <nut-form-item label="毕业学校" prop="college" :rules="[{ required: true, message: '毕业不能为空' }]">
-      <nut-input v-model="form.college" />
+      <nut-input v-model="form.college" placeholder="请填写" />
     </nut-form-item>
     <nut-form-item label="专业" prop="major" :rules="[{ required: true, message: '专业不能为空' }]">
-      <nut-input v-model="form.major" />
+      <nut-input v-model="form.major" placeholder="请填写" />
     </nut-form-item>
     <nut-form-item label="教龄" prop="tutorAge" :rules="[{ required: true, message: '教龄不能为空' }]">
       <sar-picker-input v-model="form.tutorAge" :columns="dataList?.tutor_age" placeholder="请选择" />
@@ -27,9 +25,7 @@
     <nut-form-item label="身份" prop="identity" :rules="[{ required: true, message: '身份不能为空' }]">
       <sar-picker-input v-model="form.identity" :columns="['大学生教员', '研究生教员', '专业教员']" placeholder="请选择" />
     </nut-form-item>
-    <nut-form-item>
-      <view class="text-lg font-600">教员信息</view>
-    </nut-form-item>
+    <view class="text-lg font-500">教员信息</view>
     <nut-form-item label="任教对象" prop="student" :rules="[{ required: true, message: '任教对象不能为空' }]">
       <nut-radio-group v-model="form.student">
         <nut-radio label="机构">机构</nut-radio>
@@ -57,7 +53,7 @@
       </uni-table>
     </nut-form-item>
     <nut-form-item label="课酬要求" prop="form.cost" :rules="[{ required: true, message: '课酬要求不能为空' }]">
-      <sar-picker-input v-model="form.cost" :columns="dataList?.cost" />
+      <sar-picker-input v-model="form.cost" placeholder="请选择" :columns="dataList?.cost" />
     </nut-form-item>
     <nut-form-item label="任教区域" prop="teachingPosition" :rules="[{ required: true, message: '任教区域不能为空' }]">
       <template #label>
@@ -70,7 +66,7 @@
       </view>
     </nut-form-item>
     <nut-form-item label="教学位置" prop="address" :rules="[{ required: true, message: '教学位置不能为空' }]">
-      <nut-input v-model="form.address" />
+      <nut-input v-model="form.address" placeholder="请选择" />
     </nut-form-item>
     <nut-form-item label="任教科目" prop="personalExperience">
       <template #label>
@@ -258,19 +254,3 @@ function register() {
   })
 }
 </script>
-
-<style lang="scss">
-.nut-form {
-  --nut-cell-desc-color: black
-}
-
-.nut-form-item__top {
-  .nut-form-item {
-    padding-right: unset !important;
-  }
-}
-
-.nut-form-item__label {
-  padding-right: unset !important;
-}
-</style>

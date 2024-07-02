@@ -2,7 +2,7 @@
   <sar-card class="m-4">
     <view class="flex justify-between text-lg font-semibold">
       <view>学员：朱珠</view>
-      <view class="text-primary">110元/小时</view>
+       <text class="text-primary">{{ item.cost }}</text>
     </view>
     <view>
       <text>任教科目：</text>

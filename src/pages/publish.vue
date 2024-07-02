@@ -114,19 +114,3 @@ function handleSubmit() {
   })
 }
 </script>
-
-<style lang="scss">
-.nut-form {
-  --nut-cell-desc-color: black
-}
-
-.nut-form-item__top {
-  .nut-form-item {
-    padding-right: unset !important;
-  }
-
-  .nut-form-item__label {
-    padding-right: unset !important;
-  }
-}
-</style>

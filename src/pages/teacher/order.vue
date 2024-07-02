@@ -2,7 +2,7 @@
   <sar-card class="m-4">
     <view class="flex justify-between text-lg font-semibold">
       <view>学员：朱珠</view>
-      <view class="text-primary">110元/小时</view>
+      <text class="text-primary">{{ data.cost }}</text>
     </view>
     <view>
       <text>任教科目：</text>
@@ -19,12 +19,6 @@
       </view>
       <nut-tag>已完成</nut-tag>
     </view>
-    <template #footer>
-      <view class="flex justify-end gap2">
-        <nut-button type="primary" size="mini">删除订单</nut-button>
-        <nut-button type="primary" size="mini">评价教师</nut-button>
-      </view>
-    </template>
   </sar-card>
 </template>
 

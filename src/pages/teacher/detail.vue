@@ -14,7 +14,7 @@
           </view>
           <view class="mt-2 flex items-center gap-2">
             <text class="text-5 font-700">{{ data.name }}</text>
-            <text class="text-sm">登陆时间: {{data.login_time}}</text>
+            <text class="text-sm">登陆时间: {{ data.login_time }}</text>
           </view>
           <view class="mt-2">在校研究生；可线上教学</view>
         </view>
@@ -58,7 +58,10 @@
     </sar-card>
     <sar-card class="m-4">
       <view class="my-2 text-lg text-primary">授课费用</view>
-      ¥110/小时（查看平台参考标准）
+      <text class="text-primary">{{ data.cost }}</text>
+      <navigator>
+        （查看平台参考标准）
+      </navigator>
       <view class="my-2 text-lg text-primary">所获证书</view>
       <view v-if="data.personalExperience.length == 0">
         暂无

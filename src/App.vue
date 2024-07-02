@@ -19,4 +19,21 @@ onHide(() => {
 page {
     background: #f3f3f3;
 }
+
+.nut-form {
+  --nut-cell-box-shadow: unset;
+  --nut-cell-desc-color: black;
+  --nut-cell-group-background-color: transparent;
+
+  .nut-cell {
+    margin: 10px 0 !important;
+  }
+
+  &-item__top {
+    .nut-form-item__label {
+      margin-right: unset !important;
+      padding-right: unset !important;
+    }
+  }
+}
 </style>

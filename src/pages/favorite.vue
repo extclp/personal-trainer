@@ -8,11 +8,8 @@
         <view class="mt-1 text-xs text-[#AAA6B9]">{{ item.login_time }}</view>
       </view>
       <view class="flex-1">
-        <text class="float-right">
-          <text class="text-primary">¥110</text>
-          <text class="text-[#AAA6B9]">/小时</text>
-        </text>
-        <text>{{item.name}}</text>
+        <text class="text-primary float-right">{{ item.cost }}</text>
+        <text>{{ item.name }}</text>
         <nut-tag type="primary" class="ml2">{{ item.identity }}</nut-tag>
         <view class="mt-6">
           <text class="w-8 text-primary">科目：</text>
