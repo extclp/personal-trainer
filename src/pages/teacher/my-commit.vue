@@ -16,12 +16,12 @@
 </template>
 
 <script setup lang="ts">
-import { teacherDetail } from '@/api';
+import { teacherDetail } from '@/api'
 import type { Commit } from '@/api/interfaces'
 
 const data = ref<Commit[]>([])
 
-teacherDetail({ phone: uni.getStorageSync("phone") }).then(resp => {
-  data.value = resp.data.messages;
+teacherDetail({ phone: uni.getStorageSync('phone') }).then((resp) => {
+  data.value = resp.data.messages
 })
 </script>

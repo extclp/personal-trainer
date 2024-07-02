@@ -1,6 +1,6 @@
 <template>
   <scroll-view clas="h-full" @scrolltolower="loadMore">
-    <sar-card class="m-4" v-for="item in data">
+    <sar-card v-for="item in data" class="m-4">
       <view class="flex justify-between text-lg font-semibold">
         <view>学员：朱珠</view>
         <text class="text-primary">{{ item.cost }}</text>
@@ -32,11 +32,9 @@
 </template>
 
 <script setup lang="ts">
-import type { Order } from '@/api/interfaces';
-import { orderList } from '@/api/teacher';
-import type { LoadMoreStatus } from 'sard-uniapp';
-
-
+import type { LoadMoreStatus } from 'sard-uniapp'
+import type { Order } from '@/api/interfaces'
+import { orderList } from '@/api/teacher'
 
 const data = ref<Order[]>([])
 

@@ -85,5 +85,5 @@
 </template>
 
 <script setup lang="ts">
-import { teacher } from "@/store/index"
+import { teacher } from '@/store/index'
 </script>

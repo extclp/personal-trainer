@@ -4,12 +4,18 @@
       <!-- 科目 对线 线上 区域 -->
       <sar-dropdown>
         <sar-dropdown-item v-model="form.identity" placeholder="科目" :options="subjectsData" />
-        <sar-dropdown-item v-model="form.identity" placeholder="身份" :options="makeLV(['大学生教员', '研究生教员', '专业教员'])"
-          @update:model-value="search" />
-        <sar-dropdown-item v-model="form.teaching_type" placeholder="线上/下" :options="makeLV(['线上', '线下'])"
-          @update:model-value="search" />
-        <sar-dropdown-item v-model="form.teaching_position" placeholder="区域"
-          :options="makeLV(dataList?.teachingPosition)" @update:model-value="search" />
+        <sar-dropdown-item
+          v-model="form.identity" placeholder="身份" :options="makeLV(['大学生教员', '研究生教员', '专业教员'])"
+          @update:model-value="search"
+        />
+        <sar-dropdown-item
+          v-model="form.teaching_type" placeholder="线上/下" :options="makeLV(['线上', '线下'])"
+          @update:model-value="search"
+        />
+        <sar-dropdown-item
+          v-model="form.teaching_position" placeholder="区域"
+          :options="makeLV(dataList?.teachingPosition)" @update:model-value="search"
+        />
       </sar-dropdown>
     </view>
     <scroll-view scroll-y class="flex-1 overflow-hidden" @scrolltolower="loadMore">
@@ -22,17 +28,17 @@
               <view class="mt-1 text-xs text-[#AAA6B9]">{{ item.login_time }}</view>
             </view>
             <view class="flex-1">
-              <text class="text-primary float-right">{{ item.cost }}</text>
+              <text class="float-right text-primary">{{ item.cost }}</text>
               <text>{{ item.name }}</text>
               <nut-tag type="primary" class="ml2">{{ item.identity }}</nut-tag>
-                <view class="mt-6">
-                  <text class="w-8 text-primary">科目：</text>
-                  <text>初中数学</text>
-                </view>
-                <view class="mt-2">
-                  <text class="w-8 text-primary">地区：</text>
-                  <text>崇川区</text>
-                </view>
+              <view class="mt-6">
+                <text class="w-8 text-primary">科目：</text>
+                <text>初中数学</text>
+              </view>
+              <view class="mt-2">
+                <text class="w-8 text-primary">地区：</text>
+                <text>崇川区</text>
+              </view>
             </view>
           </view>
           <view class="mt-2 flex gap-2">

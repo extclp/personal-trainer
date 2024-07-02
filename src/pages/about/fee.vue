@@ -1,12 +1,13 @@
 <template>
-  <view class="p-4 whitespace-pre-line">{{ data }}</view>
+  <view class="whitespace-pre-line p-4">{{ data }}</view>
 </template>
+
 <script setup lang="ts">
-import { fee } from '@/apis/about';
+import { fee } from '@/apis/about'
 
-const data = ref();
+const data = ref()
 
-fee().then(resp => {
-  data.value = resp.data;
+fee().then((resp) => {
+  data.value = resp.data
 })
 </script>

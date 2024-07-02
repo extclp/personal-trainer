@@ -1,6 +1,6 @@
 <template>
   <view class="m-4 text-lg">教师收藏</view>
-  <sar-card class="m4" v-for="item in data?.trechers">
+  <sar-card v-for="item in data?.trechers" class="m4">
     <view class="flex gap-2">
       <view class="text-center">
         <nut-avatar class="mb-2" :size="70" />
@@ -8,7 +8,7 @@
         <view class="mt-1 text-xs text-[#AAA6B9]">{{ item.login_time }}</view>
       </view>
       <view class="flex-1">
-        <text class="text-primary float-right">{{ item.cost }}</text>
+        <text class="float-right text-primary">{{ item.cost }}</text>
         <text>{{ item.name }}</text>
         <nut-tag type="primary" class="ml2">{{ item.identity }}</nut-tag>
         <view class="mt-6">
@@ -27,8 +27,10 @@
     </view>
   </sar-card>
   <view class="m-4 text-lg">文章收藏</view>
-  <navigator v-for="item in data?.articles" :key="item.title"
-    :url="`/pages/article/detail?type=kopp&name=${item.title}`">
+  <navigator
+    v-for="item in data?.articles" :key="item.title"
+    :url="`/pages/article/detail?type=kopp&name=${item.title}`"
+  >
     <sar-card class="m-4">
       <view class="flex gap-2">
         <image class="size-20 shrink-0" :src="item.image" />

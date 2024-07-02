@@ -1,11 +1,13 @@
 <template>
   <view v-if="data" class="p-4">
-    <view class="mb-6 flex items-center gap-2">
+    <view class="mt-4 text-2xl font-500">{{ data.name }}</view>
+
+    <view class="my-4 flex items-center gap-2 text-lg">
       <nut-avatar :src="data.image" />
       <view>{{ data.writer }}</view>
-      <view class="ml-auto">{{ ago(data.time) }}</view>
+      <view class="ml-auto text-sm">{{ ago(data.time) }}</view>
     </view>
-    <view class="my-4 font-600">{{ data.name }}</view>
+
     <view class="whitespace-pre-line">{{ data.content }}</view>
   </view>
 </template>
@@ -24,3 +26,9 @@ onLoad((query) => {
   })
 })
 </script>
+
+<style>
+page {
+  background: white;
+}
+</style>

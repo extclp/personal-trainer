@@ -152,12 +152,12 @@ export interface Collect {
 }
 
 export interface Order {
-  order_id: string;
-  cost: string;
-  teacher: string;
-  status: string;
-  subject: string;
-  course_time: string;
+  order_id: string
+  cost: string
+  teacher: string
+  status: string
+  subject: string
+  course_time: string
 
   phone: string // todo
 }

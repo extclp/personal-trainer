@@ -1,6 +1,6 @@
 <template>
   <scroll-view clas="h-full" @scrolltolower="loadMore">
-    <sar-card class="m-4" v-for="item in data">
+    <sar-card v-for="item in data" class="m-4">
       <view class="flex justify-between text-lg font-semibold">
         <view>学员：朱珠</view>
         <text class="text-primary">{{ item.cost }}</text>
@@ -23,7 +23,7 @@
       <template #footer>
         <view class="flex justify-end gap2">
           <nut-button type="primary" size="mini" @click="deleteOrder(item.order_id)">删除订单</nut-button>
-          <navigator :url="`/order/commit?phone=${item.phone}`" >
+          <navigator :url="`/order/commit?phone=${item.phone}`">
             <nut-button type="primary" size="mini">评价教师</nut-button>
           </navigator>
         </view>
@@ -34,12 +34,10 @@
 </template>
 
 <script setup lang="ts">
-import { odrerDelte } from '@/api';
-import type { Order } from '@/api/interfaces';
-import { orderList } from '@/api/teacher';
-import type { LoadMoreStatus } from 'sard-uniapp';
-
-
+import type { LoadMoreStatus } from 'sard-uniapp'
+import { odrerDelte } from '@/api'
+import type { Order } from '@/api/interfaces'
+import { orderList } from '@/api/teacher'
 
 const data = ref<Order[]>([])
 
@@ -81,10 +79,10 @@ function search() {
 function deleteOrder(order_id: string) {
   odrerDelte({
     order_id,
-    phone: uni.getStorageSync("phone")
+    phone: uni.getStorageSync('phone'),
   }).then(() => {
-    uni.showToast({title: "删除订单成功"})
-    search();
+    uni.showToast({ title: '删除订单成功' })
+    search()
   })
 }
 </script>

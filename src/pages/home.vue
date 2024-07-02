@@ -68,7 +68,7 @@
 import Location from '@/components/Location.vue'
 import { bigList, home } from '@/api'
 import type { BigData, HomeData } from '@/api/interfaces'
-import { teacher } from '@/store';
+import { teacher } from '@/store'
 
 const data = ref<BigData>()
 
@@ -107,18 +107,19 @@ const colors = [
 if (teacher.value) {
   uni.setTabBarItem({
     index: 2,
-    text: "需求市场",
-    pagePath: "/pages/order/public",
-    iconPath: "/static/tabBar/public.png",
-    selectedIconPath: "/static/tabBar/a_public.png"
+    text: '需求市场',
+    pagePath: '/pages/order/public',
+    iconPath: '/static/tabBar/public.png',
+    selectedIconPath: '/static/tabBar/a_public.png',
   })
-} else {
+}
+else {
   uni.setTabBarItem({
     index: 2,
-    text: "需求发布",
-    pagePath: "pages/publish",
-    iconPath: "/static/tabBar/publish.png",
-    selectedIconPath: "/static/tabBar/a_publish.png"
+    text: '需求发布',
+    pagePath: 'pages/publish',
+    iconPath: '/static/tabBar/publish.png',
+    selectedIconPath: '/static/tabBar/a_publish.png',
   })
 }
 </script>

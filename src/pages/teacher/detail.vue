@@ -43,14 +43,14 @@
     </sar-card>
     <sar-card class="m-4">
       <view class="my-2 text-lg text-primary">任教时间</view>
-      <view class="w-full table table-auto table-border text-center">
+      <view class="table-border w-full table table-auto text-center">
         <view class="table-row">
-          <view class="table-cell py-2"/>
-          <view  class="table-cell py-2" v-for="d in '一二三四五六日'" :key="d">周{{ d }}</view>
+          <view class="table-cell py-2" />
+          <view v-for="d in '一二三四五六日'" :key="d" class="table-cell py-2">周{{ d }}</view>
         </view>
-        <view class="table-row" v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period">
-          <view  class="table-cell p-2">{{ period }}</view>
-          <view class="table-cell p-2" v-for="(d, index) in '一二三四五六日'" :key="d">
+        <view v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period" class="table-row">
+          <view class="table-cell p-2">{{ period }}</view>
+          <view v-for="(d, index) in '一二三四五六日'" :key="d" class="table-cell p-2">
             <Checkbox v-model="data.teachingTime[pi]" passive :value="index + 1" />
           </view>
         </view>
@@ -85,18 +85,19 @@
     </sar-card>
   </template>
 </template>
+
 <script setup lang="ts">
-import Checkbox from '@/components/Checkbox.vue';
-import { teacherDetail } from '@/api';
-import type { Teacher } from '@/api/interfaces';
-import { onLoad } from '@dcloudio/uni-app';
+import { onLoad } from '@dcloudio/uni-app'
+import Checkbox from '@/components/Checkbox.vue'
+import { teacherDetail } from '@/api'
+import type { Teacher } from '@/api/interfaces'
 
-const data = ref<Teacher>();
+const data = ref<Teacher>()
 
-onLoad(query => {
-  const { phone } = query!;
-  teacherDetail({ phone }).then(resp => {
-    data.value = resp.data.teacher_detail;
+onLoad((query) => {
+  const { phone } = query!
+  teacherDetail({ phone }).then((resp) => {
+    data.value = resp.data.teacher_detail
   })
 })
 </script>
