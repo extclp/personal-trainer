@@ -15,6 +15,9 @@ export function orderListF(data: Data) {
 export function teacherQRcode(data: Data) {
   return request('/teacher/qr_code', data)
 }
+export function teacherResult(data: Data) {
+  return request('/edit/result', data)
+}
 
 export interface OrderList {
   orders: {

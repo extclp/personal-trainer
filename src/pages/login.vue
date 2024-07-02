@@ -13,14 +13,14 @@
 
 <script setup lang="ts">
 import { login, sendCode } from '@/api'
-import { setTechaer } from '@/store'
+import { setTeacher } from '@/store'
 
 if (uni.getStorageSync('token')) {
-  uni.navigateTo({ url: '/pages/publicity' })
+  uni.switchTab({ url: '/pages/home' })
 }
 
 const form = reactive({
-  mobile: '15006294478',
+  mobile: '19549073035',
   captcha: '',
   token: '',
 })
@@ -36,7 +36,7 @@ function handleLogin() {
   login(form).then((resp) => {
     uni.setStorageSync('token', resp.token)
     uni.setStorageSync('phone', form.mobile)
-    setTechaer(resp.key)
+    setTeacher(resp.key)
     uni.switchTab({ url: '/pages/home' })
   })
 }

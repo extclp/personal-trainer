@@ -44,6 +44,7 @@ const form = reactive({
   key: 1,
   page: 1,
   per_page: 10,
+  phone: uni.getStorageSync("phone")
 })
 
 function getList() {

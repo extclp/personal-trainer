@@ -1,14 +1,14 @@
 <template>
   <sar-card class="m-4">
     <view class="flex items-center gap-4">
-      <nut-avatar :size="50" />
+      <nut-avatar :size="50" :src="data?.image" />
       <view class="font-600">
-        <view>教师A</view>
+        <view>{{ data?.name }}</view>
         <view class="mt-2 text-sm">努力奋斗上进</view>
       </view>
     </view>
   </sar-card>
-  <uni-card v-if="teacher" title="服务">
+  <uni-card v-if="isTeacher" title="服务">
     <view class="flex justify-between text-center">
       <navigator url="/pages/teacher/my-commit">
         <image class="size-8" src="@/static/user/commit.svg" />
@@ -73,7 +73,7 @@
         </view>
       </template>
     </nut-cell>
-    <nut-cell v-if="teacher" is-link to="/pages/about/order">
+    <nut-cell v-if="isTeacher" is-link to="/pages/about/order">
       <template #title>
         <view class="flex items-center gap-3">
           <image class="size-6" src="@/static/user/about-order.svg" />
@@ -85,5 +85,7 @@
 </template>
 
 <script setup lang="ts">
-import { teacher } from '@/store/index'
+import { isTeacher, teacherData } from '@/store/index'
+
+const data = teacherData();
 </script>

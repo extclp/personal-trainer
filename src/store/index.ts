@@ -1,5 +1,5 @@
-import { bigList, home, list } from '@/api'
-import type { BigData, DataList, HomeData } from '@/api/interfaces'
+import { bigList, home, list, teacherDetail } from '@/api'
+import type { BigData, DataList, HomeData, Teacher } from '@/api/interfaces'
 
 const data = ref<BigData>()
 export function bigData() {
@@ -34,9 +34,48 @@ export function listData() {
   return dataList
 }
 
-export const teacher = ref(uni.getStorageSync('isTeacher') == '1')
+export const isTeacher = ref(uni.getStorageSync('isTeacher') == '1')
 
-export function setTechaer(type: string) {
+export function setTeacher(type: string) {
   uni.setStorageSync('isTeacher', type)
-  teacher.value = type == '1'
+  isTeacher.value = type == '1'
+}
+
+watch(isTeacher, update)
+
+function update() {
+  if (isTeacher.value) {
+    uni.setTabBarItem({
+      index: 2,
+      text: '需求市场',
+      pagePath: '/pages/order/public',
+      iconPath: '/static/tabBar/public.png',
+      selectedIconPath: '/static/tabBar/a_public.png',
+    })
+  }
+  else {
+    uni.setTabBarItem({
+      index: 2,
+      text: '需求发布',
+      pagePath: 'pages/publish',
+      iconPath: '/static/tabBar/publish.png',
+      selectedIconPath: '/static/tabBar/a_publish.png',
+    })
+  }
+}
+
+export const dataTeacher = ref<Teacher>()
+
+export function teacherData() {
+  if (isTeacher.value) {
+    teacherDetail().then((resp) => {
+      dataTeacher.value = resp.data.teacher
+    })
+    return dataTeacher;
+  } else {
+    return {
+      image: "",
+      name: uni.getStorageSync("phone")
+    }
+  }
 }
