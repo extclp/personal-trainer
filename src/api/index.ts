@@ -115,3 +115,12 @@ export function teacherLike(data: Data) {
 export function collect(data: Data) {
   return request('/my/like', data)
 }
+
+//订单
+export function odrerDelte(data: Data) {
+  return request('/order/delete', data)
+}
+
+export function teahcerCommit(data: Data) {
+  return request('leavingmessage/teacher', data)
+}

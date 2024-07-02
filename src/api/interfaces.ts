@@ -150,3 +150,14 @@ export interface Collect {
     image: string
   }[]
 }
+
+export interface Order {
+  order_id: string;
+  cost: string;
+  teacher: string;
+  status: string;
+  subject: string;
+  course_time: string;
+
+  phone: string // todo
+}
