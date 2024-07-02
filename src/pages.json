@@ -122,7 +122,7 @@
       }
     },
     {
-      "path": "pages/teacher/bage",
+      "path": "pages/teacher/badge",
       "style": {
         "navigationBarTitleText": "我的工牌"
       }

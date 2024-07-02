@@ -22,7 +22,7 @@
         <image class="size-8" src="@/static/user/edit.svg" />
         <view>编辑简历</view>
       </navigator>
-      <navigator url="/pages/teahcer/badge">
+      <navigator url="/pages/teacher/badge">
         <image class="size-8" src="@/static/user/badge.svg" />
         <view>我的工牌</view>
       </navigator>
