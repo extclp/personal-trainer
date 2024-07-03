@@ -71,11 +71,12 @@ export function teacherData() {
     teacherDetail().then((resp) => {
       dataTeacher.value = resp.data.teacher
     })
-    return dataTeacher;
-  } else {
+    return dataTeacher
+  }
+  else {
     return {
-      image: "",
-      name: uni.getStorageSync("phone")
+      image: '',
+      name: uni.getStorageSync('phone'),
     }
   }
 }

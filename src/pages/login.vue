@@ -1,14 +1,21 @@
 <template>
-  <uni-forms>
-    <uni-forms-item label="手机号">
-      <input v-model="form.mobile">
-    </uni-forms-item>
-    <uni-forms-item label="验证码">
-      <input v-model="form.captcha">
-    </uni-forms-item>
-  </uni-forms>
-  <button type="primary" @click="handleSendCode">验证码</button>
-  <button type="primary" class="mt-4" @click="handleLogin">登录</button>
+  <view class="p-4 pt-15 text-center">
+    <view class="text-3xl">手机验证码登录</view>
+    <view class="text-xs1 mb-15 mt-4 text-#969799">未注册的手机号将自动注册并登录</view>
+    <nut-form-item label="手机号">
+      <nut-input v-model="form.mobile" />
+    </nut-form-item>
+    <nut-form-item label="验证码">
+      <nut-input v-model="form.captcha">
+        <template #right>
+          <nut-button type="primary" size="small" @click="handleSendCode">获取验证码</nut-button>
+        </template>
+      </nut-input>
+    </nut-form-item>
+    <view class="mt-10">
+      <nut-button type="primary" block @click="handleLogin">登录</nut-button>
+    </view>
+  </view>
 </template>
 
 <script setup lang="ts">
@@ -28,13 +35,14 @@ const form = reactive({
 function handleSendCode() {
   sendCode(form).then((resp) => {
     console.log(resp)
-    uni.showToast({ title: resp.content })
+    uni.showToast({ title: '验证码已发送' })
   })
 }
 
 function handleLogin() {
   login(form).then((resp) => {
     uni.setStorageSync('token', resp.token)
+    uni.setStorageSync('nickName', resp.nick_name)
     uni.setStorageSync('phone', form.mobile)
     setTeacher(resp.key)
     uni.switchTab({ url: '/pages/home' })

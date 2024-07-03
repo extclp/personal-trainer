@@ -130,6 +130,7 @@ import { ploadFilePromise } from '@/utls/image-tools'
 import { listData } from '@/store'
 import { format, formatM } from '@/utls'
 import type { TeacherForm } from '@/api/interfaces'
+import { teacherRegister } from '@/api'
 
 const dataList = listData()
 
@@ -250,6 +251,9 @@ const formRef = ref<FormInst>()
 function register() {
   return formRef.value!.validate().then(({ valid }) => {
     if (valid) {
+      teacherRegister(form.value).then((resp) => {
+        uni.showToast({ title: '申请成功, 请等待审核' })
+      })
     }
   })
 }

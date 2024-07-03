@@ -3,7 +3,7 @@
     <view class="flex items-center gap-4">
       <nut-avatar :size="50" :src="data?.image" />
       <view class="font-600">
-        <view>{{ data?.name }}</view>
+        <view>{{ data?.name ?? nikeName }}</view>
         <view class="mt-2 text-sm">努力奋斗上进</view>
       </view>
     </view>
@@ -87,5 +87,7 @@
 <script setup lang="ts">
 import { isTeacher, teacherData } from '@/store/index'
 
-const data = teacherData();
+const nikeName = uni.getStorageSync('nickName')
+
+const data = teacherData()
 </script>

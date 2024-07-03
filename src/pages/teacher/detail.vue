@@ -34,11 +34,13 @@
         <view class="my-2 text-lg text-primary">任教方式</view>
         <view class="flex gap-2">
           <view v-for="item in data.teachingStyle">
-            <nut-tag type="primary">{{ item }}</nut-tag>
+            <nut-tag type="primary" size="large">{{ item }}</nut-tag>
           </view>
         </view>
         <view class="my-2 text-lg text-primary">任教地点</view>
-        <nut-tag type="primary">南大街附近</nut-tag>
+        <view v-for="item in data.teachingPosition">
+          <nut-tag type="primary" size="large">{{ item }}</nut-tag>
+        </view>
       </view>
     </sar-card>
     <sar-card class="m-4">

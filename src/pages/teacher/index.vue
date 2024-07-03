@@ -33,17 +33,17 @@
               <nut-tag type="primary" class="ml2">{{ item.identity }}</nut-tag>
               <view class="mt-6">
                 <text class="w-8 text-primary">科目：</text>
-                <text>初中数学</text>
+                <text>{{ item.teachingCourse.join(", ") }}</text>
               </view>
               <view class="mt-2">
                 <text class="w-8 text-primary">地区：</text>
-                <text>崇川区</text>
+                <text>{{ item.teachingPosition.join(", ") }}</text>
               </view>
             </view>
           </view>
           <view class="mt-2 flex gap-2">
             <nut-tag type="primary">{{ item.college }}</nut-tag>
-            <nut-tag type="primary">数学师范 研究生</nut-tag>
+            <nut-tag type="primary">{{ item.identity }}</nut-tag>
           </view>
         </sar-card>
       </navigator>

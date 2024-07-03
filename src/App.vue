@@ -18,6 +18,9 @@ onHide(() => {
 
 page {
   background: #f3f3f3;
+  --nut-primary: #FB7206;
+  --nut-tag-primary-background-color: #FB7206;
+  --nut-tag-font-size: 14px;
 }
 
 .nut-form {

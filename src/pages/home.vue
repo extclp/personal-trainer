@@ -66,17 +66,14 @@
 
 <script setup lang="ts">
 import Location from '@/components/Location.vue'
-import { bigList, home, teacherDetail } from '@/api'
+import { bigList, home } from '@/api'
 import type { BigData, HomeData } from '@/api/interfaces'
-import { isTeacher, setTeacher } from '@/store'
+import { setTeacher } from '@/store'
+import { teacherResult } from '@/api/teacher'
 
 const data = ref<BigData>()
 
 const homeData = ref<HomeData>()
-
-function teacherList(name: string) {
-  uni.navigateTo({ url: `/pages/teacher/index?name=${name}` })
-}
 
 bigList({
   name: '教员简介',
@@ -104,13 +101,14 @@ const colors = [
   'background-color: #fadcd4;color: #f7b6b8;',
 ]
 
-teacherDetail({
-  phone: uni.getStorageSync('phone')
-}).then(resp => {
+teacherResult({
+  phone: uni.getStorageSync('phone'),
+}).then((resp) => {
   if (resp.message == '审核通过！') {
-    setTeacher("1")
-  } else {
-    setTeacher("0")
+    setTeacher('1')
+  }
+  else {
+    setTeacher('0')
   }
 })
 </script>

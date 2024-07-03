@@ -4,6 +4,7 @@ export interface LoginReponse extends Result<any> {
   key: string
   vip: boolean
   token: string
+  nick_name: string
 }
 export interface sendCodeResp extends Result<any> {
   account: string

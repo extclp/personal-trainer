@@ -130,7 +130,7 @@ import { ploadFilePromise } from '@/utls/image-tools'
 import { listData } from '@/store'
 import { format, formatM } from '@/utls'
 import type { TeacherForm } from '@/api/interfaces'
-import { teacherDetail } from '@/api'
+import { teacherDetail, teacherUpdate } from '@/api'
 
 const dataList = listData()
 
@@ -251,6 +251,9 @@ const formRef = ref<FormInst>()
 function register() {
   return formRef.value!.validate().then(({ valid }) => {
     if (valid) {
+      teacherUpdate(form.value).then((resp) => {
+        uni.showToast({ title: '更新资料成功' })
+      })
     }
   })
 }

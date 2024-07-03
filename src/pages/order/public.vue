@@ -4,7 +4,6 @@
       <view class="relative w-full">
         <view class="flex gap-1 text-lg color-black font-semibold">
           <text class="color-primary">崇川</text>
-          <text>学前教学</text>
           <text>{{ item.student_sex }}</text>
         </view>
         <view class="w-full flex">

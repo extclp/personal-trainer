@@ -11,12 +11,12 @@ export interface Result<T> {
 }
 
 export function request<T = any, R extends Result<T> = Result<T>>(path: string, params?: Data) {
-
-  let baseUrl;
+  let baseUrl
 
   if (import.meta.env.DEV && !navigator) {
     baseUrl = import.meta.env.VITE_API_BASE_PATH_WEIXIN
-  } else {
+  }
+  else {
     baseUrl = import.meta.env.VITE_API_BASE_PATH
   }
 
@@ -40,9 +40,10 @@ export function request<T = any, R extends Result<T> = Result<T>>(path: string, 
         const resultD = result.data.result as R
 
         if (resultD.code == 200) {
-          resolve(resultD)
+          return resolve(resultD)
         }
 
+        uni.showToast({ icon: 'error', title: resultD.message })
         reject(resultD)
       },
     })
