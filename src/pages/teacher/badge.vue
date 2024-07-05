@@ -4,10 +4,10 @@
       <view class="section_4 relative flex-col justify-start">
         <view class="section_5" />
         <view class="group_5 pos_3 flex-col text-center">
-          <image class="image_8 shrink-0" :src="data.image" />
+          <image class="image_8 shrink-0" :src="data.image" mode="aspectFill" />
           <view class="section_6 relative flex-col items-center">
             <view class="text_2">姓名：{{ data.name }}</view>
-            <image class="image_9 mt-7" :src="data.qr_code_path" />
+            <image class="image_9 mt-7" :src="data.qr_code_path" mode="aspectFill" />
             <view>{{ data.login_time }}</view>
           </view>
         </view>

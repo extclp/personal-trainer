@@ -2,7 +2,7 @@
   <navigator v-for="item in data" :key="item.title" :url="`/pages/article/detail?type=kopp&name=${item.title}`">
     <sar-card class="m-4">
       <view class="flex gap-2">
-        <image class="size-20 shrink-0" :src="item.image" />
+        <image class="size-20 shrink-0" :src="item.image" mode="aspectFill"/>
         <view class="overflow-hidden">
           <view class="my-3 truncate font-600">{{ item.article }}</view>
           <view class="mt-2">{{ item.title }}</view>

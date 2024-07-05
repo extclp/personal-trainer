@@ -90,6 +90,7 @@ export interface ArticleDetail {
   time: string
   image: string
   content: string
+  writer_image: string
 }
 
 export interface DataList {

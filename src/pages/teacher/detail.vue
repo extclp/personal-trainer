@@ -5,7 +5,7 @@
       <sar-card clas="h-32">
         <view class="relative top--8">
           <view class="flex items-end gap-2">
-            <nut-avatar :size="70" :src="data.image" />
+            <nut-avatar :size="70" :src="data.image"/>
             <view class="mb-4 flex gap-2">
               <nut-tag type="primary" size="mini">{{ data.age }}</nut-tag>
               <nut-tag type="primary" size="mini">教龄：{{ data.tutorAge }}</nut-tag>

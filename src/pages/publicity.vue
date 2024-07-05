@@ -42,9 +42,9 @@
     <scroll-view scroll-x class="m-4 whitespace-nowrap">
       <view
         v-for="item in data.academic_news" :key="item.name"
-        class="relative mr-4 inline-block h-60 w-60 rounded-10 text-white" @click="catlog(item.title)"
+        class="relative mr-4 inline-block size-60 rounded-10 text-white" @click="catlog(item.title)"
       >
-        <image class="h-full w-full" :src="item.image" />
+        <image class="h-full w-full" :src="item.image" mode="aspectFill"/>
         <view class="absolute left-4 top-4 text-5 font-bold">{{ item.title }}</view>
         <view class="absolute top-40 whitespace-normal px-4 font-black">{{ item.name }}</view>
       </view>
@@ -55,7 +55,7 @@
       <button type="primary" size="mini" @click="sendMessage">发布留言</button>
     </view>
     <view v-for="message in data.message" :key="message.time" class="flex gap-4 px-7 py-4">
-      <image class="h-10 w-10 rounded-full bg-white" :src="message.image" />
+      <image class="h-10 w-10 rounded-full bg-white" :src="message.image" mode="aspectFill"/>
       <view class="flex-1 border border-slate-300 border-b-solid">
         <view class="text-sm">
           <text class="float-right">{{ ago(message.time) }}</text>

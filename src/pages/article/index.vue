@@ -4,7 +4,7 @@
       v-for="item in data" :key="item.titles" class="relative inline-block h-50 w-auto rounded-10 text-white"
       @click="list(item.titles)"
     >
-      <image class="absolute h-full w-full" :src="item.image" />
+      <image class="absolute h-full w-full" :src="item.image" mode="aspectFill" />
       <view class="relative z-100 size-full center">
         {{ item.titles }}
       </view>
