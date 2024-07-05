@@ -18,7 +18,7 @@
           <text>匹配教师：</text>
           {{ item.teacher }}
         </view>
-        <nut-tag>已完成</nut-tag>
+        <nut-tag>{{ item.status }}</nut-tag>
       </view>
       <template #footer>
         <view class="flex justify-end gap2">
