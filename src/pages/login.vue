@@ -27,7 +27,7 @@ if (uni.getStorageSync('token')) {
 }
 
 const form = reactive({
-  mobile: '19549073035',
+  mobile: '',
   captcha: '',
   token: '',
 })
