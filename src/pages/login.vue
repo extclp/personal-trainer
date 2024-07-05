@@ -27,7 +27,7 @@ if (uni.getStorageSync('token')) {
 }
 
 const form = reactive({
-  mobile: '',
+  mobile: uni.getStorageSync("phone"),
   captcha: '',
   token: '',
 })
@@ -45,6 +45,7 @@ function handleLogin() {
     uni.setStorageSync('nickName', resp.nick_name)
     uni.setStorageSync('phone', form.mobile)
     setTeacher(resp.key)
+    uni.showToast({title: "登录成功"})
     uni.switchTab({ url: '/pages/home' })
   })
 }

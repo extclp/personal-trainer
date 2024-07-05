@@ -4,7 +4,7 @@
       <view class="text-lg font-600">学员信息</view>
     </nut-form-item>
     <nut-form-item label="学员姓名">
-      <nut-input v-model="form.phone" placeholder="请填写" />
+      <nut-input v-model="form.studentName" placeholder="请填写" />
     </nut-form-item>
     <nut-form-item label="联系方式">
       <nut-input v-model="form.phone" placeholder="请填写" />
@@ -84,7 +84,7 @@ const form = reactive({
   teachingPosition: '',
   student: '',
   teachingStyle: [],
-  teachingTime: Array(3),
+  teachingTime: Array(3).fill([]).map(it => []),
   cost: '',
   address: '',
   studentName: '',

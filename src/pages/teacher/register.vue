@@ -148,7 +148,7 @@ const form = ref<TeacherForm>({
   teachingPosition: [],
   student: '',
   teachingStyle: [],
-  teachingTime: Array(3),
+  teachingTime: Array(3).fill([]).map(it => []),
   address: '',
   cost: '',
   introduction: '',

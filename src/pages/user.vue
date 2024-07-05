@@ -81,6 +81,14 @@
         </view>
       </template>
     </nut-cell>
+    <nut-cell is-link @click="logout">
+      <template #title>
+        <view class="flex items-center gap-3">
+          <image class="size-6" src="@/static/user/logout.svg" />
+          <text>退出登录</text>
+        </view>
+      </template>
+    </nut-cell>
   </nut-cell-group>
 </template>
 
@@ -90,4 +98,15 @@ import { isTeacher, teacherData } from '@/store/index'
 const nikeName = uni.getStorageSync('nickName')
 
 const data = teacherData()
+
+function logout() {
+  uni.showModal({
+    title: "是否退出登录",
+    success() {
+      uni.removeStorageSync("token")
+      uni.showToast({ title: "登录成功" })
+      uni.navigateTo({ url: "/pages/login" })
+    }
+  })
+}
 </script>

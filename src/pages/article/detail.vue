@@ -3,12 +3,12 @@
     <view class="mt-4 text-2xl font-500">{{ data.name }}</view>
 
     <view class="my-4 flex items-center gap-2 text-lg">
-      <nut-avatar :src="data.image" />
+      <nut-avatar :src="data.writer_image" />
       <view>{{ data.writer }}</view>
       <view class="ml-auto text-sm">{{ ago(data.time) }}</view>
     </view>
 
-    <view class="whitespace-pre-line">{{ data.content }}</view>
+    <view class="whitespace-pre-wrap">{{ data.content }}</view>
   </view>
 </template>
 
