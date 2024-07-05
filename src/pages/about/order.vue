@@ -2,7 +2,7 @@
   <view class="p-4">
     <view v-for="item in data">
       <view class="my-2 text-lg font-600">{{ item.title }}</view>
-      <view class="whitespace-pre-line">{{ item.content }}</view>
+      <view class="whitespace-pre-wrap">{{ item.content }}</view>
     </view>
   </view>
 </template>

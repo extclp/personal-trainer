@@ -1,5 +1,5 @@
 <template>
-  <view class="whitespace-pre-line p-4">{{ data }}</view>
+  <view class="whitespace-pre-wrap p-4">{{ data }}</view>
 </template>
 
 <script setup lang="ts">

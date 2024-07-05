@@ -23,7 +23,7 @@
         <sar-card class="m4">
           <view class="flex gap-2">
             <view class="text-center">
-              <nut-avatar class="mb-2" :size="70" />
+              <nut-avatar class="mb-2" :size="70" :src="item.image"/>
               <view class="text-xs text-[#AAA6B9]">最近登录</view>
               <view class="mt-1 text-xs text-[#AAA6B9]">{{ item.login_time }}</view>
             </view>

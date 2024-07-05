@@ -24,7 +24,7 @@
     <sar-card class="m-4">
       <view>
         <view class="mb-2 text-lg text-primary">教学经验</view>
-        <view class="whitespace-pre-line">{{ data.introduction }}</view>
+        <view class="whitespace-pre-wrap">{{ data.introduction }}</view>
       </view>
     </sar-card>
     <sar-card class="m-4">
@@ -76,7 +76,7 @@
     <sar-card class="m-4">
       <view class="flex gap-4">
         <image class="mt-2 h-10 w-10 rounded-full bg-red" />
-        <view class="flex-1 border border-slate-300 border-b-solid">
+        <view class="flex-1">
           <view class="text-sm">
             <text class="float-right">2020-5-11</text>
             <text>extclp</text>
@@ -85,6 +85,7 @@
         </view>
       </view>
     </sar-card>
+    <view class="h-4"></view>
   </template>
 </template>
 
