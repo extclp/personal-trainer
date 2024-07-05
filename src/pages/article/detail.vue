@@ -1,9 +1,10 @@
 <template>
-  <view v-if="data" class="p-4">
+  <view v-if="data" class="p-4 pb-12">
+    <image class="w-full h-45 rounded-1" :src="data.image" mode="aspectFill"/>
     <view class="mt-4 text-2xl font-500">{{ data.name }}</view>
 
     <view class="my-4 flex items-center gap-2 text-lg">
-      <nut-avatar :src="data.writer_image"/>
+      <nut-avatar :src="data.writer_image" />
       <view>{{ data.writer }}</view>
       <view class="ml-auto text-sm">{{ ago(data.time) }}</view>
     </view>

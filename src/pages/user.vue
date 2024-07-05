@@ -101,12 +101,12 @@ const data = teacherData()
 
 function logout() {
   uni.showModal({
-    title: "是否退出登录",
+    title: '是否退出登录',
     success() {
-      uni.removeStorageSync("token")
-      uni.showToast({ title: "登录成功" })
-      uni.navigateTo({ url: "/pages/login" })
-    }
+      uni.removeStorageSync('token')
+      uni.showToast({ title: '登录成功' })
+      uni.navigateTo({ url: '/pages/login' })
+    },
   })
 }
 </script>

@@ -33,7 +33,7 @@
   >
     <sar-card class="m-4">
       <view class="flex gap-2">
-        <image class="size-20 shrink-0" :src="item.image" mode="aspectFill"/>
+        <image class="size-20 shrink-0" :src="item.image" mode="aspectFill" />
         <view class="overflow-hidden">
           <view class="my-3 truncate font-600">{{ item.article }}</view>
           <view class="mt-2">{{ item.title }}</view>

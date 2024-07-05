@@ -119,3 +119,11 @@ function search() {
   getList()
 }
 </script>
+
+<style lang="scss">
+.sar-dropdown-item__value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+</style>
