@@ -252,6 +252,10 @@ function beforeUpload(_: any, options: UploadOptions) {
 const formRef = ref<FormInst>()
 
 function register() {
+  if (!agreement.value) {
+    uni.showToast({ icon: "error", title: "请先同意协议" })
+    return;
+  }
   return formRef.value!.validate().then(({ valid }) => {
     if (valid) {
       teacherRegister(form.value).then((resp) => {

@@ -84,6 +84,7 @@ function getList() {
     data.value = resp.data
   })
 }
+getList();
 
 function sendMessage() {
   if (!message.value) {

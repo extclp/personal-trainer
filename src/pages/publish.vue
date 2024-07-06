@@ -1,25 +1,27 @@
 <template>
-  <nut-form ref="formRef" label-position="top" :model-value="form">
-    <nut-form-item>
-      <view class="text-lg font-600">学员信息</view>
-    </nut-form-item>
-    <nut-form-item label="学员姓名">
-      <nut-input v-model="form.studentName" placeholder="请填写" />
-    </nut-form-item>
-    <nut-form-item label="联系方式">
+  <nut-form ref="formRef" label-position="top" :model-value="form" :rules="rules">
+    <view class="m-2 text-lg">学员信息</view>
+    <nut-form-item label="联系方式" prop="phone">
       <nut-input v-model="form.phone" placeholder="请填写" />
     </nut-form-item>
-    <nut-form-item label="学员性别">
+    <nut-form-item label="学员姓名" prop="studentName">
+      <nut-input v-model="form.studentName" placeholder="请填写" />
+    </nut-form-item>
+    <nut-form-item label="学员性别" prop="studentSex">
       <sar-picker-input v-model="form.studentSex" :columns="['男', '女']" placeholder="请填写" />
     </nut-form-item>
-    <nut-form-item label="学员成绩">
+    <nut-form-item label="学员成绩" prop="studentGrade">
       <sar-picker-input v-model="form.studentGrade" :columns="dataList?.student_grade" placeholder="请选择" />
     </nut-form-item>
-    <nut-form-item>
-      <view class="text-lg font-600">教员要求</view>
+    <view class="m-2 text-lg">教员要求</view>
+    <nut-form-item label="教员类型" prop="student" :rules="[{ required: true, message: '任教对象不能为空' }]">
+      <nut-radio-group v-model="form.student">
+        <nut-radio label="机构">机构</nut-radio>
+        <nut-radio label="个人">个人</nut-radio>
+      </nut-radio-group>
     </nut-form-item>
-    <nut-form-item label="任教对象">
-      <sar-picker-input v-model="form.student" :columns="['大学生教员', '研究生教员', '专业教员']" placeholder="请选择" />
+    <nut-form-item label="教员身份">
+      <sar-picker-input v-model="form.identity" :columns="['大学生教员', '研究生教员', '专业教员']" placeholder="请选择" />
     </nut-form-item>
     <nut-form-item label="任教方式" prop="teachingStyle" :rules="[{ required: true, message: '任教方式不能为空' }]">
       <nut-checkbox-group v-model="form.teachingStyle">
@@ -73,10 +75,19 @@
 import Checkbox from '@/components/Checkbox.vue'
 import { createOrder } from '@/api'
 import { listData } from '@/store'
+import type { FormInst } from 'nutui-uniapp';
 
 const dataList = listData()
 
 const agreement = ref(false)
+
+const rules = {
+  studentName: [{ required: true, message: "学生姓名不能为空" }],
+  phone: [{ required: true, message: "联系方式不能为空" }],
+  studentSex: [{ required: true, message: "学生性别不能为空" }],
+  studentGrade: [{ required: true, message: "学生成绩不能为空" }],
+  identity: [{ required: true, message: "教员类型不能为空" }]
+}
 
 const form = reactive({
   phone: '',
@@ -107,10 +118,22 @@ const subjectsData = computed(() => {
     }
   })
 })
+const formRef = ref<FormInst>()
 
 function handleSubmit() {
-  createOrder(form).then(() => {
-
+  if (!agreement.value) {
+    uni.showToast({ icon: "error", title: "请先同意协议" })
+    return;
+  }
+  return formRef.value!.validate().then(({ valid }) => {
+    if (!valid) {
+      return;
+    }
+    createOrder(form).then(() => {
+      uni.showToast({ title: "发布成功" })
+    })
+    uni.switchTab({ url: "/pages/home" })
   })
+
 }
 </script>

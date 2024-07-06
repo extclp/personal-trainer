@@ -107,7 +107,7 @@ function logout() {
     title: '是否退出登录',
     success() {
       uni.removeStorageSync('token')
-      uni.showToast({ title: '登录成功' })
+      uni.showToast({ title: '退出登录成功' })
       uni.navigateTo({ url: '/pages/login' })
     },
   })

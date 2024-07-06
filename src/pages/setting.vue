@@ -1,14 +1,14 @@
 <template>
     <view class="p-4">
         <nut-form ref="formRef" :rules="rules" :model-value="form">
-            <nut-form-item label="头像">
+            <nut-form-item label="头像" prop="image">
                 <nut-uploader v-model:file-list="filelist" :maximum="1" :before-upload="beforeUpload" />
             </nut-form-item>
-            <nut-form-item label="昵称">
+            <nut-form-item label="昵称" prop="nick_name">
                 <nut-input v-model="form.nick_name" />
             </nut-form-item>
             <nut-form-item label="签名">
-                <nut-input v-model="form.qianming" />
+                <nut-input v-model="form.qianming" prop="qianming"/>
             </nut-form-item>
             <view class="mt-10">
                 <nut-button type="primary" block @click="onSubmit">更新资料</nut-button>
@@ -29,7 +29,7 @@ const rules = {
 
 const form = reactive({
     phone: uni.getStorageSync("phone"),
-    avatar: uni.getStorageSync("avatar"),
+    image: uni.getStorageSync("avatar"),
     nick_name: uni.getStorageSync("nickName"),
     qianming: uni.getStorageSync("qianming")
 })
@@ -43,7 +43,7 @@ function onSubmit() {
         }
         edit(form).then(() => {
             uni.setStorageSync('nickName', form.nick_name)
-            uni.setStorageSync("avatar", form.avatar)
+            uni.setStorageSync("avatar", form.image)
             uni.setStorageSync('qianming', form.qianming)
 
             uni.showToast({ title: "更新资料成功" })
@@ -64,7 +64,7 @@ const filelist = ref<FileItem[]>([{
 
 function beforeUpload(_: any, options: UploadOptions) {
     ploadFilePromise(options.filePath!).then((base64) => {
-        form.avatar = base64;
+        form.image = base64;
         options.onSuccess?.(null as any, options)
         filelist.value = [{
             name: '文件3.png',
