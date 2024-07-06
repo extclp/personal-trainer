@@ -122,7 +122,7 @@ export interface TeacherForm {
   // school: string;
   college: string
   personalExperience: string[]
-  // personal_experience: string[];
+  subject: string[]
 
   name: string
   sex: string
