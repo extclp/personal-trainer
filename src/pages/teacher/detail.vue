@@ -85,7 +85,7 @@
         </view>
       </view>
     </sar-card>
-    <view class="h-4"></view>
+    <view class="h-4" />
   </template>
 </template>
 

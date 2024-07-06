@@ -44,8 +44,8 @@ function handleLogin() {
     uni.setStorageSync('token', resp.token)
     uni.setStorageSync('nickName', resp.nick_name)
     uni.setStorageSync('phone', resp.mobile)
-    uni.setStorageSync("qianming", resp.qianming)
-    uni.setStorageSync("avatar", resp.avatar)
+    uni.setStorageSync('qianming', resp.qianming)
+    uni.setStorageSync('avatar', resp.avatar)
 
     setTeacher(resp.key)
     uni.showToast({ title: '登录成功' })

@@ -237,13 +237,13 @@ const filelist = ref<FileItem[]>()
 function beforeUpload(_: any, options: UploadOptions) {
   ploadFilePromise(options.filePath!).then((base64) => {
     options.onSuccess?.(null as any, options)
-    form.value.image = base64;
+    form.value.image = base64
     filelist.value = [{
       name: '文件3.png',
       status: 'success',
       message: '上传中...',
       url: base64,
-      type: "image"
+      type: 'image',
     }]
   })
 }
@@ -251,9 +251,9 @@ function beforeUpload(_: any, options: UploadOptions) {
 const formRef = ref<FormInst>()
 
 function register() {
-  if(!agreement.value) {
-    uni.showToast({icon: "error", title: "请先同意协议"})
-return;
+  if (!agreement.value) {
+    uni.showToast({ icon: 'error', title: '请先同意协议' })
+    return
   }
   return formRef.value!.validate().then(({ valid }) => {
     if (valid) {
@@ -268,11 +268,11 @@ teacherDetail({ phone: uni.getStorageSync('phone') }).then((resp) => {
   form.value = resp.data.teacher_detail
 
   filelist.value = [{
-      name: '文件3.png',
-      status: 'success',
-      message: '上传中...',
-      url: form.value.image,
-      type: "image"
-    }]
+    name: '文件3.png',
+    status: 'success',
+    message: '上传中...',
+    url: form.value.image,
+    type: 'image',
+  }]
 })
 </script>

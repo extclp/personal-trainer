@@ -1,11 +1,11 @@
 <template>
-  <view v-if="data" class="grid grid grid-cols-2 gap-3 p-3">
+  <view v-if="data" class="grid grid-cols-2 gap-3 p-3">
     <view
       v-for="item in data" :key="item.titles" class="relative inline-block h-50 w-auto rounded-10 text-white"
       @click="list(item.titles)"
     >
       <image class="absolute h-full w-full" :src="item.image" mode="aspectFill" />
-      <view class="relative z-100 size-full center">
+      <view class="relative z-100 size-full center text-5 font-bold">
         {{ item.titles }}
       </view>
     </view>

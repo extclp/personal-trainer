@@ -72,21 +72,21 @@
 </template>
 
 <script setup lang="ts">
+import type { FormInst } from 'nutui-uniapp'
 import Checkbox from '@/components/Checkbox.vue'
 import { createOrder } from '@/api'
 import { listData } from '@/store'
-import type { FormInst } from 'nutui-uniapp';
 
 const dataList = listData()
 
 const agreement = ref(false)
 
 const rules = {
-  studentName: [{ required: true, message: "学生姓名不能为空" }],
-  phone: [{ required: true, message: "联系方式不能为空" }],
-  studentSex: [{ required: true, message: "学生性别不能为空" }],
-  studentGrade: [{ required: true, message: "学生成绩不能为空" }],
-  identity: [{ required: true, message: "教员类型不能为空" }]
+  studentName: [{ required: true, message: '学生姓名不能为空' }],
+  phone: [{ required: true, message: '联系方式不能为空' }],
+  studentSex: [{ required: true, message: '学生性别不能为空' }],
+  studentGrade: [{ required: true, message: '学生成绩不能为空' }],
+  identity: [{ required: true, message: '教员类型不能为空' }],
 }
 
 const form = reactive({
@@ -122,18 +122,17 @@ const formRef = ref<FormInst>()
 
 function handleSubmit() {
   if (!agreement.value) {
-    uni.showToast({ icon: "error", title: "请先同意协议" })
-    return;
+    uni.showToast({ icon: 'error', title: '请先同意协议' })
+    return
   }
   return formRef.value!.validate().then(({ valid }) => {
     if (!valid) {
-      return;
+      return
     }
     createOrder(form).then(() => {
-      uni.showToast({ title: "发布成功" })
+      uni.showToast({ title: '发布成功' })
     })
-    uni.switchTab({ url: "/pages/home" })
+    uni.switchTab({ url: '/pages/home' })
   })
-
 }
 </script>

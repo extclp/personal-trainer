@@ -29,8 +29,10 @@
     </sar-card>
   </navigator>
   <view class="m-4 text-lg">文章收藏</view>
-  <navigator v-for="item in data?.articles" :key="item.title"
-    :url="`/pages/article/detail?type=kopp&name=${item.title}`">
+  <navigator
+    v-for="item in data?.articles" :key="item.title"
+    :url="`/pages/article/detail?type=kopp&name=${item.title}`"
+  >
     <sar-card class="m-4">
       <view class="flex gap-2">
         <image class="size-20 shrink-0" :src="item.image" mode="aspectFill" />

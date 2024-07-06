@@ -167,10 +167,10 @@
       }
     },
     {
-    "path": "pages/setting",
-    "style": {
-      "navigationBarTitleText": "更新资料"
-    }
+      "path": "pages/setting",
+      "style": {
+        "navigationBarTitleText": "更新资料"
+      }
     }
   ],
   "globalStyle": {

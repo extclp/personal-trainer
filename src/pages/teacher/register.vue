@@ -242,19 +242,18 @@ function beforeUpload(_: any, options: UploadOptions) {
       status: 'success',
       message: '上传中...',
       url: base64,
-      type: "image"
+      type: 'image',
     }]
     form.value.image = base64
   })
-
 }
 
 const formRef = ref<FormInst>()
 
 function register() {
   if (!agreement.value) {
-    uni.showToast({ icon: "error", title: "请先同意协议" })
-    return;
+    uni.showToast({ icon: 'error', title: '请先同意协议' })
+    return
   }
   return formRef.value!.validate().then(({ valid }) => {
     if (valid) {

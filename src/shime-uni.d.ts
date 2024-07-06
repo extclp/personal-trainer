@@ -5,8 +5,7 @@ declare module 'vue' {
   interface ComponentCustomOptions extends Hooks {}
 }
 
-
-type A = import('@vue/runtime-core').GlobalComponents;
+type A = import('@vue/runtime-core').GlobalComponents
 
 declare module 'vue' {
   interface GlobalComponents extends A {}
