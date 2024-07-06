@@ -6,6 +6,9 @@
         <view>{{ data?.name ?? nikeName }}</view>
         <view class="mt-2 text-sm">努力奋斗上进</view>
       </view>
+      <navigator class="ml-a" url="/pages/setting">
+        <image class="ml-a size-6" src="@/static/user/setting.svg" />
+      </navigator>
     </view>
   </sar-card>
   <uni-card v-if="isTeacher" title="服务">

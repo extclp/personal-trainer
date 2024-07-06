@@ -183,7 +183,7 @@ const subjectsData = computed(() => {
       children: it.children.map((it1) => {
         return {
           label: it1.subject,
-          value: `${it.name} ${it1.subject}`,
+          value: `${it.name}  ${it1.subject}`,
         }
       }),
     }
@@ -242,8 +242,11 @@ function beforeUpload(_: any, options: UploadOptions) {
       status: 'success',
       message: '上传中...',
       url: base64,
+      type: "image"
     }]
+    form.value.image = base64
   })
+
 }
 
 const formRef = ref<FormInst>()

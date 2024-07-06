@@ -183,7 +183,7 @@ const subjectsData = computed(() => {
       children: it.children.map((it1) => {
         return {
           label: it1.subject,
-          value: `${it.name} ${it1.subject}`,
+          value: `${it.name}  ${it1.subject}`,
         }
       }),
     }
@@ -237,11 +237,13 @@ const filelist = ref<FileItem[]>()
 function beforeUpload(_: any, options: UploadOptions) {
   ploadFilePromise(options.filePath!).then((base64) => {
     options.onSuccess?.(null as any, options)
+    form.value.image = base64;
     filelist.value = [{
       name: '文件3.png',
       status: 'success',
       message: '上传中...',
       url: base64,
+      type: "image"
     }]
   })
 }
@@ -251,7 +253,7 @@ const formRef = ref<FormInst>()
 function register() {
   return formRef.value!.validate().then(({ valid }) => {
     if (valid) {
-      teacherUpdate(form.value).then((resp) => {
+      teacherUpdate(form.value).then(() => {
         uni.showToast({ title: '更新资料成功' })
       })
     }
@@ -260,5 +262,13 @@ function register() {
 
 teacherDetail({ phone: uni.getStorageSync('phone') }).then((resp) => {
   form.value = resp.data.teacher_detail
+
+  filelist.value = [{
+      name: '文件3.png',
+      status: 'success',
+      message: '上传中...',
+      url: form.value.image,
+      type: "image"
+    }]
 })
 </script>

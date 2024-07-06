@@ -66,8 +66,8 @@ const subjectsData = computed(() => {
   return dataList.value?.subjects.map((it) => {
     return it.children.map((it1) => {
       return {
-        label: `${it.name} ${it1.subject}`,
-        value: `${it.name} ${it1.subject}`,
+        label: `${it.name}  ${it1.subject}`,
+        value: `${it.name}  ${it1.subject}`,
       }
     })
   }).flat()

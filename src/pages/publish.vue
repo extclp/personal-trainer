@@ -101,7 +101,7 @@ const subjectsData = computed(() => {
       children: it.children.map((it1) => {
         return {
           label: it1.subject,
-          value: `${it.name} ${it1.subject}`,
+          value: `${it.name}  ${it1.subject}`,
         }
       }),
     }

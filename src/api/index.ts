@@ -122,5 +122,8 @@ export function odrerDelte(data: Data) {
 }
 
 export function teahcerCommit(data: Data) {
-  return request('leavingmessage/teacher', data)
+  return request('/leavingmessage/teacher', data)
+}
+export function edit(data: Data) {
+    return request("/customer/edit", data)
 }
