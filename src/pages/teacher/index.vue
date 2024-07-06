@@ -33,7 +33,7 @@
               <nut-tag type="primary" class="ml2">{{ item.identity }}</nut-tag>
               <view class="mt-6">
                 <text class="w-8 text-primary">科目：</text>
-                <text>{{ item.teachingCourse.join(", ") }}</text>
+                <text>{{ item.subject.join(", ") }}</text>
               </view>
               <view class="mt-2">
                 <text class="w-8 text-primary">地区：</text>

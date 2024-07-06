@@ -21,10 +21,8 @@
         <image class="size-5" src="@/static/home/notice.svg" />
         <view>通知栏</view>
       </view>
-      <navigator
-        v-for="notice in data.notice" :Key="notice.name"
-        :url="`/pages/article/detail?type=notice&name=${notice.name}`"
-      >
+      <navigator v-for="notice in data.notice" :Key="notice.name"
+        :url="`/pages/article/detail?type=notice&name=${notice.name}`">
         <view class="my-1 truncate">
           • {{ notice.name }}
         </view>
@@ -40,10 +38,8 @@
       </navigator>
     </view>
     <scroll-view scroll-x class="m-4 whitespace-nowrap">
-      <view
-        v-for="item in data.academic_news" :key="item.name"
-        class="relative mr-4 inline-block size-60 rounded-10 text-white" @click="catlog(item.title)"
-      >
+      <view v-for="item in data.academic_news" :key="item.name"
+        class="relative mr-4 inline-block size-60 rounded-10 text-white" @click="catlog(item.title)">
         <image class="h-full w-full" :src="item.image" mode="aspectFill" />
         <view class="absolute left-4 top-4 text-5 font-bold">{{ item.title }}</view>
         <view class="absolute top-40 whitespace-normal px-4 font-black">{{ item.name }}</view>
@@ -81,11 +77,13 @@ function catlog(tag: string) {
   uni.navigateTo({ url: `/pages/article/list?tag=${tag}` })
 }
 
-home({
-  per_page: 1000,
-}).then((resp) => {
-  data.value = resp.data
-})
+function getList() {
+  home({
+    per_page: 1000,
+  }).then((resp) => {
+    data.value = resp.data
+  })
+}
 
 function sendMessage() {
   if (!message.value) {
@@ -95,6 +93,7 @@ function sendMessage() {
   messageSend({
     content: message.value,
   }).then(() => {
+    getList();
     uni.showToast({ title: '留言发送成功' })
   })
 }
