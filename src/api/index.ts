@@ -117,9 +117,6 @@ export function collect(data: Data) {
 }
 
 // 订单
-export function odrerDelte(data: Data) {
-  return request('/order/delete', data)
-}
 
 export function teahcerCommit(data: Data) {
   return request('/leavingmessage/teacher', data)
