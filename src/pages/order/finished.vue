@@ -22,7 +22,7 @@
       </view>
       <template #footer>
         <view class="flex justify-end gap2">
-          <navigator :url="`/order/commit?phone=${item.phone}`">
+          <navigator :url="`/pages/order/commit?phone=${item.phone}`">
             <nut-button type="primary" size="mini">评价教师</nut-button>
           </navigator>
         </view>

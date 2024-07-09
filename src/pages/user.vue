@@ -6,7 +6,7 @@
         <view>{{ data?.name ?? nikeName }}</view>
         <view class="mt-2 text-sm">努力奋斗上进</view>
       </view>
-      <navigator class="ml-a" url="/pages/setting">
+      <navigator v-if="!isTeacher" class="ml-a" url="/pages/setting">
         <image class="ml-a size-6" src="@/static/user/setting.svg" />
       </navigator>
     </view>
@@ -105,10 +105,13 @@ const data = teacherData()
 function logout() {
   uni.showModal({
     title: '是否退出登录',
-    complete() {
-      uni.removeStorageSync('token')
-      uni.showToast({ title: '退出登录成功' })
-      uni.navigateTo({ url: '/pages/login' })
+    success(res) {
+      if (res.confirm) {
+        uni.removeStorageSync('token')
+        uni.showToast({ title: '退出登录成功' })
+        uni.navigateTo({ url: '/pages/login' })
+      }
+
     },
   })
 }
