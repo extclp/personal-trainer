@@ -95,6 +95,7 @@ function sendMessage() {
     content: message.value,
   }).then(() => {
     getList();
+    message.value = '';
     uni.showToast({ title: '留言发送成功' })
   })
 }
