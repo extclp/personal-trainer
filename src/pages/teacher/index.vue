@@ -3,7 +3,7 @@
     <view>
       <!-- 科目 对线 线上 区域 -->
       <sar-dropdown>
-        <sar-dropdown-item v-model="form.identity" placeholder="科目" :options="subjectsData" />
+        <sar-dropdown-item v-model="form.subjects" placeholder="科目" :options="subjectsData" />
         <sar-dropdown-item
           v-model="form.identity" placeholder="身份" :options="makeLV(dataList?.identity)"
           @update:model-value="search"
