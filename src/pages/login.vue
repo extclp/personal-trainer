@@ -43,7 +43,7 @@ function handleLogin() {
   login(form).then((resp) => {
     uni.setStorageSync('token', resp.token)
     uni.setStorageSync('nickName', resp.nick_name)
-    uni.setStorageSync('phone', resp.mobile)
+    uni.setStorageSync('phone', form.mobile)
     uni.setStorageSync('qianming', resp.qianming)
     uni.setStorageSync('avatar', resp.avatar)
 

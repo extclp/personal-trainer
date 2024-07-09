@@ -105,7 +105,7 @@ const data = teacherData()
 function logout() {
   uni.showModal({
     title: '是否退出登录',
-    success() {
+    complete() {
       uni.removeStorageSync('token')
       uni.showToast({ title: '退出登录成功' })
       uni.navigateTo({ url: '/pages/login' })

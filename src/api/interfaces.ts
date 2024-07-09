@@ -5,7 +5,6 @@ export interface LoginReponse extends Result<any> {
   vip: boolean
   token: string
   nick_name: string
-  mobile: string
   qianming: string
   avatar: string
 }
@@ -145,6 +144,15 @@ export interface TeacherForm {
 export interface Teacher extends TeacherForm {
   age: string
   login_time: string
+}
+
+export interface Message {
+  username: string;
+  message: string;
+  time: string;
+  image: string;
+  id: number;
+  login_time: string;
 }
 
 export interface Collect {

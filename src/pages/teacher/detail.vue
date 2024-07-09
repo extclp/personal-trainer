@@ -68,20 +68,20 @@
       <view v-if="data.personalExperience.length == 0">
         暂无
       </view>
-      <!-- <view v-else>
+      <view v-else>
         <view v-for="item in data.personalExperience" class="my-2">{{ item }}</view>
-      </view> -->
+      </view>
     </sar-card>
     <view class="mx-4 font-600">教师评价</view>
-    <sar-card class="m-4">
+    <sar-card v-for="message in messages" :key="message.time" class="m-4">
       <view class="flex gap-4">
-        <image class="mt-2 h-10 w-10 rounded-full bg-red" />
-        <view class="flex-1">
+        <image class="h-10 w-10 rounded-full" :src="message.image" mode="aspectFill" />
+        <view class="flex-1 border border-slate-300 border-b-solid">
           <view class="text-sm">
-            <text class="float-right">2020-5-11</text>
-            <text>extclp</text>
+            <text class="float-right">{{ ago(message.time) }}</text>
+            <text>{{ message.username }}</text>
           </view>
-          <view class="my-3">测试</view>
+          <view class="my-4"> {{ message.message }} </view>
         </view>
       </view>
     </sar-card>
@@ -93,14 +93,17 @@
 import { onLoad } from '@dcloudio/uni-app'
 import Checkbox from '@/components/Checkbox.vue'
 import { teacherDetail } from '@/api'
-import type { Teacher } from '@/api/interfaces'
+import type { Message, Teacher } from '@/api/interfaces'
+import { ago } from '@/utls';
 
 const data = ref<Teacher>()
+const messages = ref<Message[]>();
 
 onLoad((query) => {
   const { phone } = query!
   teacherDetail({ phone }).then((resp) => {
     data.value = resp.data.teacher_detail
+    messages.value = resp.data.messages
   })
 })
 </script>

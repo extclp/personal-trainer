@@ -7,7 +7,7 @@ dayjs.locale('zh-cn')
 dayjs.extend(relativeTime)
 
 export function ago(str: string) {
-  return dayjs(str).fromNow()
+  return dayjs(str).from(dayjs().startOf('day'))
 }
 
 export function makeLV(list?: string[]) {
