@@ -43,7 +43,7 @@
         </view>
       </view>
     </nut-form-item>
-    <nut-form-item label="课酬要求" prop="form.cost" :rules="[{ required: true, message: '课酬要求不能为空' }]">
+    <nut-form-item label="课酬要求" prop="cost" :rules="[{ required: true, message: '课酬要求不能为空' }]">
       <sar-picker-input v-model="form.cost" :columns="dataList?.cost" placeholder="请选择" />
     </nut-form-item>
     <nut-form-item label="教学区域" prop="teachingPosition" :rules="[{ required: true, message: '任教区域不能为空' }]">

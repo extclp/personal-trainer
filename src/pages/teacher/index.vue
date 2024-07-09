@@ -42,7 +42,7 @@
             </view>
           </view>
           <view class="mt-2 flex gap-2">
-            <nut-tag type="primary">{{ item.college }}</nut-tag>
+            <nut-tag type="primary">{{ item.school }}</nut-tag>
             <nut-tag type="primary">{{ item.identity }}</nut-tag>
           </view>
         </sar-card>

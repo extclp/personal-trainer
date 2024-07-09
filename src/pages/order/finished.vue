@@ -22,7 +22,6 @@
       </view>
       <template #footer>
         <view class="flex justify-end gap2">
-          <nut-button type="primary" size="mini" @click="deleteOrder(item.order_id)">删除订单</nut-button>
           <navigator :url="`/order/commit?phone=${item.phone}`">
             <nut-button type="primary" size="mini">评价教师</nut-button>
           </navigator>
@@ -35,7 +34,6 @@
 
 <script setup lang="ts">
 import type { LoadMoreStatus } from 'sard-uniapp'
-import { odrerDelte } from '@/api'
 import type { Order } from '@/api/interfaces'
 import { orderList } from '@/api/teacher'
 
@@ -75,15 +73,5 @@ function loadMore() {
 function search() {
   form.page = 1
   getList()
-}
-
-function deleteOrder(order_id: string) {
-  odrerDelte({
-    order_id,
-    phone: uni.getStorageSync('phone'),
-  }).then(() => {
-    uni.showToast({ title: '删除订单成功' })
-    search()
-  })
 }
 </script>

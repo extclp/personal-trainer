@@ -13,8 +13,8 @@
     <nut-form-item label="联系方式" prop="phone" :rules="[{ required: true, message: '联系不能为空' }]">
       <nut-input v-model="form.phone" placeholder="请填写" />
     </nut-form-item>
-    <nut-form-item label="毕业学校" prop="college" :rules="[{ required: true, message: '毕业不能为空' }]">
-      <nut-input v-model="form.college" placeholder="请填写" />
+    <nut-form-item label="毕业学校" prop="school" :rules="[{ required: true, message: '毕业不能为空' }]">
+      <nut-input v-model="form.school" placeholder="请填写" />
     </nut-form-item>
     <nut-form-item label="专业" prop="major" :rules="[{ required: true, message: '专业不能为空' }]">
       <nut-input v-model="form.major" placeholder="请填写" />
@@ -138,7 +138,7 @@ const form = ref<TeacherForm>({
   phone: '',
   name: '',
   sex: '',
-  college: '',
+  school: '',
   major: '',
   birthday: '',
   tutorAge: '',

@@ -22,7 +22,6 @@
       </view>
       <template #footer>
         <view class="flex justify-end gap2">
-          <nut-button type="primary" size="mini">删除订单</nut-button>
           <nut-button type="primary" size="mini">评价教师</nut-button>
         </view>
       </template>

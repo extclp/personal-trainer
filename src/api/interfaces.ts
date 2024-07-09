@@ -120,8 +120,7 @@ export interface DataList {
 export interface TeacherForm {
   phone: string
   birthday: string
-  // school: string;
-  college: string
+  school: string;
   personalExperience: string[]
   subject: string[]
 
