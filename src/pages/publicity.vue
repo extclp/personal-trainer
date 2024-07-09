@@ -57,7 +57,7 @@
           <text class="float-right">{{ ago(message.time) }}</text>
           <text>{{ message.username }}</text>
         </view>
-        <view class="my-4"> {{ message.message }} </view>
+        <view class="mt-2 mb-4"> {{ message.message }} </view>
       </view>
     </view>
   </template>
