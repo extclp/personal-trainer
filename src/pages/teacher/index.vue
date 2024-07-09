@@ -28,9 +28,8 @@
               <view class="mt-1 text-xs text-[#AAA6B9]">{{ item.login_time }}</view>
             </view>
             <view class="flex-1">
-              <text class="float-right text-primary">{{ item.cost }}</text>
+              <text class="float-right text-primary">{{ item.costRequest }}</text>
               <text>{{ item.name }}</text>
-              <nut-tag type="primary" class="ml2">{{ item.identity }}</nut-tag>
               <view class="mt-6">
                 <text class="w-8 text-primary">科目：</text>
                 <text>{{ item.subject.join(", ") }}</text>
