@@ -21,6 +21,7 @@
 <script setup lang="ts">
 import { login, sendCode } from '@/api'
 import { setTeacher } from '@/store'
+import { avatar, nickName, qianming } from '@/store/basic';
 
 if (uni.getStorageSync('token')) {
   uni.switchTab({ url: '/pages/home' })
@@ -42,10 +43,11 @@ function handleSendCode() {
 function handleLogin() {
   login(form).then((resp) => {
     uni.setStorageSync('token', resp.token)
-    uni.setStorageSync('nickName', resp.nick_name)
     uni.setStorageSync('phone', form.mobile)
-    uni.setStorageSync('qianming', resp.qianming)
-    uni.setStorageSync('avatar', resp.avatar)
+
+    nickName.value = resp.nick_name
+    qianming.value = resp.qianming
+    avatar.value = resp.avatar
 
     setTeacher(resp.key)
     uni.showToast({ title: '登录成功' })

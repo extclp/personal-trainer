@@ -170,7 +170,12 @@ function showPostion() {
   positionVisible.value = true
 }
 function onSelectPostion() {
-  form.value.teachingPosition.push(postion.value!)
+  if (!postion.value) {
+    return;
+  }
+  if (!form.value.teachingPosition.includes(postion.value)) {
+    form.value.teachingPosition.push(postion.value!)
+  }
 }
 
 const subject = ref()

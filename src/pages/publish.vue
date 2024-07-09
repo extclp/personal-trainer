@@ -91,11 +91,12 @@ const rules = {
 
 const form = reactive({
   phone: '',
+  identity: '',
   teachingCourse: undefined,
   teachingPosition: '',
   student: '',
   teachingStyle: [],
-  teachingTime: Array(3).fill([]).map(it => []),
+  teachingTime: Array(3).fill([]).map(() => []),
   cost: '',
   address: '',
   studentName: '',

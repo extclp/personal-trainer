@@ -121,7 +121,6 @@ export interface TeacherForm {
   birthday: string
   school: string;
   personalExperience: string[]
-  subject: string[]
 
   name: string
   sex: string
@@ -143,6 +142,7 @@ export interface TeacherForm {
 
 export interface Teacher extends TeacherForm {
   age: string
+  subject: string[]
   login_time: string
 }
 

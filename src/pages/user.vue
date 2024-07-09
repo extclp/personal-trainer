@@ -1,10 +1,10 @@
 <template>
   <sar-card class="m-4">
     <view class="flex items-center gap-4">
-      <nut-avatar :size="50" :src="data?.image" />
+      <image class="size-12 rounded-full" :src="avatar" mode="aspectFill" />
       <view class="font-600">
-        <view>{{ data?.name ?? nikeName }}</view>
-        <view class="mt-2 text-sm">努力奋斗上进</view>
+        <view>{{ nickName }}</view>
+        <view class="mt-2 text-sm">{{ qianming }}</view>
       </view>
       <navigator v-if="!isTeacher" class="ml-a" url="/pages/setting">
         <image class="ml-a size-6" src="@/static/user/setting.svg" />
@@ -96,11 +96,8 @@
 </template>
 
 <script setup lang="ts">
-import { isTeacher, teacherData } from '@/store/index'
-
-const nikeName = uni.getStorageSync('nickName')
-
-const data = teacherData()
+import { isTeacher } from '@/store/index'
+import { nickName, avatar, qianming } from '@/store/basic';
 
 function logout() {
   uni.showModal({
