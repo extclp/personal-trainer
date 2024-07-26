@@ -22,7 +22,7 @@ import { type QrcodeData, teacherQRcode } from '@/api/teacher'
 const data = ref<QrcodeData>()
 
 teacherQRcode({
-  phone: uni.getStorageSync('token'),
+  phone: uni.getStorageSync('phone'),
 }).then((resp) => {
   data.value = resp.data
 })
@@ -37,7 +37,7 @@ teacherQRcode({
 
     .section_5 {
       background-color: #fb7206;
-      height: 288.46rpx;
+      height: 288rpx;
     }
 
     .group_5 {
@@ -59,7 +59,6 @@ teacherQRcode({
         .text_2 {
           color: #ffffff;
           font-size: 39.79rpx;
-          font-family: Noto Sans SC;
           line-height: 36.84rpx;
           text-align: center;
         }
