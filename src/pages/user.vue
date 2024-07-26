@@ -52,6 +52,14 @@
     </view>
   </uni-card>
   <nut-cell-group class="m-4">
+    <nut-cell is-link @click="qrcode">
+      <template #title>
+        <view class="flex items-center gap-3">
+          <image class="size-6" src="@/static/icons/qrcode.svg" />
+          <view>扫描二维码</view>
+        </view>
+      </template>
+    </nut-cell>
     <nut-cell is-link to="/pages/about/teacher">
       <template #title>
         <view class="flex items-center gap-3">
@@ -98,6 +106,7 @@
 <script setup lang="ts">
 import { isTeacher } from '@/store/index'
 import { nickName, avatar, qianming } from '@/store/basic';
+import CryptoJS from 'crypto-js'
 
 function logout() {
   uni.showModal({
@@ -111,5 +120,35 @@ function logout() {
 
     },
   })
+}
+
+function qrcode() {
+  // #ifdef MP-WEIXIN
+  uni.scanCode({
+    scanType: ["qrCode"],
+    success(res) {
+      const result = JSON.parse(res.result)
+
+      const key = 'xkVZV6O8GhZJjO7C8H3tp5XTJoi3j2i1t7kOyxPeX9M=';
+
+      const keyWords = CryptoJS.enc.Base64.parse(key);
+
+
+      const encryptedWords = CryptoJS.enc.Base64.parse(result.teacher);
+
+      // @ts-ignore
+      const decrypted = CryptoJS.AES.decrypt({ ciphertext: encryptedWords }, keyWords, {
+        mode: CryptoJS.mode.ECB,
+        padding: CryptoJS.pad.Pkcs7
+      });
+
+      // 将解密后的数据转换为UTF-8字符串
+      const teacher = decrypted.toString(CryptoJS.enc.Utf8);
+
+      uni.navigateTo({ url: `/pages/teacher/detail?phone=${teacher}` })
+
+    }
+  })
+  // #endif
 }
 </script>

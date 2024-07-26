@@ -6,7 +6,7 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "@uni-helper/uni-ui-types", "sard-uniapp/global.d.ts", "nutui-uniapp/global.d.ts"],
+    "types": ["@dcloudio/types", "@uni-helper/uni-app-types", "sard-uniapp/global.d.ts", "nutui-uniapp/global.d.ts"],
     "sourceMap": true
   },
   "vueCompilerOptions": {
