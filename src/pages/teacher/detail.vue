@@ -5,7 +5,7 @@
       <sar-card clas="h-32">
         <view class="relative top--8">
           <view class="flex items-end gap-2">
-            <nut-avatar :size="70" :src="data.image" />
+            <image class="size-18 rounded-full" :src="data.image" />
             <view class="mb-4 flex gap-2">
               <nut-tag type="primary" size="mini">{{ data.age }}</nut-tag>
               <nut-tag type="primary" size="mini">教龄：{{ data.tutorAge }}</nut-tag>
@@ -94,10 +94,10 @@ import { onLoad } from '@dcloudio/uni-app'
 import Checkbox from '@/components/Checkbox.vue'
 import { teacherDetail } from '@/api'
 import type { Message, Teacher } from '@/api/interfaces'
-import { ago } from '@/utls';
+import { ago } from '@/utls'
 
 const data = ref<Teacher>()
-const messages = ref<Message[]>();
+const messages = ref<Message[]>()
 
 onLoad((query) => {
   const { phone } = query!

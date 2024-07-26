@@ -104,9 +104,9 @@
 </template>
 
 <script setup lang="ts">
-import { isTeacher } from '@/store/index'
-import { nickName, avatar, qianming } from '@/store/basic';
 import CryptoJS from 'crypto-js'
+import { isTeacher } from '@/store/index'
+import { avatar, nickName, qianming } from '@/store/basic'
 
 function logout() {
   uni.showModal({
@@ -117,7 +117,6 @@ function logout() {
         uni.showToast({ title: '退出登录成功' })
         uni.navigateTo({ url: '/pages/login' })
       }
-
     },
   })
 }
@@ -125,29 +124,27 @@ function logout() {
 function qrcode() {
   // #ifdef MP-WEIXIN
   uni.scanCode({
-    scanType: ["qrCode"],
+    scanType: ['qrCode'],
     success(res) {
       const result = JSON.parse(res.result)
 
-      const key = 'xkVZV6O8GhZJjO7C8H3tp5XTJoi3j2i1t7kOyxPeX9M=';
+      const key = 'xkVZV6O8GhZJjO7C8H3tp5XTJoi3j2i1t7kOyxPeX9M='
 
-      const keyWords = CryptoJS.enc.Base64.parse(key);
+      const keyWords = CryptoJS.enc.Base64.parse(key)
 
-
-      const encryptedWords = CryptoJS.enc.Base64.parse(result.teacher);
+      const encryptedWords = CryptoJS.enc.Base64.parse(result.teacher)
 
       // @ts-ignore
       const decrypted = CryptoJS.AES.decrypt({ ciphertext: encryptedWords }, keyWords, {
         mode: CryptoJS.mode.ECB,
-        padding: CryptoJS.pad.Pkcs7
-      });
+        padding: CryptoJS.pad.Pkcs7,
+      })
 
       // 将解密后的数据转换为UTF-8字符串
-      const teacher = decrypted.toString(CryptoJS.enc.Utf8);
+      const teacher = decrypted.toString(CryptoJS.enc.Utf8)
 
       uni.navigateTo({ url: `/pages/teacher/detail?phone=${teacher}` })
-
-    }
+    },
   })
   // #endif
 }

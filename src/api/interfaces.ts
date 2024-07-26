@@ -119,7 +119,7 @@ export interface DataList {
 export interface TeacherForm {
   phone: string
   birthday: string
-  school: string;
+  school: string
   personalExperience: string[]
 
   name: string
@@ -147,12 +147,12 @@ export interface Teacher extends TeacherForm {
 }
 
 export interface Message {
-  username: string;
-  message: string;
-  time: string;
-  image: string;
-  id: number;
-  login_time: string;
+  username: string
+  message: string
+  time: string
+  image: string
+  id: number
+  login_time: string
 }
 
 export interface Collect {

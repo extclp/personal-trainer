@@ -89,21 +89,23 @@ const rules = {
   identity: [{ required: true, message: '教员类型不能为空' }],
 }
 
-const defaultForm = () => ({
-  phone: '',
-  identity: '',
-  teachingCourse: undefined,
-  teachingPosition: '',
-  student: '',
-  teachingStyle: [],
-  teachingTime: Array(3).fill([]).map(() => []),
-  cost: '',
-  address: '',
-  studentName: '',
-  studentSex: '',
-  studentGrade: '',
-  request: '',
-})
+function defaultForm() {
+  return {
+    phone: '',
+    identity: '',
+    teachingCourse: undefined,
+    teachingPosition: '',
+    student: '',
+    teachingStyle: [],
+    teachingTime: Array(3).fill([]).map(() => []),
+    cost: '',
+    address: '',
+    studentName: '',
+    studentSex: '',
+    studentGrade: '',
+    request: '',
+  }
+}
 
 const form = ref(defaultForm())
 
@@ -133,7 +135,7 @@ function handleSubmit() {
       return
     }
     createOrder(form.value).then(() => {
-      form.value = defaultForm();
+      form.value = defaultForm()
       uni.showToast({ title: '发布成功' })
       uni.switchTab({ url: '/pages/home' })
     })

@@ -155,7 +155,7 @@ const form = ref<TeacherForm>({
   personalExperience: [],
   achievement: [],
   costRequest: '',
-  subject: []
+  subject: [],
 })
 
 const birthday = ref()

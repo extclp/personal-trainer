@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import { login, sendCode } from '@/api'
 import { setTeacher } from '@/store'
-import { avatar, nickName, qianming } from '@/store/basic';
+import { avatar, nickName, qianming } from '@/store/basic'
 
 if (uni.getStorageSync('token')) {
   uni.switchTab({ url: '/pages/home' })

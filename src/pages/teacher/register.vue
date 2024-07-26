@@ -171,7 +171,7 @@ function showPostion() {
 }
 function onSelectPostion() {
   if (!postion.value) {
-    return;
+    return
   }
   if (!form.value.teachingPosition.includes(postion.value)) {
     form.value.teachingPosition.push(postion.value!)
