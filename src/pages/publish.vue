@@ -89,7 +89,7 @@ const rules = {
   identity: [{ required: true, message: '教员类型不能为空' }],
 }
 
-const form = reactive({
+const defaultForm = () => ({
   phone: '',
   identity: '',
   teachingCourse: undefined,
@@ -104,6 +104,8 @@ const form = reactive({
   studentGrade: '',
   request: '',
 })
+
+const form = ref(defaultForm())
 
 const subjectsData = computed(() => {
   return dataList.value?.subjects.map((it) => {
@@ -130,10 +132,11 @@ function handleSubmit() {
     if (!valid) {
       return
     }
-    createOrder(form).then(() => {
+    createOrder(form.value).then(() => {
+      form.value = defaultForm();
       uni.showToast({ title: '发布成功' })
+      uni.switchTab({ url: '/pages/home' })
     })
-    uni.switchTab({ url: '/pages/home' })
   })
 }
 </script>
