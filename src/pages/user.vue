@@ -6,7 +6,7 @@
         <view>{{ nickName }}</view>
         <view class="mt-2 text-sm">{{ qianming }}</view>
       </view>
-      <navigator v-if="!isTeacher" class="ml-a" url="/pages/setting">
+      <navigator class="ml-a" url="/pages/setting">
         <image class="ml-a size-6" src="@/static/user/setting.svg" />
       </navigator>
     </view>
