@@ -74,8 +74,8 @@ export function orders(data: Data) {
 }
 
 // ======= 留言 =======
-export function commitList(data: Data) {
-  return request<Commit[]>('/mymessage', data)
+export function commitList() {
+  return request<Commit[]>('/mymessage')
 }
 
 export function messageSend(data: Data) {
