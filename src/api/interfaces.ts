@@ -39,7 +39,8 @@ export interface HomeData {
 export interface Commit {
   content: string
   time: string
-  ago: string // custom
+  phone: string
+  image: string
 }
 
 export interface New {
@@ -172,11 +173,4 @@ export interface Order {
   course_time: string
 
   phone: string // todo
-}
-
-export interface Message {
-  time: string
-  image: string
-  username: string
-  message: string
 }
