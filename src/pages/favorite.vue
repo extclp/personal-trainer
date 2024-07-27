@@ -1,6 +1,6 @@
 <template>
   <view class="m-4 text-lg">教师收藏</view>
-  <navigator v-for="item in data?.trechers" :key="item.phone" :url="`/pages/teacher/detail?phone=${item.phone}`">
+  <navigator v-for="item in data?.teachers" :key="item.phone" :url="`/pages/teacher/detail?phone=${item.phone}`">
     <sar-card class="m4">
       <view class="flex gap-2">
         <view class="text-center">
@@ -51,7 +51,7 @@ import type { Collect } from '@/api/interfaces'
 
 const data = ref<Collect>()
 
-collect({ per_page: 1000, number: 1 }).then((resp) => {
+collect({ per_page: 1000, number: 1, phone: uni.getStorageSync("phone") }).then((resp) => {
   data.value = resp.data
 })
 </script>

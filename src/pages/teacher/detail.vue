@@ -2,21 +2,22 @@
   <template v-if="data">
     <image class="absolute top-0 h-36 w-full" src="@/static/teacher/bg.png" />
     <view class="p-4 pt-15">
-      <sar-card clas="h-32">
+      <sar-card class="h-32">
         <view class="relative top--8">
-          <view class="flex items-end gap-2">
+          <view class="flex items-end justify-between gap-2">
             <image class="size-18 rounded-full" :src="data.image" />
-            <view class="mb-4 flex gap-2">
-              <nut-tag type="primary" size="mini">{{ data.age }}</nut-tag>
-              <nut-tag type="primary" size="mini">教龄：{{ data.tutorAge }}</nut-tag>
-              <nut-tag type="primary" size="mini">{{ data.identity }}</nut-tag>
-            </view>
+            <image v-if="data.like" class="size-6 mb-2" src="@/static/icons/favorite-solid.svg" @click="updateLike" />
+            <image v-else class="size-6 mb-2" src="@/static/icons/favorite-line.svg" @click="updateLike" />
           </view>
           <view class="mt-2 flex items-center gap-2">
             <text class="text-5 font-700">{{ data.name }}</text>
             <text class="text-sm">登陆时间: {{ data.login_time }}</text>
           </view>
-          <view class="mt-2">在校研究生；可线上教学</view>
+          <view class="mt-2 flex gap-2">
+            <nut-tag type="primary" size="mini">{{ data.age }}</nut-tag>
+            <nut-tag type="primary" size="mini">教龄：{{ data.tutorAge }}</nut-tag>
+            <nut-tag type="primary" size="mini">{{ data.identity }}</nut-tag>
+          </view>
         </view>
       </sar-card>
     </view>
@@ -92,18 +93,28 @@
 <script setup lang="ts">
 import { onLoad } from '@dcloudio/uni-app'
 import Checkbox from '@/components/Checkbox.vue'
-import { teacherDetail } from '@/api'
+import { teacherDetail, teacherLike } from '@/api'
 import type { Message, Teacher } from '@/api/interfaces'
 import { ago } from '@/utls'
 
 const data = ref<Teacher>()
 const messages = ref<Message[]>()
 
+let phone: string;
+
 onLoad((query) => {
-  const { phone } = query!
+  phone = query!.phone
   teacherDetail({ phone }).then((resp) => {
     data.value = resp.data.teacher_detail
     messages.value = resp.data.messages
   })
 })
+
+function updateLike() {
+  data.value!.like = !data.value!.like
+  teacherLike({
+    c_phone: uni.getStorageSync("phone"),
+    t_phone: phone,
+  })
+}
 </script>

@@ -4,9 +4,16 @@
     <view class="mt-4 text-2xl font-500">{{ data.name }}</view>
 
     <view class="my-4 flex items-center gap-2 text-lg">
-      <image class="size-10 rounded-full" :src="data.writer_image" />
-      <view>{{ data.writer }}</view>
-      <view class="ml-auto text-sm">{{ ago(data.time) }}</view>
+      <image class="size-15 rounded-full" :src="data.writer_image" />
+      <View>
+        <view>{{ data.writer }}</view>
+        <view class="ml-auto text-sm">{{ ago(data.time) }}</view>
+      </View>
+      <view class="mb-2 ml-a">
+        <image class="size-6" v-if="data.like" src="@/static/icons/favorite-solid.svg" @click="updateLike" />
+        <image class="size-6" v-else src="@/static/icons/favorite-line.svg" @click="updateLike" />
+
+      </view>
     </view>
 
     <view class="whitespace-pre-wrap">{{ data.content }}</view>
@@ -15,17 +22,29 @@
 
 <script setup lang="ts">
 import { onLoad } from '@dcloudio/uni-app'
-import { article } from '@/api'
+import { article, articleLike } from '@/api'
 import type { ArticleDetail } from '@/api/interfaces'
 import { ago } from '@/utls'
 
 const data = ref<ArticleDetail>()
 
+let name: string;
+
 onLoad((query) => {
+  name = query!.name;
   article(query!).then((resp) => {
     data.value = resp.data
   })
 })
+
+
+function updateLike() {
+  data.value!.like = !data.value!.like
+  articleLike({
+    name,
+    phone: uni.getStorageSync("phone"),
+  })
+}
 </script>
 
 <style>

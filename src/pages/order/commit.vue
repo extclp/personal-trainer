@@ -1,22 +1,22 @@
 <template>
   <template v-if="data">
     <image class="fixed top-0 h-36 w-full" src="@/static/teacher/bg.png" />
-    <view class="m-4 pt-15">
-      <sar-card clas="h-32">
+    <view class="p-4 pt-15">
+      <sar-card class="h-32">
         <view class="relative top--8">
           <view class="flex items-end gap-2">
             <image class="size-18 rounded-full" :src="data.image" />
-            <view class="mb-4 flex gap-2">
-              <nut-tag type="primary" size="mini">{{ data.age }}</nut-tag>
-              <nut-tag type="primary" size="mini">教龄：{{ data.tutorAge }}</nut-tag>
-              <nut-tag type="primary" size="mini">{{ data.identity }}</nut-tag>
-            </view>
+            <image class=""
           </view>
           <view class="mt-2 flex items-center gap-2">
             <text class="text-5 font-700">{{ data.name }}</text>
             <text class="text-sm">登陆时间: {{ data.login_time }}</text>
           </view>
-          <view class="mt-2">在校研究生；可线上教学</view>
+          <view class="mt-2 flex gap-2">
+              <nut-tag type="primary" size="mini">{{ data.age }}</nut-tag>
+              <nut-tag type="primary" size="mini">教龄：{{ data.tutorAge }}</nut-tag>
+              <nut-tag type="primary" size="mini">{{ data.identity }}</nut-tag>
+            </view>
         </view>
       </sar-card>
     </view>

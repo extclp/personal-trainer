@@ -93,6 +93,7 @@ export interface ArticleDetail {
   image: string
   content: string
   writer_image: string
+  like: boolean
 }
 
 export interface DataList {
@@ -144,6 +145,7 @@ export interface Teacher extends TeacherForm {
   subject: string[]
   login_time: string
   image: string
+  like: boolean
 }
 
 export interface Message {
@@ -156,7 +158,7 @@ export interface Message {
 }
 
 export interface Collect {
-  trechers: Teacher[]
+  teachers: Teacher[]
   articles: {
     title: string
     article: string
