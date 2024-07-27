@@ -5,7 +5,7 @@
       <sar-dropdown>
         <sar-dropdown-item v-model="form.subjects" placeholder="科目" :options="subjectsData" />
         <sar-dropdown-item
-          v-model="form.identity" placeholder="身份" :options="makeLV(dataList?.identity)"
+          v-model="form.identity" placeholder="身份" :options="makeLV(['研究生教员', '本科生教员', '专业教员'])"
           @update:model-value="search"
         />
         <sar-dropdown-item

@@ -23,7 +23,7 @@
       <sar-picker-input v-model="form.tutorAge" :columns="dataList?.tutor_age" placeholder="请选择" />
     </nut-form-item>
     <nut-form-item label="身份" prop="identity" :rules="[{ required: true, message: '身份不能为空' }]">
-      <sar-picker-input v-model="form.identity" :columns="dataList?.identity" placeholder="请选择" />
+      <sar-picker-input v-model="form.identity" :columns="['研究生教员', '本科生教员', '专业教员']" placeholder="请选择" />
     </nut-form-item>
     <view class="text-lg font-500">教员信息</view>
     <nut-form-item label="任教对象" prop="student" :rules="[{ required: true, message: '任教对象不能为空' }]">

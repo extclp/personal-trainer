@@ -113,7 +113,6 @@ export interface DataList {
     sex: string
     grade: string
   }[]
-  identity: string[]
 }
 
 export interface TeacherForm {
