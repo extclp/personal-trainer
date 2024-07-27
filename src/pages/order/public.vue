@@ -3,7 +3,7 @@
     <nut-cell>
       <view class="relative w-full">
         <view class="flex gap-1 text-lg color-black font-semibold">
-          <text class="color-primary">崇川</text>
+          <text class="color-primary">{{ item.nick_name }}</text>
           <text>{{ item.student_sex }}</text>
         </view>
         <view class="w-full flex">

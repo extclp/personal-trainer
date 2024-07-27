@@ -20,11 +20,6 @@
         </view>
         <nut-tag>{{ item.status }}</nut-tag>
       </view>
-      <template #footer>
-        <view class="flex justify-end gap2">
-          <nut-button type="primary" size="mini">评价教师</nut-button>
-        </view>
-      </template>
     </sar-card>
     <sar-load-more :status="loadMoreStautus" />
   </scroll-view>

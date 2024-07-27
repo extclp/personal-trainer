@@ -41,6 +41,7 @@ export interface OrderPublic {
   orders: {
     teaching_position: string
     cost: boolean
+    nick_name: string
     student_sex: string
     address: string
     subject: string
