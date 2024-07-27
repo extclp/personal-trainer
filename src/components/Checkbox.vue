@@ -11,6 +11,7 @@ import { computed } from 'vue'
 
 const props = defineProps({
   passive: {
+    type: Boolean,
     default: false,
   },
   value: {

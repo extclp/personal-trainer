@@ -144,6 +144,7 @@ export interface Teacher extends TeacherForm {
   age: string
   subject: string[]
   login_time: string
+  image: string
 }
 
 export interface Message {
