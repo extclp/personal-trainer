@@ -114,8 +114,7 @@ function logout() {
     success(res) {
       if (res.confirm) {
         uni.removeStorageSync('token')
-        uni.showToast({ title: '退出登录成功' })
-        uni.navigateTo({ url: '/pages/login' })
+        uni.reLaunch({ url: "/" });
       }
     },
   })
