@@ -8,7 +8,8 @@
     <nut-form-item label="验证码">
       <nut-input v-model="form.captcha">
         <template #right>
-          <nut-button type="primary" size="small" @click="handleSendCode">获取验证码</nut-button>
+          <nut-button v-if="countdown" type="primary" size="small" disabled @click="handleSendCode">{{ countdown }}</nut-button>
+          <nut-button v-else type="primary" size="small" @click="handleSendCode">获取验证码</nut-button>
         </template>
       </nut-input>
     </nut-form-item>
@@ -33,11 +34,29 @@ const form = reactive({
   token: '',
 })
 
+const countdown = ref(0)
+
 function handleSendCode() {
+  if (!form.mobile) {
+    uni.showToast({ title: "请先输入手机号", icon: "error" })
+    return;
+  }
   sendCode(form).then((resp) => {
     console.log(resp)
     uni.showToast({ title: '验证码已发送' })
   })
+
+  
+  countdown.value = 60;
+
+  let interval: number;
+
+  interval = setInterval(() => {
+    countdown.value--;
+    if (countdown.value == 0) {
+      clearInterval(interval)
+    }
+  }, 1000);
 }
 
 function handleLogin() {
