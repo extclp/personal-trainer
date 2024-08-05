@@ -6,7 +6,7 @@
         <view class="relative top--8">
           <view class="flex items-end justify-between gap-2">
             <image class="size-18 rounded-full" :src="data.image" mode="aspectFill" />
-            <image v-if="data.like" class="mb-2 size-6" src="@/static/icons/favorite-solid.svg" @click="updateLike" />
+            <image v-if="data.is_like" class="mb-2 size-6" src="@/static/icons/favorite-solid.svg" @click="updateLike" />
             <image v-else class="mb-2 size-6" src="@/static/icons/favorite-line.svg" @click="updateLike" />
           </view>
           <view class="mt-2 flex items-center gap-2">
@@ -111,7 +111,7 @@ onLoad((query) => {
 })
 
 function updateLike() {
-  data.value!.like = !data.value!.like
+  data.value!.is_like = !data.value!.is_like
   teacherLike({
     c_phone: uni.getStorageSync('phone'),
     t_phone: phone,

@@ -145,7 +145,7 @@ export interface Teacher extends TeacherForm {
   subject: string[]
   login_time: string
   image: string
-  like: boolean
+  is_like: boolean
 }
 
 export interface Message {
