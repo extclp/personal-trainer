@@ -130,7 +130,7 @@ import { ploadFilePromise } from '@/utls/image-tools'
 import { listData } from '@/store'
 import { format, formatM } from '@/utls'
 import type { TeacherForm } from '@/api/interfaces'
-import { teacherDetail, teacherUpdate } from '@/api'
+import { teacherEDetail, teacherUpdate } from '@/api'
 
 const dataList = listData()
 
@@ -264,7 +264,7 @@ function register() {
   })
 }
 
-teacherDetail({ phone: uni.getStorageSync('phone') }).then((resp) => {
+teacherEDetail({ phone: uni.getStorageSync('phone') }).then((resp) => {
   form.value = resp.data.teacher_detail
 
   filelist.value = [{

@@ -11,10 +11,20 @@
       </view>
     </view>
     <view class="mt-12">
-      <nut-button type="primary" block @click="tell">12345678910</nut-button>
+      <nut-button type="primary" block @click="tell">
+        <template #icon>
+          <image class="size-5" src="@/static/icons/phone.svg" />
+        </template>
+        15006294478
+      </nut-button>
     </view>
     <view class="mt-6">
-      <nut-button type="primary" block class="mt-6">跳转服务号</nut-button>
+      <nut-button type="primary" block class="mt-6">
+        <template #icon>
+          <nut-icon name="service" />
+        </template>
+        跳转服务号
+      </nut-button>
     </view>
   </view>
 </template>
@@ -22,7 +32,7 @@
 <script setup lang="ts">
 function tell() {
   uni.makePhoneCall({
-    phoneNumber: '12345678910', // 仅为示例
+    phoneNumber: '15006294478', // 仅为示例
   })
 }
 </script>

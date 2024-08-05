@@ -48,6 +48,10 @@ export function teachers(data: Data) {
   return request<{ teachers: [] }>('/select_block', data)
 }
 
+export function teacherEDetail(data: Data) {
+  return request("/teacher/edit/detail", data)
+}
+
 export function teacherRegister(data: Data) {
   return request('/teacher', data)
 }

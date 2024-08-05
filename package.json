@@ -23,7 +23,7 @@
     "@vue/runtime-core": "^3.4.35",
     "crypto-js": "^4.2.0",
     "dayjs": "^1.11.12",
-    "nutui-uniapp": "^1.7.13",
+    "nutui-uniapp": "^1.7.14",
     "sard-uniapp": "^1.4.1",
     "vue": "^3.4.35"
   },
