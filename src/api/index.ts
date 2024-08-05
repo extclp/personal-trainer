@@ -49,7 +49,7 @@ export function teachers(data: Data) {
 }
 
 export function teacherEDetail(data: Data) {
-  return request("/teacher/edit/detail", data)
+  return request('/teacher/edit/detail', data)
 }
 
 export function teacherRegister(data: Data) {

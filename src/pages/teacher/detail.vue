@@ -5,9 +5,9 @@
       <sar-card class="h-32">
         <view class="relative top--8">
           <view class="flex items-end justify-between gap-2">
-            <image class="size-18 rounded-full" :src="data.image" />
-            <image v-if="data.like" class="size-6 mb-2" src="@/static/icons/favorite-solid.svg" @click="updateLike" />
-            <image v-else class="size-6 mb-2" src="@/static/icons/favorite-line.svg" @click="updateLike" />
+            <image class="size-18 rounded-full" :src="data.image" mode="aspectFill" />
+            <image v-if="data.like" class="mb-2 size-6" src="@/static/icons/favorite-solid.svg" @click="updateLike" />
+            <image v-else class="mb-2 size-6" src="@/static/icons/favorite-line.svg" @click="updateLike" />
           </view>
           <view class="mt-2 flex items-center gap-2">
             <text class="text-5 font-700">{{ data.name }}</text>
@@ -100,7 +100,7 @@ import { ago } from '@/utls'
 const data = ref<Teacher>()
 const messages = ref<Message[]>()
 
-let phone: string;
+let phone: string
 
 onLoad((query) => {
   phone = query!.phone
@@ -113,7 +113,7 @@ onLoad((query) => {
 function updateLike() {
   data.value!.like = !data.value!.like
   teacherLike({
-    c_phone: uni.getStorageSync("phone"),
+    c_phone: uni.getStorageSync('phone'),
     t_phone: phone,
   })
 }

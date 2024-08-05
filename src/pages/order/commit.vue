@@ -5,18 +5,17 @@
       <sar-card class="h-32">
         <view class="relative top--8">
           <view class="flex items-end gap-2">
-            <image class="size-18 rounded-full" :src="data.image" />
-            <image class=""
+            <image class="size-18 rounded-full" :src="data.image" mode="aspectFill" />
           </view>
           <view class="mt-2 flex items-center gap-2">
             <text class="text-5 font-700">{{ data.name }}</text>
             <text class="text-sm">登陆时间: {{ data.login_time }}</text>
           </view>
           <view class="mt-2 flex gap-2">
-              <nut-tag type="primary" size="mini">{{ data.age }}</nut-tag>
-              <nut-tag type="primary" size="mini">教龄：{{ data.tutorAge }}</nut-tag>
-              <nut-tag type="primary" size="mini">{{ data.identity }}</nut-tag>
-            </view>
+            <nut-tag type="primary" size="mini">{{ data.age }}</nut-tag>
+            <nut-tag type="primary" size="mini">教龄：{{ data.tutorAge }}</nut-tag>
+            <nut-tag type="primary" size="mini">{{ data.identity }}</nut-tag>
+          </view>
         </view>
       </sar-card>
     </view>

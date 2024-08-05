@@ -38,25 +38,24 @@ const countdown = ref(0)
 
 function handleSendCode() {
   if (!form.mobile) {
-    uni.showToast({ title: "请先输入手机号", icon: "error" })
-    return;
+    uni.showToast({ title: '请先输入手机号', icon: 'error' })
+    return
   }
   sendCode(form).then((resp) => {
     console.log(resp)
     uni.showToast({ title: '验证码已发送' })
   })
 
-  
-  countdown.value = 60;
+  countdown.value = 60
 
-  let interval: number;
+  let interval: number
 
   interval = setInterval(() => {
-    countdown.value--;
+    countdown.value--
     if (countdown.value == 0) {
       clearInterval(interval)
     }
-  }, 1000);
+  }, 1000)
 }
 
 function handleLogin() {

@@ -23,7 +23,7 @@
         <sar-card class="m4">
           <view class="flex gap-2">
             <view class="text-center">
-              <image class="mb-2 size-18 rounded-full" :src="data.image" />
+              <image class="mb-2 size-18 rounded-full" :src="item.image" mode="aspectFill" />
               <view class="text-xs text-[#AAA6B9]">最近登录</view>
               <view class="mt-1 text-xs text-[#AAA6B9]">{{ item.login_time }}</view>
             </view>

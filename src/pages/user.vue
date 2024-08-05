@@ -114,7 +114,7 @@ function logout() {
     success(res) {
       if (res.confirm) {
         uni.removeStorageSync('token')
-        uni.reLaunch({ url: "/" });
+        uni.reLaunch({ url: '/' })
       }
     },
   })
