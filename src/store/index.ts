@@ -68,7 +68,9 @@ export const dataTeacher = ref<Teacher>()
 
 export function teacherData() {
   if (isTeacher.value) {
-    teacherDetail().then((resp) => {
+    teacherDetail({
+      t_phone: uni.getStorageSync('phone'),
+    }).then((resp) => {
       dataTeacher.value = resp.data.teacher
     })
     return dataTeacher
