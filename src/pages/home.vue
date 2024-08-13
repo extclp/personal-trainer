@@ -34,7 +34,7 @@
         </navigator>
       </view>
       <view class="grid grid-cols-4">
-        <navigator v-for="(course, i) in data?.search_list.teachingCourse" :url="`/pages/teacher/index?name=${course}`">
+        <navigator v-for="(course, i) in data?.search_list.teachingCourse" :url="`/pages/teacher/index?subjects=${course}`">
           <view class="lh-20" :style="colors[i]">
             {{ course }}
           </view>

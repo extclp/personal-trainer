@@ -4,18 +4,10 @@
       <!-- 科目 对线 线上 区域 -->
       <sar-dropdown>
         <DropdownSelect v-model="form.subjects" placeholder="科目" :options="subjectsData" />
-        <sar-dropdown-item
-          v-model="form.identity" placeholder="身份" :options="makeLV(['研究生教员', '本科生教员', '专业教员'])"
-          @update:model-value="search"
-        />
-        <sar-dropdown-item
-          v-model="form.teaching_type" placeholder="线上/下" :options="makeLV(['线上', '线下'])"
-          @update:model-value="search"
-        />
-        <sar-dropdown-item
-          v-model="form.teaching_position" placeholder="区域"
-          :options="makeLV(dataList?.teachingPosition)" @update:model-value="search"
-        />
+        <sar-dropdown-item v-model="form.identity" placeholder="身份" :options="makeLV(['研究生教员', '本科生教员', '专业教员'])" />
+        <sar-dropdown-item v-model="form.teaching_type" placeholder="线上/下" :options="makeLV(['线上', '线下'])" />
+        <sar-dropdown-item v-model="form.teaching_position" placeholder="区域"
+          :options="makeLV(dataList?.teachingPosition)" />
       </sar-dropdown>
     </view>
     <scroll-view scroll-y class="flex-1 overflow-hidden" @scrolltolower="loadMore">
@@ -90,6 +82,7 @@ const form = reactive({
 
 onLoad((query) => {
   form.identity = query!.identity
+  form.subjects = query!.subjects
 })
 
 const data = ref<Teacher[]>([])
@@ -122,6 +115,8 @@ function search() {
   form.page = 1
   getList()
 }
+
+watch(form, search)
 </script>
 
 <style lang="scss">
