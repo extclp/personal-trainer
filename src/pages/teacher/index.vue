@@ -3,19 +3,13 @@
     <view>
       <!-- 科目 对线 线上 区域 -->
       <sar-dropdown>
-        <sar-dropdown-item v-model="form.subjects" placeholder="科目" :options="subjectsData" />
-        <sar-dropdown-item
-          v-model="form.identity" placeholder="身份" :options="makeLV(['研究生教员', '本科生教员', '专业教员'])"
-          @update:model-value="search"
-        />
-        <sar-dropdown-item
-          v-model="form.teaching_type" placeholder="线上/下" :options="makeLV(['线上', '线下'])"
-          @update:model-value="search"
-        />
-        <sar-dropdown-item
-          v-model="form.teaching_position" placeholder="区域"
-          :options="makeLV(dataList?.teachingPosition)" @update:model-value="search"
-        />
+        <DropdownSelect v-model="form.subjects" placeholder="科目" :options="subjectsData" />
+        <sar-dropdown-item v-model="form.identity" placeholder="身份" :options="makeLV(['研究生教员', '本科生教员', '专业教员'])"
+          @update:model-value="search" />
+        <sar-dropdown-item v-model="form.teaching_type" placeholder="线上/下" :options="makeLV(['线上', '线下'])"
+          @update:model-value="search" />
+        <sar-dropdown-item v-model="form.teaching_position" placeholder="区域"
+          :options="makeLV(dataList?.teachingPosition)" @update:model-value="search" />
       </sar-dropdown>
     </view>
     <scroll-view scroll-y class="flex-1 overflow-hidden" @scrolltolower="loadMore">
@@ -58,18 +52,23 @@ import { teachers } from '@/api'
 import type { Teacher } from '@/api/interfaces'
 import { listData } from '@/store'
 import { makeLV } from '@/utls'
+import DropdownSelect from '@/components/DropdownSelect.vue'
 
 const dataList = listData()
 
 const subjectsData = computed(() => {
   return dataList.value?.subjects.map((it) => {
-    return it.children.map((it1) => {
-      return {
-        label: `${it.name}  ${it1.subject}`,
-        value: `${it.name}  ${it1.subject}`,
-      }
-    })
-  }).flat()
+    return {
+      label: it.name,
+      value: it.name,
+      children: it.children.map((it1) => {
+        return {
+          label: it1.subject,
+          value: it1.subject,
+        }
+      }),
+    }
+  })
 })
 
 // 线上/线下
