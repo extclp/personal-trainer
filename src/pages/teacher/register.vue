@@ -101,9 +101,10 @@
       <nut-button type="primary" block @click="register">确认注册</nut-button>
     </view>
   </nut-form>
-  <sar-popout v-model:visible="positionVisible" title="请选择任教科目" @confirm="onSelectPostion">
-    <PickerInput v-model="postion" title="选择任教区域" :columns="dataList?.teachingPosition" />
-  </sar-popout>
+  <nut-popup v-model:visible="positionVisible" position="bottom" safe-area-inset-bottom>
+    <nut-picker v-model="postion" :columns="makeTV(dataList?.teachingPosition)" title="选择任教区域"
+      @confirm="onSelectPostion" @cancel="positionVisible = false" />
+  </nut-popup>
   <sar-popout v-model:visible="subjectVisible" title="请选择任教科目" @confirm="onSelectSubject">
     <sar-cascader v-model="subject" :options="subjectsData" />
   </sar-popout>
@@ -123,11 +124,11 @@
 </template>
 
 <script setup lang="ts">
-import type { FileItem, FormInst, UploadOptions } from 'nutui-uniapp'
+import type { FileItem, FormInst, PickerBaseEvent, UploadOptions } from 'nutui-uniapp'
 import Checkbox from '@/components/Checkbox.vue'
 import { ploadFilePromise } from '@/utls/image-tools'
 import { listData } from '@/store'
-import { format, formatM } from '@/utls'
+import { format, formatM, makeTV } from '@/utls'
 import type { TeacherForm } from '@/api/interfaces'
 import { teacherRegister } from '@/api'
 import PickerInput from '@/components/PickerInput.vue'
@@ -169,13 +170,12 @@ function showPostion() {
   postion.value = undefined
   positionVisible.value = true
 }
-function onSelectPostion() {
-  if (!postion.value) {
-    return
+function onSelectPostion(e: PickerBaseEvent) {
+  const item = e.selectedValue[0] as string;
+  if (!form.value.teachingPosition.includes(item)) {
+    form.value.teachingPosition.push(item)
   }
-  if (!form.value.teachingPosition.includes(postion.value)) {
-    form.value.teachingPosition.push(postion.value!)
-  }
+  positionVisible.value = false;
 }
 
 const subject = ref()

@@ -101,16 +101,17 @@
       <nut-button type="primary" block @click="register">更新信息</nut-button>
     </view>
   </nut-form>
-  <sar-popout v-model:visible="positionVisible" title="请选择任教科目" @confirm="onSelectPostion">
-    <PickerInput v-model="postion" title="选择任教区域" :columns="dataList?.teachingPosition" />
-  </sar-popout>
+  <nut-popup v-model:visible="positionVisible" position="bottom" safe-area-inset-bottom>
+    <nut-picker v-model="postion" :columns="makeTV(dataList?.teachingPosition)" title="选择任教区域"
+      @confirm="onSelectPostion" @cancel="positionVisible = false" />
+  </nut-popup>
   <sar-popout v-model:visible="subjectVisible" title="请选择任教科目" @confirm="onSelectSubject">
     <sar-cascader v-model="subject" :options="subjectsData" />
   </sar-popout>
   <sar-popout v-model:visible="recordVisible" title="请填写所获证书" @confirm="add">
     <nut-form ref="recordRef" :model-value="record">
       <nut-form-item label="日期" prop="date" :rules="[{ required: true, message: '日期不能为空' }]">
-        <sar-datetime-picker-input v-model="record.date" type="yM" />
+        <sar-datetime-picker-input v-model="record.date" type="yM" title="选择日期" />
       </nut-form-item>
       <nut-form-item label="比赛" prop="location" :rules="[{ required: true, message: '比赛不能为空' }]">
         <nut-input v-model="record.location" />
@@ -127,7 +128,7 @@ import type { FileItem, FormInst, UploadOptions } from 'nutui-uniapp'
 import Checkbox from '@/components/Checkbox.vue'
 import { ploadFilePromise } from '@/utls/image-tools'
 import { listData } from '@/store'
-import { format, formatM } from '@/utls'
+import { format, formatM, makeTV } from '@/utls'
 import type { TeacherForm } from '@/api/interfaces'
 import { teacherEDetail, teacherUpdate } from '@/api'
 import PickerInput from '@/components/PickerInput.vue'
