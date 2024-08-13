@@ -8,10 +8,10 @@
       <nut-input v-model="form.studentName" placeholder="请填写" />
     </nut-form-item>
     <nut-form-item label="学员性别" prop="studentSex">
-      <sar-picker-input v-model="form.studentSex" :columns="['男', '女']" placeholder="请填写" />
+      <PickerInput v-model="form.studentSex" :columns="['男', '女']" placeholder="请填写" />
     </nut-form-item>
     <nut-form-item label="学员成绩" prop="studentGrade">
-      <sar-picker-input v-model="form.studentGrade" :columns="dataList?.student_grade" placeholder="请选择" />
+      <PickerInput v-model="form.studentGrade" :columns="dataList?.student_grade" placeholder="请选择" />
     </nut-form-item>
     <view class="m-2 text-lg">教员要求</view>
     <nut-form-item label="教员类型" prop="student" :rules="[{ required: true, message: '任教对象不能为空' }]">
@@ -21,7 +21,7 @@
       </nut-radio-group>
     </nut-form-item>
     <nut-form-item label="教员身份">
-      <sar-picker-input v-model="form.identity" :columns="['大学生教员', '研究生教员', '专业教员']" placeholder="请选择" />
+      <PickerInput v-model="form.identity" :columns="['大学生教员', '研究生教员', '专业教员']" placeholder="请选择" />
     </nut-form-item>
     <nut-form-item label="任教方式" prop="teachingStyle" :rules="[{ required: true, message: '任教方式不能为空' }]">
       <nut-checkbox-group v-model="form.teachingStyle">
@@ -36,18 +36,18 @@
           <view v-for="d in '一二三四五六日'" :key="d" class="table-cell py-2">周{{ d }}</view>
         </view>
         <view v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period" class="table-row">
-          <view class="table-cell p-2">{{ period }}</view>
-          <view v-for="(d, index) in '一二三四五六日'" :key="d" class="table-cell p-2">
+          <view class="table-cell py-2">{{ period }}</view>
+          <view v-for="(d, index) in '一二三四五六日'" :key="d" class="table-cell py-2">
             <Checkbox v-model="form.teachingTime[pi]" :value="index + 1" />
           </view>
         </view>
       </view>
     </nut-form-item>
     <nut-form-item label="课酬要求" prop="cost" :rules="[{ required: true, message: '课酬要求不能为空' }]">
-      <sar-picker-input v-model="form.cost" :columns="dataList?.cost" placeholder="请选择" />
+      <PickerInput v-model="form.cost" :columns="dataList?.cost" placeholder="请选择" />
     </nut-form-item>
     <nut-form-item label="教学区域" prop="teachingPosition" :rules="[{ required: true, message: '任教区域不能为空' }]">
-      <sar-picker-input v-model="form.teachingPosition" :columns="dataList?.teachingPosition" placeholder="请选择" />
+      <PickerInput v-model="form.teachingPosition" :columns="dataList?.teachingPosition" placeholder="请选择" />
     </nut-form-item>
     <nut-form-item label="教学位置" prop="address" :rules="[{ required: true, message: '教学位置不能为空' }]">
       <nut-input v-model="form.address" placeholder="请填写" />
@@ -76,6 +76,7 @@ import type { FormInst } from 'nutui-uniapp'
 import Checkbox from '@/components/Checkbox.vue'
 import { createOrder } from '@/api'
 import { listData } from '@/store'
+import PickerInput from "@/components/PickerInput.vue"
 
 const dataList = listData()
 

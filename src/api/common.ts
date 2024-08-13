@@ -1,4 +1,5 @@
 export type Data = Record<string, unknown>
+import 'nutui-uniapp/components/picker/picker.js'
 
 export interface Result<T> {
   success: boolean
@@ -36,7 +37,7 @@ export function request<T = any, R extends Result<T> = Result<T>>(path: string, 
         token: uni.getStorageSync('token'),
       },
       success(result) {
-        // @ts-expect-error
+        // @ts-expect-error cast
         const resultD = result.data.result as R
 
         if (resultD.code == 200) {

@@ -133,7 +133,7 @@ function qrcode() {
 
       const encryptedWords = CryptoJS.enc.Base64.parse(result.teacher)
 
-      // @ts-ignore
+      // @ts-expect-error type cast
       const decrypted = CryptoJS.AES.decrypt({ ciphertext: encryptedWords }, keyWords, {
         mode: CryptoJS.mode.ECB,
         padding: CryptoJS.pad.Pkcs7,

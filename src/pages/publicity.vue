@@ -2,7 +2,7 @@
   <template v-if="data">
     <Location :locations="data.address" />
     <swiper class="m-4 h-40">
-      <swiper-item v-for="image in data.image">
+      <swiper-item v-for="image in data.image" :key="image">
         <image class="w-full" :src="image" mode="aspectFill" />
       </swiper-item>
     </swiper>
@@ -10,7 +10,7 @@
       <view class="flex gap-2">
         <image class="size-6" src="@/static/icons/notice.svg" />
         <swiper class="h-6 flex-1" autoplay vertical>
-          <swiper-item v-for="item in data.announcement">
+          <swiper-item v-for="item in data.announcement" :key="item">
             <view class="lh-6">{{ item }}</view>
           </swiper-item>
         </swiper>
@@ -22,7 +22,7 @@
         <view>通知栏</view>
       </view>
       <navigator
-        v-for="notice in data.notice" :Key="notice.name"
+        v-for="notice in data.notice" :key="notice.name"
         :url="`/pages/article/detail?type=notice&name=${notice.name}`"
       >
         <view class="my-1 truncate">

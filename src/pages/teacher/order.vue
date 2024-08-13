@@ -1,6 +1,6 @@
 <template>
   <scroll-view clas="h-full" @scrolltolower="loadMore">
-    <sar-card v-for="item in data" class="m-4">
+    <sar-card v-for="item in data" :key="item.order_id" class="m-4">
       <view class="flex justify-between text-lg font-semibold">
         <view>学员：朱珠</view>
         <text class="text-primary">{{ item.cost }}</text>

@@ -20,10 +20,10 @@
       <nut-input v-model="form.major" placeholder="请填写" />
     </nut-form-item>
     <nut-form-item label="教龄" prop="tutorAge" :rules="[{ required: true, message: '教龄不能为空' }]">
-      <sar-picker-input v-model="form.tutorAge" :columns="dataList?.tutor_age" placeholder="请选择" />
+      <PickerInput v-model="form.tutorAge" placeholder="请选择" :columns="dataList?.tutor_age" />
     </nut-form-item>
     <nut-form-item label="身份" prop="identity" :rules="[{ required: true, message: '身份不能为空' }]">
-      <sar-picker-input v-model="form.identity" :columns="['研究生教员', '本科生教员', '专业教员']" placeholder="请选择" />
+      <PickerInput v-model="form.identity" :columns="['研究生教员', '本科生教员', '专业教员']" placeholder="请选择"  />
     </nut-form-item>
     <view class="text-lg font-500">教员信息</view>
     <nut-form-item label="任教对象" prop="student" :rules="[{ required: true, message: '任教对象不能为空' }]">
@@ -53,14 +53,14 @@
       </view>
     </nut-form-item>
     <nut-form-item label="课酬要求" prop="form.cost" :rules="[{ required: true, message: '课酬要求不能为空' }]">
-      <sar-picker-input v-model="form.cost" placeholder="请选择" :columns="dataList?.cost" />
+      <PickerInput v-model="form.cost" placeholder="请选择" :columns="dataList?.cost" />
     </nut-form-item>
     <nut-form-item label="任教区域" prop="teachingPosition" :rules="[{ required: true, message: '任教区域不能为空' }]">
       <template #label>
         <nut-button type="primary" size="mini" class="float-right" @click="showPostion">添加任职区域</nut-button>
         <text>任教区域</text>
       </template>
-      <view v-for="(item, index) in form.teachingPosition" class="my-2 flex justify-between">
+      <view v-for="(item, index) in form.teachingPosition" :key="item" class="my-2 flex justify-between">
         <view>{{ item }}</view>
         <view class="color-red" @click="form.teachingPosition.splice(index, 1)">删除</view>
       </view>
@@ -73,7 +73,7 @@
         <nut-button type="primary" size="mini" class="float-right" @click="showSubject">添加任职经历</nut-button>
         <text>任教科目</text>
       </template>
-      <view v-for="(item, index) in form.personalExperience" class="my-2 flex justify-between">
+      <view v-for="(item, index) in form.personalExperience" :key="item" class="my-2 flex justify-between">
         <view>{{ item }}</view>
         <view class="color-red" @click="form.personalExperience.splice(index, 1)">删除</view>
       </view>
@@ -83,7 +83,7 @@
         <nut-button type="primary" size="mini" class="float-right" @click="show">添加任职经历</nut-button>
         <text>任教经历</text>
       </template>
-      <view v-for="(item, index) in form.achievement" class="my-2 flex justify-between">
+      <view v-for="(item, index) in form.achievement" :key="item" class="my-2 flex justify-between">
         <view>{{ item }}</view>
         <view class="color-red" @click="form.achievement.splice(index, 1)">删除</view>
       </view>
@@ -103,7 +103,7 @@
     </nut-form-item>
   </nut-form>
   <sar-popout v-model:visible="positionVisible" title="请选择任教科目" @confirm="onSelectPostion">
-    <sar-picker v-model="postion" title="选择任教区域" :columns="dataList?.teachingPosition" />
+    <PickerInput v-model="postion" title="选择任教区域" :columns="dataList?.teachingPosition" />
   </sar-popout>
   <sar-popout v-model:visible="subjectVisible" title="请选择任教科目" @confirm="onSelectSubject">
     <sar-cascader v-model="subject" :options="subjectsData" />
@@ -131,6 +131,7 @@ import { listData } from '@/store'
 import { format, formatM } from '@/utls'
 import type { TeacherForm } from '@/api/interfaces'
 import { teacherRegister } from '@/api'
+import PickerInput from "@/components/PickerInput.vue"
 
 const dataList = listData()
 
@@ -224,7 +225,7 @@ function add() {
   recordRef.value!.validate().then(({ valid }) => {
     if (valid) {
       const { date, location, prix } = record.value
-      // @ts-expect-error
+      // @ts-expect-error null cast
       const str = `${formatM(date)} ${location} ${prix}`
       form.value.achievement.push(str)
     }
@@ -262,7 +263,7 @@ function register() {
   }
   return formRef.value!.validate().then(({ valid }) => {
     if (valid) {
-      teacherRegister(form.value).then((resp) => {
+      teacherRegister(form.value).then(() => {
         uni.showToast({ title: '申请成功, 请等待审核' })
       })
     }

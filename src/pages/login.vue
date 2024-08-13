@@ -48,9 +48,7 @@ function handleSendCode() {
 
   countdown.value = 60
 
-  let interval: number
-
-  interval = setInterval(() => {
+  const interval = setInterval(() => {
     countdown.value--
     if (countdown.value == 0) {
       clearInterval(interval)

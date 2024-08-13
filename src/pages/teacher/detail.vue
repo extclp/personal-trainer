@@ -34,15 +34,15 @@
     <sar-card class="m-4">
       <view>
         <view class="my-2 text-lg text-primary">任教科目</view>
-        <view v-for="item in data.teachingCourse">{{ item }}</view>
+        <view v-for="item in data.teachingCourse" :key="item">{{ item }}</view>
         <view class="my-2 text-lg text-primary">任教方式</view>
         <view class="flex gap-2">
-          <view v-for="item in data.teachingStyle">
+          <view v-for="item in data.teachingStyle" :key="item">
             <nut-tag type="primary" size="large">{{ item }}</nut-tag>
           </view>
         </view>
         <view class="my-2 text-lg text-primary">任教地点</view>
-        <view v-for="item in data.teachingPosition">
+        <view v-for="item in data.teachingPosition" :key="item">
           <nut-tag type="primary" size="large">{{ item }}</nut-tag>
         </view>
       </view>
@@ -55,8 +55,8 @@
           <view v-for="d in '一二三四五六日'" :key="d" class="table-cell py-2">周{{ d }}</view>
         </view>
         <view v-for="(period, pi) in ['上午', '下午', '晚上']" :key="period" class="table-row">
-          <view class="table-cell p-2">{{ period }}</view>
-          <view v-for="(d, index) in '一二三四五六日'" :key="d" class="table-cell p-2">
+          <view class="table-cell py-2">{{ period }}</view>
+          <view v-for="(d, index) in '一二三四五六日'" :key="d" class="table-cell py-2">
             <Checkbox v-model="data.teachingTime[pi]" passive :value="index + 1" />
           </view>
         </view>
@@ -73,7 +73,7 @@
         暂无
       </view>
       <view v-else>
-        <view v-for="item in data.personalExperience" class="my-2">{{ item }}</view>
+        <view v-for="item in data.personalExperience" :key="item" class="my-2">{{ item }}</view>
       </view>
     </sar-card>
     <view class="mx-4 font-600">教师评价</view>

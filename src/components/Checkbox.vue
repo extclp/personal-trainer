@@ -27,7 +27,7 @@ const isChecked = computed(() => {
       return model.value.includes(props.value)
     }
     else {
-      return model.value == model.value
+      return model.value == props.value
     }
   }
   else {

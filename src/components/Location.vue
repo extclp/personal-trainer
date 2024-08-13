@@ -8,12 +8,13 @@
   </view>
 
   <sar-popout v-model:visible="visible" title="选择区域">
-    <sar-picker v-model="location" :columns="data?.search_list.teachingPosition" />
+    <PickerInput v-model="location" :columns="data?.search_list.teachingPosition" />
   </sar-popout>
 </template>
 
 <script setup lang="ts">
 import { bigData } from '@/store'
+import PickerInput from './PickerInput.vue';
 
 let menuButton = {
   bottom: 83,
