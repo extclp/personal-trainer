@@ -6,10 +6,8 @@
         <view class="relative top--8">
           <view class="flex items-end justify-between gap-2">
             <image class="size-18 rounded-full" :src="data.image" mode="aspectFill" />
-            <image
-              v-if="data.is_like" class="mb-2 size-6" src="@/static/icons/favorite-solid.svg"
-              @click="updateLike"
-            />
+            <image v-if="data.is_like" class="mb-2 size-6" src="@/static/icons/favorite-solid.svg"
+              @click="updateLike" />
             <image v-else class="mb-2 size-6" src="@/static/icons/favorite-line.svg" @click="updateLike" />
           </view>
           <view class="mt-2 flex items-center gap-2">
@@ -37,13 +35,16 @@
         <view v-for="item in data.teachingCourse" :key="item">{{ item }}</view>
         <view class="my-2 text-lg text-primary">任教方式</view>
         <view class="flex gap-2">
-          <view v-for="item in data.teachingStyle" :key="item">
-            <nut-tag type="primary" size="large">{{ item }}</nut-tag>
-          </view>
+          <nut-tag v-for="item in data.teachingStyle" :key="item" class="my-2" type="primary" size="large">
+            {{ item
+            }}
+          </nut-tag>
         </view>
         <view class="my-2 text-lg text-primary">任教地点</view>
-        <view v-for="item in data.teachingPosition" :key="item">
-          <nut-tag type="primary" size="large">{{ item }}</nut-tag>
+        <view class="flex gap-2">
+          <nut-tag v-for="item in data.teachingPosition" :key="item" class="my-2" type="primary" size="large">
+            {{ item }}
+          </nut-tag>
         </view>
       </view>
     </sar-card>

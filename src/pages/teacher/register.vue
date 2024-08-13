@@ -102,8 +102,10 @@
     </view>
   </nut-form>
   <nut-popup v-model:visible="positionVisible" position="bottom" safe-area-inset-bottom>
-    <nut-picker v-model="postion" :columns="makeTV(dataList?.teachingPosition)" title="选择任教区域"
-      @confirm="onSelectPostion" @cancel="positionVisible = false" />
+    <nut-picker
+      v-model="postion" :columns="makeTV(dataList?.teachingPosition)" title="选择任教区域"
+      @confirm="onSelectPostion" @cancel="positionVisible = false"
+    />
   </nut-popup>
   <sar-popout v-model:visible="subjectVisible" title="请选择任教科目" @confirm="onSelectSubject">
     <sar-cascader v-model="subject" :options="subjectsData" />
@@ -171,11 +173,11 @@ function showPostion() {
   positionVisible.value = true
 }
 function onSelectPostion(e: PickerBaseEvent) {
-  const item = e.selectedValue[0] as string;
+  const item = e.selectedValue[0] as string
   if (!form.value.teachingPosition.includes(item)) {
     form.value.teachingPosition.push(item)
   }
-  positionVisible.value = false;
+  positionVisible.value = false
 }
 
 const subject = ref()
