@@ -6,7 +6,7 @@
         <image class="w-full" :src="image" mode="aspectFill" />
       </swiper-item>
     </swiper>
-    <uni-card>
+    <sar-card class="m-4">
       <view class="flex gap-2">
         <image class="size-6" src="@/static/icons/notice.svg" />
         <swiper class="h-6 flex-1" autoplay vertical>
@@ -15,20 +15,22 @@
           </swiper-item>
         </swiper>
       </view>
-    </uni-card>
-    <sar-card class="m-4">
-      <view class="mb-2 flex gap-2 text-primary font-700">
-        <image class="size-5" src="@/static/home/notice.svg" />
-        <view>通知栏</view>
-      </view>
-      <navigator
-        v-for="notice in data.notice" :key="notice.name"
-        :url="`/pages/article/detail?type=notice&name=${notice.name}`"
-      >
-        <view class="my-1 truncate">
-          • {{ notice.name }}
+    </sar-card>
+    <sar-card class="m-4 h-50">
+      <scroll-view>
+        <view class="mb-2 flex gap-2 text-primary font-700">
+          <image class="size-5" src="@/static/home/notice.svg" />
+          <view>通知栏</view>
         </view>
-      </navigator>
+        <navigator
+          v-for="notice in data.notice" :key="notice.name"
+          :url="`/pages/article/detail?type=notice&name=${notice.name}`"
+        >
+          <view class="my-1 truncate">
+            • {{ notice.name }}
+          </view>
+        </navigator>
+      </scroll-view>
     </sar-card>
     <view class="m-4 flex justify-between">
       <view>教务咨询</view>

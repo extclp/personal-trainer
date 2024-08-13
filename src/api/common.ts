@@ -1,5 +1,4 @@
 export type Data = Record<string, unknown>
-import 'nutui-uniapp/components/picker/picker.js'
 
 export interface Result<T> {
   success: boolean

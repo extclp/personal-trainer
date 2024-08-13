@@ -58,16 +58,15 @@
     <nut-form-item label="要求" prop="request" :rules="[{ required: true, message: '要求不能为空' }]">
       <nut-textarea v-model="form.request" placeholder="请填写" />
     </nut-form-item>
-    <nut-form-item>
+
+    <view class="m-4">
       <nut-checkbox v-model="agreement" class="my-2">
         <navigator url="/pages/about/agreement">
           我已阅读并同意 《用户服务协议》及《隐私协议》
         </navigator>
       </nut-checkbox>
-      <view class="my-4">
-        <nut-button type="primary" block @click="handleSubmit">确认发布</nut-button>
-      </view>
-    </nut-form-item>
+      <nut-button type="primary" block @click="handleSubmit">确认发布</nut-button>
+    </view>
   </nut-form>
 </template>
 
@@ -76,7 +75,7 @@ import type { FormInst } from 'nutui-uniapp'
 import Checkbox from '@/components/Checkbox.vue'
 import { createOrder } from '@/api'
 import { listData } from '@/store'
-import PickerInput from "@/components/PickerInput.vue"
+import PickerInput from '@/components/PickerInput.vue'
 
 const dataList = listData()
 

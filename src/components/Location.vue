@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang="ts">
+import PickerInput from './PickerInput.vue'
 import { bigData } from '@/store'
-import PickerInput from './PickerInput.vue';
 
 let menuButton = {
   bottom: 83,

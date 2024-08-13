@@ -23,7 +23,7 @@
       <PickerInput v-model="form.tutorAge" placeholder="请选择" :columns="dataList?.tutor_age" />
     </nut-form-item>
     <nut-form-item label="身份" prop="identity" :rules="[{ required: true, message: '身份不能为空' }]">
-      <PickerInput v-model="form.identity" :columns="['研究生教员', '本科生教员', '专业教员']" placeholder="请选择"  />
+      <PickerInput v-model="form.identity" :columns="['研究生教员', '本科生教员', '专业教员']" placeholder="请选择" />
     </nut-form-item>
     <view class="text-lg font-500">教员信息</view>
     <nut-form-item label="任教对象" prop="student" :rules="[{ required: true, message: '任教对象不能为空' }]">
@@ -91,16 +91,15 @@
     <nut-form-item label="自我描述" prop="introduction" :rules="[{ required: true, message: '自我描述不能为空' }]">
       <nut-textarea v-model="form.introduction" />
     </nut-form-item>
-    <nut-form-item>
-      <view class="my-2">
-        <nut-button type="primary" block @click="register">更新信息</nut-button>
-      </view>
+
+    <view class="m-4">
       <nut-checkbox v-model="agreement" class="my-2">
         <navigator url="/pages/about/agreement">
           我已阅读并同意 《用户服务协议》及《隐私协议》
         </navigator>
       </nut-checkbox>
-    </nut-form-item>
+      <nut-button type="primary" block @click="register">更新信息</nut-button>
+    </view>
   </nut-form>
   <sar-popout v-model:visible="positionVisible" title="请选择任教科目" @confirm="onSelectPostion">
     <PickerInput v-model="postion" title="选择任教区域" :columns="dataList?.teachingPosition" />
@@ -131,7 +130,7 @@ import { listData } from '@/store'
 import { format, formatM } from '@/utls'
 import type { TeacherForm } from '@/api/interfaces'
 import { teacherEDetail, teacherUpdate } from '@/api'
-import PickerInput from "@/components/PickerInput.vue"
+import PickerInput from '@/components/PickerInput.vue'
 
 const dataList = listData()
 

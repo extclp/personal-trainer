@@ -8,8 +8,13 @@
     <nut-form-item label="验证码">
       <nut-input v-model="form.captcha">
         <template #right>
-          <nut-button v-if="countdown" type="primary" size="small" disabled @click="handleSendCode">{{ countdown }}</nut-button>
-          <nut-button v-else type="primary" size="small" @click="handleSendCode">获取验证码</nut-button>
+          <view class="w-22">
+            <nut-button v-if="countdown" type="primary" size="small" disabled block @click="handleSendCode">
+              {{ countdown
+              }}
+            </nut-button>
+            <nut-button v-else type="primary" size="small" @click="handleSendCode">获取验证码</nut-button>
+          </view>
         </template>
       </nut-input>
     </nut-form-item>
