@@ -10,6 +10,8 @@
 </template>
 
 <script setup lang="ts">
+import type { PickerBaseEvent } from 'nutui-uniapp';
+
 
 const select = ref<string[]>([]);
 
@@ -27,9 +29,9 @@ const columns = computed(() => {
     return props.columns?.map(it => ({ text: it, value: it }))
 })
 
-function onConfirm() {
+function onConfirm(e: PickerBaseEvent) {
     show.value = false
-    model.value = select.value[0];
+    model.value = e.selectedValue[0] as string;
 }
 </script>
 <style>
