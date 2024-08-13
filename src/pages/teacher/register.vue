@@ -90,11 +90,11 @@
     </nut-form-item>
     <nut-form-item label="自我描述" prop="introduction" :rules="[{ required: true, message: '自我描述不能为空' }]">
       <nut-textarea v-model="form.introduction" />
-      <view class="mt-4">
-        <nut-button type="primary" block @click="register">确认注册</nut-button>
-      </view>
     </nut-form-item>
     <nut-form-item>
+      <view class="my-2">
+        <nut-button type="primary" block @click="register">确认注册</nut-button>
+      </view>
       <nut-checkbox v-model="agreement" class="my-2">
         <navigator url="/pages/about/agreement">
           我已阅读并同意 《用户服务协议》及《隐私协议》
