@@ -1,6 +1,6 @@
 <template>
   <template v-if="data">
-    <image class="absolute top-0 h-36 w-full" src="@/static/teacher/bg.png" />
+    <image class="absolute top-0 h-36 w-full" src="https://pic.imgdb.cn/item/6689f708d9c307b7e977c103.jpg" />
     <view class="p-4 pt-15">
       <sar-card class="h-32">
         <view class="relative top--8">
