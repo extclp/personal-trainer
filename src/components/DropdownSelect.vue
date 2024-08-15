@@ -1,6 +1,8 @@
 <template>
-  <sar-dropdown-item v-model:visible="visible" v-model="select" :placeholder="placeholder" :options="current"
-    @update:model-value="onSelect" />
+  <sar-dropdown-item
+    v-model:visible="visible" v-model="select" :placeholder="placeholder" :options="current"
+    @update:model-value="onSelect"
+  />
 </template>
 
 <script setup lang="ts">
@@ -48,15 +50,18 @@ function onSelect() {
 }
 
 watch(() => props.options, () => {
-  select.value = model.value;
-  current.value = [
-    ...props.options ?? [],
-    {
+  select.value = model.value
+
+  const isRoot = props.options?.find(it => it.value == select.value)
+
+  current.value = [...props.options ?? []]
+  if (!isRoot) {
+    current.value.push({
       label: select.value,
       value: select.value,
       disabled: true,
-    },
-  ]
+    })
+  }
   data.value = []
 })
 </script>
