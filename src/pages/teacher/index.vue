@@ -122,7 +122,7 @@ watch(form, search)
 </script>
 
 <style lang="scss">
-.sar-dropdown-item__value {
+:deep(.sar-dropdown-item__value) {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
